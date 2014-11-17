@@ -1,0 +1,17 @@
+{
+  "name": "Travis-WebAPP",
+  "version": "1.0",
+  "homepage": "https://github.com/jCoulon/Travis-WebAPP",
+  "authors": [
+    "jCoulon <jonathan.coulon.jc@gmail.com>"
+  ],
+  "description": "projet travis",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
