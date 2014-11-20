@@ -1,5 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  #container
+    #left_content
+      img(src="images/travis-logo.png")#logo
+    #right_content
+    main
+      header.box
+        span 
+          img(src="images/search.png")
+        span.border
+        nav
+          a(href="#") PROMO 3A
+          a(href="#") PROMO 4A
+          a(href="#") A surveiller
+          a(href="#") TOUS
+          a(href="#") +
+        span.border
+        span 
+          img(src="images/settings.png")
