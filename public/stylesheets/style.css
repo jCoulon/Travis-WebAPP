@@ -1,0 +1,104 @@
+
+
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+}
+
+#container{
+   overflow: auto; /* Integre les float dans le flux d'elts */
+    height: 100%;
+}
+
+/** Taille menu gauche**/
+#left_content{
+    width : 11%;
+    height: 100%;
+    float: left;
+}
+
+/** Taille menu droit **/
+#right_content{
+    width: 6.25%;
+    height: 100%;
+    float: right;
+}
+
+/**Couleur menu */
+#left_content, #right_content{
+    background:#336699;
+}
+
+
+
+main{
+    width: auto; /* S'adapte automatiquemen*/
+    overflow: hidden;/* pour que main prenne en compte left_content et right_content*/
+    height: 100%;
+    background-color: #cccccc;
+}
+
+.box{
+    box-sizing: border-box;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24);
+}
+
+
+main header{
+    width: 95%;
+    height: 74px;
+    background-color: white;
+    margin: 2.5% auto;
+    text-align: center;
+    padding: 23px;
+    line-height: 20px;
+
+}
+
+/** A voir  comme en dessous ou avec table cell et centre au milieu de la cellule !**/
+main header nav{
+    width: 83%;
+    display: table-cell;
+    vertical-align: middle;
+    display: inline-block;
+
+}
+
+main header nav > a {
+    text-decoration: none;
+    color : black;
+    padding: 0 3% 0 3%;
+
+}
+
+main header > span.border{
+    width:1px;
+    height:30px;
+    padding-right: 1%;
+    padding-left:1%;
+    border-right:1px solid gray;
+    display: table-cell;
+    vertical-align: middle;
+    display: inline-block;
+
+}
+/* icone de recherche */
+main header span:first-child, main header span:last-child{
+    background-color: #cccccc;
+    display: table-cell;
+    vertical-align: middle;
+
+}
+
+main header span:last-child{
+    margin-left: 3%;
+    vertical-align: middle;
+
+}
+
+#menu{
+    display: table;
+
+}
