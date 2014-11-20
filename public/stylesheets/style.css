@@ -7,11 +7,6 @@ html,body{
     height: 100%;
     margin: 0;
     font-family: latoR;
-    color: #333;
-}
-
-a{
-    color: #333;
 }
 
 #container{
@@ -45,7 +40,44 @@ a{
     background:url(../images/motif.png);
 }
 
+#right_content #listeetudiant{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
 
+#right_content #listeetudiant li{
+    margin: 10px auto;
+    width: 50px;
+    height: 50px;
+    list-style-type: none;
+    position: relative;
+}
+
+#right_content #listeetudiant li div.name{
+    width: 50px;
+    height: 50px;
+    border-radius:30%;
+    text-align: center;
+}
+
+#right_content #listeetudiant li div.remove{
+    background: url(../images/remove_student.png) no-repeat;
+    background-size: 10px;
+    background-position: top right;
+    position: absolute;
+    right: 0;
+    top:0;
+    width: 10px;
+    height: 10px;
+    z-index: 10;
+}
+
+#right_content #listeetudiant li:last-child img{
+    width:80%;
+    height: auto;
+}
 
 main{
     width: auto; /* S'adapte automatiquemen*/
@@ -82,7 +114,7 @@ main header nav{
 
 main header nav > a {
     text-decoration: none;
-    color : black;
+    color : #333;
     padding: 0 3% 0 3%;
 
 }
