@@ -32,3 +32,24 @@ block content
         span.border
         span 
           img(src="images/settings.png")
+  #container(ng-controller="global_controller")
+    #left_content
+
+    #right_content
+    main
+      header.box
+        span(ng-click="search = !search") {{search}}
+        span.border
+        #box
+          nav(ng-hide = "search" class="transition")
+            a(href="#") PROMO 3A
+            a(href="#") PROMO 4A
+            a(href="#") A surveiller
+            a(href="#") TOUS
+            a(href="#") +
+            label(ng-show="search" class="transition") azezaezaezeazezaeaz
+        span.border
+        span option
+  script(src="/bower_components/angular/angular.js")
+  script(src="/bower_components/angular-animate/angular-animate.js")
+  script(src="js/controller.js")
