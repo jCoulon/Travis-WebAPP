@@ -60,7 +60,6 @@ main header{
 /** A voir  comme en dessous ou avec table cell et centre au milieu de la cellule !**/
 main header nav{
     width: 83%;
-    display: table-cell;
     vertical-align: middle;
     display: inline-block;
 
@@ -79,7 +78,6 @@ main header > span.border{
     padding-right: 1%;
     padding-left:1%;
     border-right:1px solid gray;
-    display: table-cell;
     vertical-align: middle;
     display: inline-block;
 
@@ -87,7 +85,6 @@ main header > span.border{
 /* icone de recherche */
 main header span:first-child, main header span:last-child{
     background-color: #cccccc;
-    display: table-cell;
     vertical-align: middle;
 
 }
@@ -98,7 +95,3 @@ main header span:last-child{
 
 }
 
-#menu{
-    display: table;
-
-}
