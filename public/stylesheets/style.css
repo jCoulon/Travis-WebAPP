@@ -1,0 +1,116 @@
+@font-face {
+    font-family: latoR;
+    src: url(../fonts/lato/Lato-Regular.ttf);
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: latoR;
+    color: #333;
+}
+
+a{
+    color: #333;
+}
+
+#container{
+   overflow: auto; /* Integre les float dans le flux d'elts */
+    height: 100%;
+}
+
+/** Taille menu gauche**/
+#left_content{
+    width : 11%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+
+#logo{
+    width: 90%;
+    margin: 30% auto auto 5%;
+    height: auto;
+}
+
+/** Taille menu droit **/
+#right_content{
+    width: 6.25%;
+    height: 100%;
+    float: right;
+}
+
+/**Couleur menu */
+#left_content, #right_content{
+    background:url(../images/motif.png);
+}
+
+
+
+main{
+    width: auto; /* S'adapte automatiquemen*/
+    overflow: hidden;/* pour que main prenne en compte left_content et right_content*/
+    height: 100%;
+    background-color: #cccccc;
+}
+
+.box{
+    box-sizing: border-box;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24);
+}
+
+
+main header{
+    width: 95%;
+    height: 74px;
+    background-color: white;
+    margin: 2.5% auto;
+    text-align: center;
+    padding: 23px;
+    line-height: 20px;
+
+}
+
+/** A voir  comme en dessous ou avec table cell et centre au milieu de la cellule !**/
+main header nav{
+    width: 83%;
+    vertical-align: middle;
+    display: inline-block;
+    text-align: left;
+    margin-left: 5%;
+}
+
+main header nav > a {
+    text-decoration: none;
+    color : black;
+    padding: 0 3% 0 3%;
+
+}
+
+main header > span.border{
+    width:1px;
+    height:30px;
+    padding-right: 1%;
+    padding-left:1%;
+    border-right:1px solid gray;
+    vertical-align: middle;
+    display: inline-block;
+
+}
+/* icone de recherche */
+main header span:first-child, main header span:last-child{
+    vertical-align: middle;
+}
+
+main header span img{
+	height: 50%;
+	width: auto;
+	vertical-align: middle;
+}
+
+main header span:last-child{
+    margin-left: 3%;
+    vertical-align: middle;
+
+}
+
