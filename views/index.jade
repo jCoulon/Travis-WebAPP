@@ -1,5 +1,44 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  #container(ng-controller="global_controller")
+    #left_content
+      img(src="images/travis-logo.png")#logo
+    #right_content
+      ul#listeetudiant
+        li
+          div(style="background-color:#983b97").name
+          div.remove
+        li
+          div(style="background-color:#81b204").name
+          div.remove
+        li
+          div(style="background-color:#ff492c").name
+          div.remove
+        li
+          div.name
+            img(src="images/add_student.png")
+    main
+      header.box
+        span 
+          img(src="images/search.png", ng-click="search = !search")
+        span.border
+        #box
+          nav(ng-hide = "search" class="transition")
+            a(href="#") PROMO 3A
+            a(href="#") PROMO 4A
+            a(href="#") A surveiller
+            a(href="#") TOUS
+            a(href="#") +
+          nav(ng-show="search" class="transition")
+            a(href="#") PROezMO 3A
+            a(href="#") PROezMO 4A
+            a(href="#") A suezrveiller
+            a(href="#") TOUezS
+            a(href="#") +ezez
+        span.border
+        span 
+          img(src="images/settings.png")
+  script(src="/bower_components/angular/angular.js")
+  script(src="/bower_components/angular-animate/angular-animate.js")
+  script(src="js/controller.js")
