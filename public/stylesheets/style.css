@@ -12,7 +12,6 @@ html,body{
 
 #container{
     overflow: auto; /* Integre les float dans le flux d'elts */
-
     height: 100%;
 }
 
@@ -163,17 +162,36 @@ main header span:first-child{
 
 }
 
-.transition{
-    opacity : 1;
-    overflow: hidden;
-    transition: .5s ease-out width;
+
+.ng-hide-add,.ng-hide-remove
+{
+    -webkit-transition: all linear  0.5s;
+    -webkit-transform: rotate(0deg) scale(0.783) translate(181px);
+    vertical-align: middle;
+
+}
+/*cubic-bezier(0.9, 0.460, 0.450, 0.940)*/
+.ng-hide-add{
+    position:relative;
+    right:20%;
+    vertical-align: middle;
+
+}
+.ng-hide-add-active{
+    right:0;
+    vertical-align: middle;
+
+}
+.ng-hide-remove {
+    position: relative;
+    right: 0;
+    vertical-align: middle;
+
 }
 
-.ng-hide-add, .ng-hide-remove {
-    display: block !important;
-}
-.transition.ng-hide{
-    opacity: 0;
-    line-height: 0;
+.ng-hide-remove-active{
+right:-3%;
+    vertical-align: middle;
+
 }
 

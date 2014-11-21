@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  #container
+  #container(ng-controller="global_controller")
     #left_content
       img(src="images/travis-logo.png")#logo
     #right_content
@@ -21,24 +21,7 @@ block content
     main
       header.box
         span 
-          img(src="images/search.png")
-        span.border
-        nav
-          a(href="#") PROMO 3A
-          a(href="#") PROMO 4A
-          a(href="#") A surveiller
-          a(href="#") TOUS
-          a(href="#") +
-        span.border
-        span 
-          img(src="images/settings.png")
-  #container(ng-controller="global_controller")
-    #left_content
-
-    #right_content
-    main
-      header.box
-        span(ng-click="search = !search") {{search}}
+          img(src="images/search.png", ng-click="search = !search")
         span.border
         #box
           nav(ng-hide = "search" class="transition")
@@ -47,9 +30,15 @@ block content
             a(href="#") A surveiller
             a(href="#") TOUS
             a(href="#") +
-            label(ng-show="search" class="transition") azezaezaezeazezaeaz
+          nav(ng-show="search" class="transition")
+            a(href="#") PROezMO 3A
+            a(href="#") PROezMO 4A
+            a(href="#") A suezrveiller
+            a(href="#") TOUezS
+            a(href="#") +ezez
         span.border
-        span option
+        span 
+          img(src="images/settings.png")
   script(src="/bower_components/angular/angular.js")
   script(src="/bower_components/angular-animate/angular-animate.js")
   script(src="js/controller.js")
