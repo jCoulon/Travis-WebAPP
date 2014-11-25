@@ -24,18 +24,13 @@ block content
           img(src="images/search.png", ng-click="search = !search")
         span.border
         #box
-          nav(ng-hide = "search" class="transition")
-            a(href="#") PROMO 3A
-            a(href="#") PROMO 4A
-            a(href="#") A surveiller
-            a(href="#") TOUS
-            a(href="#") +
-          nav(ng-show="search" class="transition")
+          nav(ng-hide="search" class="")
             a(href="#") PROezMO 3A
             a(href="#") PROezMO 4A
             a(href="#") A suezrveiller
             a(href="#") TOUezS
             a(href="#") +ezez
+          input(ng-hide="search" name="RechercheGenerale" placeholder="Recherche")
         span.border
         span 
           img(src="images/settings.png")

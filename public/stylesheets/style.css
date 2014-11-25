@@ -100,8 +100,7 @@ main header{
     height: 74px;
     background-color: white;
     margin: 2.5% auto;
-    text-align: center;
-
+text-align: center;
     padding: 8px;
     line-height: 20px;
 
@@ -112,14 +111,18 @@ main header div#box{
     width: 83%;
     vertical-align: middle;
     display: inline-block;
+    text-align: left;
 }
 
 /** A voir  comme en dessous ou avec table cell et centre au milieu de la cellule !**/
 main header nav{
-    width: 100%;
     vertical-align: middle;
     display: inline-block;
-
+    margin-left: 15%;
+    opacity: 1;
+    width: 100%;
+    float:right;
+    overflow-x: hidden;
 }
 
 main header nav > a {
@@ -163,35 +166,59 @@ main header span:first-child{
 }
 
 
-.ng-hide-add,.ng-hide-remove
-{
-    -webkit-transition: all linear  0.5s;
-    -webkit-transform: rotate(0deg) scale(0.783) translate(181px);
-    vertical-align: middle;
 
-}
 /*cubic-bezier(0.9, 0.460, 0.450, 0.940)*/
-.ng-hide-add{
-    position:relative;
-    right:20%;
+nav.ng-hide-add.ng-hide-add-active {
+
+
+    -webkit-transition:  margin 0.1s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+    -webkit-transform: translateX(20%);
+}
+
+nav.ng-hide-remove.ng-hide-remove-active{
+    -webkit-transition:  margin 0.2s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+    -webkit-transform: translateX(-20%);
+
+}
+/*Caché*/
+nav.ng-hide{
+    vertical-align: middle;
+    display: inline-block;
+    opacity: 0;
+    margin-left: 60%;
+    width: 100%;
+}
+
+input[name="RechercheGenerale"]{
+    width: 40%;
+    margin-left: 2%;
+    opacity: 1;
+    height: 40px;
+    vertical-align: middle;
+    float:left;
+    overflow-x: hidden;
+
+
+}
+
+input[name="RechercheGenerale"].ng-hide{
+    width: 40%;
+
+    margin-left: -1%;
+    opacity: 0;
     vertical-align: middle;
 
 }
-.ng-hide-add-active{
-    right:0;
-    vertical-align: middle;
 
-}
-.ng-hide-remove {
-    position: relative;
-    right: 0;
-    vertical-align: middle;
+input[name="RechercheGenerale"].ng-hide-add.ng-hide-add-active {
 
+    -webkit-transform: translateX(-3%);
+    -webkit-transition: opacity 0.1s cubic-bezier(0.9, 0.460, 0.450, 0.940),margin 0.1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+
+/**/
 }
 
-.ng-hide-remove-active{
-right:-3%;
-    vertical-align: middle;
-
+input[name="RechercheGenerale"].ng-hide-remove.ng-hide-remove-active{
+    -webkit-transition: opacity 6s cubic-bezier(0.9, 0.460, 0.450, 0.940),margin 6s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+    -webkit-transform: translateX(3%);
 }
-

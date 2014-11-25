@@ -8,4 +8,6 @@ angular.module("TravisAPP",['ngAnimate'])
 
     $scope.search = false; //On n'affiche pas l'input search par défaut
 
+
+
 });
