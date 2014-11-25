@@ -110,7 +110,7 @@ main header {
 main header.box #left_header{
     width: 10%;
     float:left;
-    height: 100%;
+    height: 55px;
     background-color: #ffff00;
 
 }
@@ -118,21 +118,14 @@ main header.box #left_header{
 main header.box #right_header{
     width: 10%;
     float:right;
-    height: 100%;
+    height: 55px;
     background-color: red;
     line-height: 200px;
     display: inline-block;
 
 }
 
-main header.box #center_header{
-    /*margin:0 auto !important;*/
-    overflow: hidden;
-    width: auto;
-    height: 100%;
-    text-align: left;
 
-}
 
 main header.box div#right_header span.border{
     position:absolute;
@@ -174,21 +167,33 @@ main header.box div img{
 }
 
 /* BLOC DU CENTRE HEADER */
+
+main header.box #center_header{
+    /*margin:0 auto !important;*/
+    position: relative;
+    overflow: hidden;
+    width: auto;
+    height: 100%;
+    text-align: left;
+    padding-bottom: 10px;
+
+}
 main header.box div#center_header nav{
     position: absolute;
-    display: inline-block;
     opacity: 1;
     width: 100%;
-    text-align: left;
-    margin-left:3%;
-    line-height: 51px;
+    height: 55px;
+    top:18px;
+    right: 0;
+    left:0;
+    bottom: 0;
+    margin: 0 auto;
 }
 
 main header.box div#center_header nav > a {
     text-decoration: none;
     color : #333;
     padding: 0 3% 0 3%;
-
 }
 
 
@@ -239,60 +244,61 @@ main header #box{
 /*cubic-bezier(0.9, 0.460, 0.450, 0.940)*/
 nav.ng-hide-add.ng-hide-add-active {
 
-   /* -webkit-transition:  margin 0.1s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
-  */
-    -webkit-transition: all 0.1s ease;
-    -webkit-transform: translateX(10%);
+ /*   -webkit-transition:  margin 1s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+   */
+    -webkit-transition:  all 1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+    -webkit-transform: translateX(40%);
 
 }
 
 
 nav.ng-hide-remove.ng-hide-remove-active{
 
-    /*-webkit-transition:  margin 0.2s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
-  */    -webkit-transition: all 0.1s ease;
+   /* -webkit-transition:  margin  1s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
 
-    -webkit-transform: translateX(-5%);
+    */
+    -webkit-transition: all  1s cubic-bezier(0.9, 0.460, 0.450, 0.940);
+
 
 }
 /*Caché*/
 nav.ng-hide{
-    vertical-align: middle;
-    display: inline-block;
+    position:absolute ;
+    right:0;
     opacity: 0;
-    margin-left: 60%;
-    width: 0%;
+    width: 100%;
+    height: 55px;
+    top:18px;
+    left:0;
+    bottom: 0;
+    margin: 0 0 0 120%;
 }
 
 input[name="RechercheGenerale"]{
     position: absolute;
-    width: 40%;
-    margin-left: 2%;
     opacity: 1;
-    height: 40px;
-    vertical-align: middle;
-    float:left;
-    overflow-x: hidden;
-
-
+    width: 60%;
+    height: 45px;
+    top:2px;
+    right: 0;
+    left:0;
+    bottom: 0;
+    margin:0 2% auto;
 }
 
 input[name="RechercheGenerale"].ng-hide{
-    width: 0%;
-    margin-left: -1%;
+    margin: 0 -1% auto;
     opacity: 0;
-    vertical-align: middle;
 
 }
 
 input[name="RechercheGenerale"].ng-hide-add.ng-hide-add-active {
 
-   -webkit-transition: opacity 0.1s cubic-bezier(0.9, 0.460, 0.450, 0.940),margin 0.1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
 
-    -webkit-transition: all linear 0.2s;
+    -webkit-transition: all 1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
 
 }
 
 input[name="RechercheGenerale"].ng-hide-remove.ng-hide-remove-active{
-    -webkit-transition: opacity 2s cubic-bezier(0.9, 0.460, 0.450, 0.940),margin 2s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+    -webkit-transition: all 1s cubic-bezier(0.9, 0.460, 0.450, 0.940);
 }
