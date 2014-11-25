@@ -107,64 +107,75 @@ main header {
     overflow: auto;
 }
 
+/** RECHERCHE */
 main header.box #left_header{
-    width: 10%;
+    width: 7%;
     float:left;
     height: 55px;
-    background-color: #ffff00;
+    text-align: center;
+    line-height: 20px;
+
 
 }
 
-main header.box #right_header{
-    width: 10%;
-    float:right;
-    height: 55px;
-    background-color: red;
-    line-height: 200px;
+main header.box div#left_header span.border{
+
+    vertical-align: middle;
     display: inline-block;
+    border-right:1px solid gray;
+    padding-right: 1%;
+    padding-left:1%;
+    height: 55px;
+
+
+}
+
+main header.box div#left_header img{
+    padding: 5px 5% 5px 5%;
+    margin-right: 15%;
+    vertical-align: middle;
+
+    width: auto;
+    height: 30px;
+}
+
+
+/* PARAM */
+main header.box #right_header{
+    float:right;
+    width: 7%;
+    height: 55px;
+
+    text-align: center;
+    line-height: 20px;
+
 
 }
 
 
 
 main header.box div#right_header span.border{
-    position:absolute;
-    left:0px;
-    bottom: -4px;
-    width:1px;
-    height:60px;
-    padding-right: 1%;
-    padding-left:1%;
-    border-right:1px solid gray;
-    display: inline-block;
-}
 
-main header.box div#left_header span.border{
-    position:absolute;
-    right: 0px;
-    bottom: -4px;
-    width:1px;
-    height:60px;
+    vertical-align: middle;
+    display: inline-block;
     border-right:1px solid gray;
     padding-right: 1%;
     padding-left:1%;
-    display: inline-block;
-
-
+    height: 55px;
 }
+
+
 
 main header.box div#right_header img{
-    display: inline-block;
+    width: auto;
+    height: 30px;
+    padding: 5px 5% 5px 5%;
+    vertical-align: middle;
+    margin-left: 15%;
+
 }
 
-main header.box div#left_header img{
-    display: inline-block;
 
-}
-
-main header.box div img{
-    height: 70%;
-}
 
 /* BLOC DU CENTRE HEADER */
 
@@ -197,44 +208,6 @@ main header.box div#center_header nav > a {
 }
 
 
-/*main header span:first-child{
-    float : left;
-    background-color: blue;
-    height: 100%;
-    width: 10%;
-    text-align: center;
-
-}
-
-
-main header span:last-child{
-    float:right;
-    height: 100%;
-    background-color: #ffff00;
-    width: 10%;
-    text-align: center;
-
-
-}
-
-main header #box{
-    width: 10%;
-    background-color: red;
-    height:100%;
-    text-align: center;
-    margin: 0 auto;
-}
-*/
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -246,32 +219,48 @@ nav.ng-hide-add.ng-hide-add-active {
 
  /*   -webkit-transition:  margin 1s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
    */
-    -webkit-transition:  all 1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+    -webkit-transition:  all 0.2s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
     -webkit-transform: translateX(40%);
+        display: block !important;
 
 }
 
-
-nav.ng-hide-remove.ng-hide-remove-active{
-
-   /* -webkit-transition:  margin  1s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
-
-    */
-    -webkit-transition: all  1s cubic-bezier(0.9, 0.460, 0.450, 0.940);
-
-
-}
-/*Caché*/
-nav.ng-hide{
+/* A partit de là */
+nav.ng-hide-remove{
+    display: block!important;
     position:absolute ;
-    right:0;
+    right:-100000px;
     opacity: 0;
     width: 100%;
     height: 55px;
     top:18px;
-    left:0;
     bottom: 0;
-    margin: 0 0 0 120%;
+    text-align: right;
+}
+
+/* ANIMATION */
+nav.ng-hide-remove-active{
+
+ /*   -webkit-transition:  margin-left  1s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+
+*/
+    -webkit-transition: all  1s cubic-bezier(0.9, 0.460, 0.450, 0.940);
+    -webkit-transform: translateX(-40%);
+
+
+}
+
+/*Caché*/
+nav.ng-hide{
+    display: block!important;
+    position:absolute ;
+    right:-100000px;
+    opacity: 0;
+    width: 100%;
+    height: 55px;
+    top:18px;
+    bottom: 0;
+    text-align: right;
 }
 
 input[name="RechercheGenerale"]{
@@ -284,21 +273,25 @@ input[name="RechercheGenerale"]{
     left:0;
     bottom: 0;
     margin:0 2% auto;
+    font-size: 28pt;
 }
 
 input[name="RechercheGenerale"].ng-hide{
     margin: 0 -1% auto;
     opacity: 0;
 
+
 }
 
+/** Afficher input **/
 input[name="RechercheGenerale"].ng-hide-add.ng-hide-add-active {
 
 
-    -webkit-transition: all 1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+    -webkit-transition: all 0.7s cubic-bezier(0.9, 0.460, 0.450, 0.940);
+
 
 }
-
+/* cacher le input */
 input[name="RechercheGenerale"].ng-hide-remove.ng-hide-remove-active{
     -webkit-transition: all 1s cubic-bezier(0.9, 0.460, 0.450, 0.940);
 }
