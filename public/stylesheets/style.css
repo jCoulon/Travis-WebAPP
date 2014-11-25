@@ -92,92 +92,167 @@ main{
 .box{
     box-sizing: border-box;
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24);
+
 }
 
 
-main header{
+main header {
     width: 95%;
-    height: 74px;
+    height: 70px;
     background-color: white;
     margin: 2.5% auto;
-text-align: center;
+    text-align: center;
     padding: 8px;
     line-height: 20px;
+    overflow: auto;
+}
+
+main header.box #left_header{
+    width: 10%;
+    float:left;
+    height: 100%;
+    background-color: #ffff00;
 
 }
 
-
-main header div#box{
-    width: 83%;
-    vertical-align: middle;
+main header.box #right_header{
+    width: 10%;
+    float:right;
+    height: 100%;
+    background-color: red;
+    line-height: 200px;
     display: inline-block;
+
+}
+
+main header.box #center_header{
+    /*margin:0 auto !important;*/
+    overflow: hidden;
+    width: auto;
+    height: 100%;
     text-align: left;
+
 }
 
-/** A voir  comme en dessous ou avec table cell et centre au milieu de la cellule !**/
-main header nav{
-    vertical-align: middle;
+main header.box div#right_header span.border{
+    position:absolute;
+    left:0px;
+    bottom: -4px;
+    width:1px;
+    height:60px;
+    padding-right: 1%;
+    padding-left:1%;
+    border-right:1px solid gray;
     display: inline-block;
-    margin-left: 15%;
+}
+
+main header.box div#left_header span.border{
+    position:absolute;
+    right: 0px;
+    bottom: -4px;
+    width:1px;
+    height:60px;
+    border-right:1px solid gray;
+    padding-right: 1%;
+    padding-left:1%;
+    display: inline-block;
+
+
+}
+
+main header.box div#right_header img{
+    display: inline-block;
+}
+
+main header.box div#left_header img{
+    display: inline-block;
+
+}
+
+main header.box div img{
+    height: 70%;
+}
+
+/* BLOC DU CENTRE HEADER */
+main header.box div#center_header nav{
+    position: absolute;
+    display: inline-block;
     opacity: 1;
     width: 100%;
-    float:right;
-    overflow-x: hidden;
+    text-align: left;
+    margin-left:3%;
+    line-height: 51px;
 }
 
-main header nav > a {
+main header.box div#center_header nav > a {
     text-decoration: none;
     color : #333;
     padding: 0 3% 0 3%;
 
 }
 
-main header > span.border{
-    width:1px;
-    height:60px;
-    padding-right: 1%;
-    padding-left:1%;
-    border-right:1px solid gray;
-    vertical-align: middle;
-    display: inline-block;
+
+/*main header span:first-child{
+    float : left;
+    background-color: blue;
+    height: 100%;
+    width: 10%;
+    text-align: center;
 
 }
-/* icone de recherche */
-main header span:first-child, main header span:last-child{
-    vertical-align: middle;
-}
 
-main header span img{
-	height: 50%;
-	width: auto;
-	vertical-align: middle;
-
-}
 
 main header span:last-child{
-    margin-left: 3%;
-    vertical-align: middle;
+    float:right;
+    height: 100%;
+    background-color: #ffff00;
+    width: 10%;
+    text-align: center;
+
+
 }
 
-
-main header span:first-child{
-    margin-right: 2%;
-
+main header #box{
+    width: 10%;
+    background-color: red;
+    height:100%;
+    text-align: center;
+    margin: 0 auto;
 }
+*/
 
+
+
+
+
+
+
+
+
+
+
+
+
+/** A voir  comme en dessous ou avec table cell et centre au milieu de la cellule !**/
 
 
 /*cubic-bezier(0.9, 0.460, 0.450, 0.940)*/
 nav.ng-hide-add.ng-hide-add-active {
 
+   /* -webkit-transition:  margin 0.1s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+  */
+    -webkit-transition: all 0.1s ease;
+    -webkit-transform: translateX(10%);
 
-    -webkit-transition:  margin 0.1s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
-    -webkit-transform: translateX(20%);
 }
 
+
 nav.ng-hide-remove.ng-hide-remove-active{
-    -webkit-transition:  margin 0.2s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
-    -webkit-transform: translateX(-20%);
+
+    /*-webkit-transition:  margin 0.2s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 0.2s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+  */    -webkit-transition: all 0.1s ease;
+
+    -webkit-transform: translateX(-5%);
 
 }
 /*Caché*/
@@ -186,10 +261,11 @@ nav.ng-hide{
     display: inline-block;
     opacity: 0;
     margin-left: 60%;
-    width: 100%;
+    width: 0%;
 }
 
 input[name="RechercheGenerale"]{
+    position: absolute;
     width: 40%;
     margin-left: 2%;
     opacity: 1;
@@ -202,8 +278,7 @@ input[name="RechercheGenerale"]{
 }
 
 input[name="RechercheGenerale"].ng-hide{
-    width: 40%;
-
+    width: 0%;
     margin-left: -1%;
     opacity: 0;
     vertical-align: middle;
@@ -212,13 +287,12 @@ input[name="RechercheGenerale"].ng-hide{
 
 input[name="RechercheGenerale"].ng-hide-add.ng-hide-add-active {
 
-    -webkit-transform: translateX(-3%);
-    -webkit-transition: opacity 0.1s cubic-bezier(0.9, 0.460, 0.450, 0.940),margin 0.1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+   -webkit-transition: opacity 0.1s cubic-bezier(0.9, 0.460, 0.450, 0.940),margin 0.1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
 
-/**/
+    -webkit-transition: all linear 0.2s;
+
 }
 
 input[name="RechercheGenerale"].ng-hide-remove.ng-hide-remove-active{
-    -webkit-transition: opacity 6s cubic-bezier(0.9, 0.460, 0.450, 0.940),margin 6s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
-    -webkit-transform: translateX(3%);
+    -webkit-transition: opacity 2s cubic-bezier(0.9, 0.460, 0.450, 0.940),margin 2s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
 }
