@@ -1,13 +1,21 @@
 /**
  * Created by jo on 20/11/14.
  */
-
-angular.module("TravisAPP",['ngAnimate'])
-
-.controller("global_controller", function($scope){
-
-    $scope.search = false; //On n'affiche pas l'input search par défaut
+angular.module("TravisAPP",['ngAnimate','ui.router'])
+.controller("GlobalController",GlobalController);
 
 
 
-});
+
+function GlobalController(){
+
+    var ctrl = this;
+
+    this.search = false; //On n'affiche pas l'input search par défaut
+    this.currentUser = null;
+
+    this.setCurrentUser = function(user){
+        ctrl.currentUser = user;
+    }
+
+};

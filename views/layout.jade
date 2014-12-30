@@ -3,5 +3,11 @@ html(ng-app="TravisAPP")
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+
+    script(src="/bower_components/angular/angular.js")
+    script(src="/bower_components/angular-ui-router/release/angular-ui-router.min.js")
+    script(src="js/routes.js")
+
+
   body
-    block content
+  block content
