@@ -1,0 +1,9 @@
+.rightLayout {
+	background-color: $primaryColor;
+	display: flex;
+	flex-direction: column;
+	max-width: 3.5em;
+	order: 3;
+	overflow: hidden;
+	width: 3.5em;
+}
