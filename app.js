@@ -29,13 +29,14 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 // error handlers
 
-app.get("/",function(req,res){
-    res.render("index");
-});
-
 app.get("/partials/:name",function(req,res){
     console.log("here");
     res.render("partials/"+req.params.name);
+});
+
+/** Redirection vers l'index **/
+app.get("/*",function(req,res){
+   res.render("index");
 });
 
 module.exports = app;
