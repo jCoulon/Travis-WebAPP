@@ -1,6 +1,7 @@
 /**
  * Created by jonathancoulon on 28/12/14.
  */
+'use strict';
 
 angular.module("TravisAPP",['ui.router'])
 .config(function($stateProvider,$urlRouterProvider,$locationProvider){
@@ -67,4 +68,23 @@ angular.module("TravisAPP",['ui.router'])
 
 
     }
-);
+).controller('GlobalController', ['$scope',function($scope){
+
+   $scope.titre ="zezeazeza";
+
+    }]);
+
+
+
+
+function GlobalController($scope){
+
+    var ctrl = this;
+
+    this.search = false; //On n'affiche pas l'input search par défaut
+    this.currentUser = null;
+    this.titre = "MON TITRE";
+    this.setCurrentUser = function(user){
+        ctrl.currentUser = user;
+    };
+};

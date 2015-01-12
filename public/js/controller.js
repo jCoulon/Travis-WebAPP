@@ -13,7 +13,7 @@ function GlobalController(){
 
     this.search = false; //On n'affiche pas l'input search par défaut
     this.currentUser = null;
-
+    this.titre = "MON TITRE";
     this.setCurrentUser = function(user){
         ctrl.currentUser = user;
     }

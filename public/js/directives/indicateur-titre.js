@@ -4,12 +4,12 @@
 /**
  * Defintion du module angular
  */
-angular.module("TravisAPP",[])
+angular.module("TravisAPP")
 
 /**
  * Définition de la directive indicateur
  */
-    .directive("indicateurTitre",indicateurTitre);
+.directive("indicateurTitre",indicateurTitre);
 
 
 /**
@@ -18,22 +18,18 @@ angular.module("TravisAPP",[])
 function indicateurTitre(){
 
     var ind = {
-        requires:'indicateur',
+        requires:'^indicateur',
         scope:{
             titre : '@' //Liaison directe sens unique
         },
         transclude : true,//Ajout de HTML dans la div suivante
-        template : "<div class='indicateurTitre'><label>{{titre}}</label><div ng-transclude></div> </div>", //Du contenu HTML sera ajouté à cette div
+        template : "<div class='indicateurTitre'><label>{{$parent.titre}}</label><div ng-transclude></div></div>", //Du contenu HTML sera ajouté à cette div
         restrict:"E" //Element Attributs
     };
 
     return ind;
 
 
-    function link(scope,element,attrs,controllerInstance){
-
-
-    };
 
     /**
      * Le HTML transcludé ne fait pas parti du même scope que la directive ci.
