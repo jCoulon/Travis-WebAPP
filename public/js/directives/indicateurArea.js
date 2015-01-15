@@ -17,7 +17,7 @@ function indicateurArea($compile){
 
     var ind = {
         restrict:"E", //Element Attributs,
-        template:"" +
+        template:"<input ng-model='titre' placeholder='Titre' required/><input ng-model='type'  palceholder='type' required/><button ng-click='ajouterNouvelIndicateur()'>Ajouter un nouvel indicateur</button>" +
         "<div ng-repeat='indicateur in indicateurs'>" +
             "<div class='indicateurTitre'>" +
                  "<label>{{indicateur.titre}}</label>" +
@@ -55,6 +55,11 @@ function indicateurArea($compile){
 
                 scope.indicateurs.push(indicateur);
 
+            };
+
+            scope.ajouterNouvelIndicateur = function(){
+                var ind = {titre : scope.titre,type:scope.type};
+                scope.ajouterIndicateur(ind);
             };
 
             /**
