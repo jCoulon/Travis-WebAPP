@@ -20,7 +20,7 @@ function indicateurContenu(){
     var ind = {
         requires:'^indicateur',
         transclude : true,//Ajout de HTML dans la div suivante
-        template : "<div class='indicateur' ng-transclude></div>", //Du contenu HTML sera ajouté à cette div
+        template : "<div class='indicateurContenu' ng-transclude></div>", //Du contenu HTML sera ajouté à cette div
         restrict:"E" //Element Attributs
     };
 

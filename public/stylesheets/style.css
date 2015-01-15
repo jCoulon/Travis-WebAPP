@@ -84,7 +84,7 @@ html,body{
 
 main{
     width: auto; /* S'adapte automatiquemen*/
-    overflow: hidden;/* pour que main prenne en compte left_content et right_content*/
+    overflow: scroll;/* pour que main prenne en compte left_content et right_content*/
     height: 100%;
     background-color: #cccccc;
 }
@@ -97,14 +97,16 @@ main{
 
 
 main header {
-    width: 95%;
+    width: 80%;
     height: 70px;
     background-color: white;
     margin: 2.5% auto;
     text-align: center;
     padding: 8px;
     line-height: 20px;
-    overflow: auto;
+    overflow: hidden;
+    z-index:99999;
+    position:fixed;
 }
 
 /** RECHERCHE */
@@ -294,4 +296,38 @@ input[name="RechercheGenerale"].ng-hide-add.ng-hide-add-active {
 /* cacher le input */
 input[name="RechercheGenerale"].ng-hide-remove.ng-hide-remove-active{
     -webkit-transition: all 1s cubic-bezier(0.9, 0.460, 0.450, 0.940);
+}
+
+/** L'espace des widgets indicateur **/
+
+#content{
+    position: relative;
+    overflow-y: hidden;
+    margin-top:140px;
+}
+
+#indicateurArea{
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+/** CSS Widget indicateur **/
+
+.indicateur{
+    border : solid grey;
+    height : 250px;
+    width : 70%;
+    background: blue;
+    margin:auto;
+}
+
+.indicateurTitre{
+    border-bottom: solid grey;
+    height: 50px;
+    background-color:red;
+}
+
+.indicateurContenu{
+    height: 200px;
+    background-color:green;
 }

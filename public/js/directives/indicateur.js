@@ -17,7 +17,18 @@ function indicateur(){
 
     var ind = {
         transclude:true,
-        template : "<div class='indicateur'><label>{{titre}}</label><div ng-transclude></div> </label></div>", //Du contenu HTML sera ajouté à cette div
+        template : "<div class='indicateur'>"+
+            "<div class='indicateurTitre'>" +
+             "<label>{{indicateur.titre}}</label>" +
+                 "<button ng-click='dashboardCtrl.supprimerIndicateur(indicateur)'>Supprimer</button>" +
+                 "</div>"+
+        "<div class='indicateurContenu' ng-transclude></div>" +
+
+        "</div>", //Du contenu HTML sera ajouté à cette div
+        scope:{
+            titre : "@",
+            options : "="
+        },
         restrict:"EA", //Element Attributs
         link:link
     };
@@ -26,4 +37,14 @@ function indicateur(){
 
 };
 
-function link(){alert("OK")};
+function link(scope,element,attrs){
+
+    scope.isMin  = function(){
+        return scope.options.mini;
+    };
+
+    var title = scope.titre;
+    console.log(title);
+
+
+};

@@ -67,15 +67,41 @@ angular.module("TravisAPP",['ui.router'])
             })
 
 
-    }
-).controller('GlobalController', ['$scope',function($scope){
+})
 
-   $scope.titre ="zezeazeza";
+.controller('GlobalController', ['$scope',function($scope){
 
-    }]);
+  // $scope.titre ="zezeazeza";
+
+}])
+
+.controller("dashboardIndicateur",dashboardIndicateur);
 
 
+/**
+ * Gestion indicateurs
+ */
+function dashboardIndicateur(){
+    this.indicateurArea =  [{titre :"INDICATEUR 1",options:[{type:"radar",mini:"true"}]},{titre :"INDICATEUR 2", options:[{type:"chart"}]}];
 
+    var indicateurs = [{titre : "radar"},{titre:"time"}];
+
+    this.dashboardOptions = {
+        indicateurs :indicateurs
+    };
+
+    /** Supprime l'indicateur num indicateur */
+    this.supprimerIndicateur = function(item){
+        console.log("here");
+        var index = this.indicateurs.indexOf(item);
+        this.indicateurs.splice(index,1);
+    };
+
+
+    this.ajouterIndicateur = function(type){
+
+    };
+};
 
 function GlobalController($scope){
 
