@@ -13,6 +13,8 @@
     "serve-favicon": "~2.1.3",
     "debug": "~2.0.0",
     "jade": "~1.6.0",
-    "sequelize": "*"
+    "sequelize": "*",
+    "sequelize-restful":"*",
+    "mysql": "^2.5.1"
   }
 }

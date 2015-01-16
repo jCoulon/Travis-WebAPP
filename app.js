@@ -5,6 +5,20 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+/*  Configuration de l'api rest  */
+var Sequelize = require('sequelize');
+var restful   = require('sequelize-restful');
+
+/*  Définition des routes de l'api, toutes les routes sont séparées par fichiers représentant chacune
+une fonction différente. Par exemple, les routes nécessaires aux notes sont dans le fichier note.js.   */
+var notes = require('./routes/api/notes');
+var transition = require('./routes/api/transition');
+
+/*  Définition du/des models nécessaires à sequelize  */
+var model = require('./models/index.js');
+var sequelize = model.sequelize;
+
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -24,6 +38,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+
+/*  API REST  */
+app.use(restful(sequelize));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
