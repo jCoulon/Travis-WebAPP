@@ -3,11 +3,8 @@ var express = require('express');
 var router = express.Router();
 
 /* Retourne toutes les traces. */
-
 router.get('/api/getAll',function(req, res) {
-
     models.Activite.findAll({},{raw:true}).success(function(activites){
-
         if(activites){
             res.json(activites); //On envoi au format JSON
         }else{

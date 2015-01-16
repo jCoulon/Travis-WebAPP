@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "madethma_travis_09",
+    "database": "travis",
     "host": "localhost",
     "port":"8889",
     "dialect": "mysql"
