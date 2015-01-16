@@ -37,10 +37,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/api/notes',notes);
+app.use('/api/transition', transition);
 
 /*  API REST  */
 app.use(restful(sequelize));
 
+//app.use('/api', function(req, res){});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

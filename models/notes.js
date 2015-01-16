@@ -2,13 +2,12 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Notes = sequelize.define("Notes", {
-    IDNotes: DataTypes.INTEGER,
-    Usernam: DataTypes.STRING,
+    Username: DataTypes.STRING,
     Share: DataTypes.INTEGER,
     NbMax:DataTypes.INTEGER,
     Note:DataTypes.STRING,
     Date:DataTypes.STRING,
-    Time:DataTypes.STRING
+    Lastaccess:DataTypes.STRING
   },{
 
     // don't add the timestamp attributes (updatedAt, createdAt)
@@ -32,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
     tableName: 'User_notes',
 
 
-    id:'IDNotes'
+    IDNotes:'IDNotes'
 
   });
 

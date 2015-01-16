@@ -2,11 +2,9 @@ var models  = require('../../models/index');
 var express = require('express');
 var router = express.Router();
 
-/* Retourne toutes les traces. */
-router.get('/api/getAllNotes',function(req, res) {
-    console.log("ici");
+/* Retourne toutes les Notes. */
+router.get('/api/notes/getAllNotes',function(req, res) {
     models.Notes.findAll({},{raw:true}).success(function(activites){
-        console.log("here");
         if(activites){
             res.json(activites); //On envoi au format JSON
         }else{
@@ -17,3 +15,5 @@ router.get('/api/getAllNotes',function(req, res) {
     }).error();
 
 });
+
+module.exports = router;
