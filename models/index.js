@@ -8,7 +8,7 @@ var config    = require(__dirname + '/../config/config.json')[env];
 var sequelize = new Sequelize(config.database, config.username, config.password, config);
 var db        = {};
 
- 
+
 sequelize
   .authenticate()
   .complete(function(err) {

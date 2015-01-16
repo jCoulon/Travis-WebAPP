@@ -34,7 +34,7 @@ module.exports = function(sequelize, DataTypes) {
 
     id:'IDNotes'
 
-  })
+  });
 
   return Notes;
 };

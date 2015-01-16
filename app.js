@@ -18,7 +18,6 @@ var transition = require('./routes/api/transition');
 var model = require('./models/index.js');
 var sequelize = model.sequelize;
 
-
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
