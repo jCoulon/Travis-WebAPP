@@ -23,11 +23,11 @@ function indicateurArea($compile){
                  "<label>{{indicateur.titre}}</label>" +
                  "<button ng-click='supprimerIndicateur(indicateur)'>Supprimer</button>" +
             "</div>"+
-        "<div class='indicateurContenu'></div></div>"
+        "<div class='indicateurContenu' chart></div></div>"
         ,
 
          scope:{
-             options : '=' //Reference à la valeur de l'attribut options (voir dataviz.jade)
+             options : '='
         },
         controller:['$scope', '$attrs', function (scope, attrs){
 
@@ -97,6 +97,8 @@ function indicateurArea($compile){
             scope.chargerIndicateurs(scope.indicateursDefaut);//Chargement des indicateurs présents
 
             console.log(scope.indicateurs);
+
+
         }
     };
 

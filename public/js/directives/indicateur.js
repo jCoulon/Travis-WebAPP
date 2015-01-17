@@ -1,6 +1,9 @@
 'use strict';
 
-
+/**
+ *
+ * Une directive pour chaque type d'indicateur
+ */
 angular.module('TravisAPP')
 
 .directive('indicateur',indicateur);
@@ -16,7 +19,6 @@ function indicateur(){
      */
 
     var ind = {
-        transclude:true,
         template :
         "<div class='indicateurContenu' ng-transclude></div>"
 
