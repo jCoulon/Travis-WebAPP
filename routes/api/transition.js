@@ -7,7 +7,7 @@ module.exports = (function() {
 
     /* Retourne toutes les traces. */
     transition.get('/getAll',function(req, res) {
-        models.Activite.findAll({},{raw:true}).success(function(activites){
+        models.dbcmc.Transition.findAll({},{raw:true}).success(function(activites){
             if(activites){
                 res.json(activites); //On envoi au format JSON
             }else{

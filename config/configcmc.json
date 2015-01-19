@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "madethma_travis_09",
+    "host": "localhost",
+    "port":"8889",
+    "dialect": "mysql"
+  }
+}

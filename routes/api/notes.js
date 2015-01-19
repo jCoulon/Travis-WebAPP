@@ -6,7 +6,7 @@ module.exports = (function() {
     var models  = require('../../models/index');
 
     notes.get('/getAllNotes',function(req, res) {
-        models.Notes.findAll({},{raw:true}).success(function(activites){
+        models.db.Notes.findAll({},{raw:true}).success(function(activites){
             if(activites){
                 res.json(activites); //On envoi au format JSON
             }else{
