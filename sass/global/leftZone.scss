@@ -1,0 +1,23 @@
+.leftLayout {
+	background-color: $textPrimaryColor;
+	border-right: 1px solid $dividerColor;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	max-width: 10em;
+	order: 1;
+	width: 10em;
+	
+}
+
+
+.logo {
+	background-color: $darkPrimaryColor;
+	height: 30%;
+	min-height: 20%;
+	width: 100%;
+
+	img {
+		margin: 1.8em 0 0 2.4em;
+	}
+}
