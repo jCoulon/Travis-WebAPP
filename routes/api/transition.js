@@ -19,8 +19,8 @@ module.exports = (function() {
 
     });
 
-    /* Retourne les traces par usager */
-    transition.get('/type/:type_id',function(req,res){
+    /* Retourne les traces par type */
+   /* transition.get('/type/:type_id',function(req,res){
 
         models.dbcmc.Activite.findAll({where :{ TypeAct : req.params.type_id}},{raw:true}).success(function(activites){
 
@@ -34,7 +34,7 @@ module.exports = (function() {
         }).error();
 
 
-    });
+    });*/
 
     /* Retourne les traces par usager */
     transition.get('/usager/:usager_nom',function(req,res){
@@ -55,7 +55,7 @@ module.exports = (function() {
 
 
     /* Retourne les traces par usager */
-    transition.get('/id/:id_user',function(req,res){
+    /*transition.get('/id/:id_user',function(req,res){
 
         models.dbcmc.Usersummary.findAll({where :{ Usager : req.params.id_user}},{raw:true}).success(function(transitions){
 
@@ -69,7 +69,7 @@ module.exports = (function() {
         }).error();
 
 
-    });
+    });*/
 
     return transition;
 })();
