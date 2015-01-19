@@ -2,6 +2,7 @@
     font-family: latoR;
     src: url(../fonts/lato/Lato-Regular.ttf);
 }
+
 html,body{
     width: 100%;
     height: 100%;
@@ -10,7 +11,7 @@ html,body{
 }
 
 #container{
-   overflow: auto; /* Integre les float dans le flux d'elts */
+    overflow: auto; /* Integre les float dans le flux d'elts */
     height: 100%;
 }
 
@@ -80,6 +81,7 @@ html,body{
     height: auto;
 }
 
+
 main{
     width: auto; /* S'adapte automatiquemen*/
     overflow: hidden;/* pour que main prenne en compte left_content et right_content*/
@@ -90,60 +92,206 @@ main{
 .box{
     box-sizing: border-box;
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24);
+
 }
 
 
-main header{
+main header {
     width: 95%;
-    height: 74px;
+    height: 70px;
     background-color: white;
     margin: 2.5% auto;
     text-align: center;
-    padding: 23px;
+    padding: 8px;
+    line-height: 20px;
+    overflow: auto;
+}
+
+/** RECHERCHE */
+main header.box #left_header{
+    width: 7%;
+    float:left;
+    height: 55px;
+    text-align: center;
     line-height: 20px;
 
+
 }
 
-/** A voir  comme en dessous ou avec table cell et centre au milieu de la cellule !**/
-main header nav{
-    width: 83%;
+main header.box div#left_header span.border{
+
     vertical-align: middle;
     display: inline-block;
-    text-align: left;
-    margin-left: 5%;
+    border-right:1px solid gray;
+    padding-right: 1%;
+    padding-left:1%;
+    height: 55px;
+
+
 }
 
-main header nav > a {
+main header.box div#left_header img{
+    padding: 5px 5% 5px 5%;
+    margin-right: 15%;
+    vertical-align: middle;
+
+    width: auto;
+    height: 30px;
+}
+
+
+/* PARAM */
+main header.box #right_header{
+    float:right;
+    width: 7%;
+    height: 55px;
+
+    text-align: center;
+    line-height: 20px;
+
+
+}
+
+
+
+main header.box div#right_header span.border{
+
+    vertical-align: middle;
+    display: inline-block;
+    border-right:1px solid gray;
+    padding-right: 1%;
+    padding-left:1%;
+    height: 55px;
+}
+
+
+
+main header.box div#right_header img{
+    width: auto;
+    height: 30px;
+    padding: 5px 5% 5px 5%;
+    vertical-align: middle;
+    margin-left: 15%;
+
+}
+
+
+
+/* BLOC DU CENTRE HEADER */
+
+main header.box #center_header{
+    /*margin:0 auto !important;*/
+    position: relative;
+    overflow: hidden;
+    width: auto;
+    height: 100%;
+    text-align: left;
+    padding-bottom: 10px;
+
+}
+main header.box div#center_header nav{
+    position: absolute;
+    opacity: 1;
+    width: 100%;
+    height: 55px;
+    top:18px;
+    right: 0;
+    left:0;
+    bottom: 0;
+    margin: 0 auto;
+}
+
+main header.box div#center_header nav > a {
     text-decoration: none;
     color : #333;
     padding: 0 3% 0 3%;
+}
+
+
+
+
+
+/** A voir  comme en dessous ou avec table cell et centre au milieu de la cellule !**/
+
+
+/*cubic-bezier(0.9, 0.460, 0.450, 0.940)*/
+nav.ng-hide-add.ng-hide-add-active {
+
+ /*   -webkit-transition:  margin 1s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+   */
+    -webkit-transition:  all 0.2s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+    -webkit-transform: translateX(40%);
+        display: block !important;
 
 }
 
-main header > span.border{
-    width:1px;
-    height:30px;
-    padding-right: 1%;
-    padding-left:1%;
-    border-right:1px solid gray;
-    vertical-align: middle;
-    display: inline-block;
-
-}
-/* icone de recherche */
-main header span:first-child, main header span:last-child{
-    vertical-align: middle;
+/* A partit de là */
+nav.ng-hide-remove{
+    display: block!important;
+    position:absolute ;
+    right:-100000px;
+    opacity: 0;
+    width: 100%;
+    height: 55px;
+    top:18px;
+    bottom: 0;
+    text-align: right;
 }
 
-main header span img{
-	height: 50%;
-	width: auto;
-	vertical-align: middle;
-}
+/* ANIMATION */
+nav.ng-hide-remove-active{
 
-main header span:last-child{
-    margin-left: 3%;
-    vertical-align: middle;
+ /*   -webkit-transition:  margin-left  1s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+
+*/
+    -webkit-transition: all  1s cubic-bezier(0.9, 0.460, 0.450, 0.940);
+    -webkit-transform: translateX(-40%);
+
 
 }
 
+/*Caché*/
+nav.ng-hide{
+    display: block!important;
+    position:absolute ;
+    right:-100000px;
+    opacity: 0;
+    width: 100%;
+    height: 55px;
+    top:18px;
+    bottom: 0;
+    text-align: right;
+}
+
+input[name="RechercheGenerale"]{
+    position: absolute;
+    opacity: 1;
+    width: 60%;
+    height: 45px;
+    top:2px;
+    right: 0;
+    left:0;
+    bottom: 0;
+    margin:0 2% auto;
+    font-size: 28pt;
+}
+
+input[name="RechercheGenerale"].ng-hide{
+    margin: 0 -1% auto;
+    opacity: 0;
+
+
+}
+
+/** Afficher input **/
+input[name="RechercheGenerale"].ng-hide-add.ng-hide-add-active {
+
+
+    -webkit-transition: all 0.7s cubic-bezier(0.9, 0.460, 0.450, 0.940);
+
+
+}
+/* cacher le input */
+input[name="RechercheGenerale"].ng-hide-remove.ng-hide-remove-active{
+    -webkit-transition: all 1s cubic-bezier(0.9, 0.460, 0.450, 0.940);
+}

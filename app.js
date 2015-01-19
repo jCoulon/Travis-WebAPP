@@ -25,7 +25,9 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+
 app.set('view engine', 'jade');
+app.use('/bower_components',  express.static(__dirname + '/bower_components')); //repertoire bower
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -44,6 +46,7 @@ app.use('/api/transition', transition);
 app.use(restful(sequelize));
 
 //app.use('/api', function(req, res){});
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

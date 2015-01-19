@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  #container
+  #container(ng-controller="global_controller")
     #left_content
       img(src="images/travis-logo.png")#logo
     #right_content
@@ -20,15 +20,20 @@ block content
             img(src="images/add_student.png")
     main
       header.box
-        span 
-          img(src="images/search.png")
-        span.border
-        nav
-          a(href="#") PROMO 3A
-          a(href="#") PROMO 4A
-          a(href="#") A surveiller
-          a(href="#") TOUS
-          a(href="#") +
-        span.border
-        span 
+        #left_header
+          img(src="images/search.png", ng-click="search = !search")
+          span.border
+        #right_header
+          span.border
           img(src="images/settings.png")
+        #center_header
+          nav(ng-hide = "search" class="transition")
+            a(href="#") PROMO 3A
+            a(href="#") PROMO 4A
+            a(href="#") A surveiller
+            a(href="#") TOUS
+            a(href="#") +
+          input(ng-show="search" name="RechercheGenerale" placeholder="Recherche")
+  script(src="/bower_components/angular/angular.js")
+  script(src="/bower_components/angular-animate/angular-animate.js")
+  script(src="js/controller.js")
