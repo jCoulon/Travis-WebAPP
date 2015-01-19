@@ -18,5 +18,21 @@ module.exports = (function() {
 
     });
 
+    notes.post('/addNote', function(req, res){
+        /*models.db.Notes.create({
+            IdNotes : null,
+            Username: req.params.username,
+            Share: req.params.share,
+            NbMax: req.params.nbMax,
+            Note: req.params.note,
+            Date: req.params.date,
+            Lastaccess: req.params.lastaccess
+        }).then(function(){
+            console.log("inséré")
+        });*/
+    });
+
     return notes;
 })();
+
+//addNote/GweltazL/0/4//:date/:lastaccess

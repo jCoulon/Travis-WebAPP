@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 /*  Configuration de l'api rest  */
-var Sequelize = require('sequelize');
+//var Sequelize = require('sequelize');
 var restful   = require('sequelize-restful');
 
 /*  Définition des routes de l'api, toutes les routes sont séparées par fichiers représentant chacune
@@ -22,6 +22,9 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+app.use(bodyParser.json());       // to support JSON-encoded bodies
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
