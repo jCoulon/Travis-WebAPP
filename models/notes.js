@@ -2,6 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Notes = sequelize.define("Notes", {
+    IdNotes: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true} ,
     Username: DataTypes.STRING,
     Share: DataTypes.INTEGER,
     NbMax:DataTypes.INTEGER,
@@ -28,7 +29,9 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
 
     // define the table's name
-    tableName: 'User_notes'
+    tableName: 'User_notes',
+
+    id: 'IdNotes'
 
   });
 
