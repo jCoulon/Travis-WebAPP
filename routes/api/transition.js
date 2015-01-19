@@ -22,7 +22,7 @@ module.exports = (function() {
     /* Retourne les traces par usager */
     transition.get('/type/:type_id',function(req,res){
 
-        models.Activite.findAll({where :{ TypeAct : req.params.type_id}},{raw:true}).success(function(activites){
+        models.dbcmc.Activite.findAll({where :{ TypeAct : req.params.type_id}},{raw:true}).success(function(activites){
 
 
             if(activites){
@@ -39,7 +39,7 @@ module.exports = (function() {
     /* Retourne les traces par usager */
     transition.get('/usager/:usager_nom',function(req,res){
 
-        models.Transition.findAll({where :{ Usager : req.params.usager_nom}},{raw:true}).success(function(transitions){
+        models.dbcmc.Transition.findAll({where :{ Usager : req.params.usager_nom}},{raw:true}).success(function(transitions){
 
 
             if(transitions){
@@ -57,7 +57,7 @@ module.exports = (function() {
     /* Retourne les traces par usager */
     transition.get('/id/:id_user',function(req,res){
 
-        models.Usersummary.findAll({where :{ Usager : req.params.id_user}},{raw:true}).success(function(transitions){
+        models.dbcmc.Usersummary.findAll({where :{ Usager : req.params.id_user}},{raw:true}).success(function(transitions){
 
 
             if(transitions){
