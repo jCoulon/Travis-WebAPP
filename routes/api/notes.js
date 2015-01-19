@@ -1,19 +1,22 @@
-var models  = require('../../models/index');
 var express = require('express');
-var router = express.Router();
 
-/* Retourne toutes les Notes. */
-router.get('/api/notes/getAllNotes',function(req, res) {
-    models.Notes.findAll({},{raw:true}).success(function(activites){
-        if(activites){
-            res.json(activites); //On envoi au format JSON
-        }else{
-            res.send("Error 404");
-        }
+module.exports = (function() {
+    'use strict';
+    var notes = express.Router();
+    var models  = require('../../models/index');
+
+    notes.get('/getAllNotes',function(req, res) {
+        models.Notes.findAll({},{raw:true}).success(function(activites){
+            if(activites){
+                res.json(activites); //On envoi au format JSON
+            }else{
+                res.send("Error 404");
+            }
 
 
-    }).error();
+        }).error();
 
-});
+    });
 
-module.exports = router;
+    return notes;
+})();
