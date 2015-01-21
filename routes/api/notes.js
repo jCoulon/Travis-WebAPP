@@ -37,7 +37,7 @@ module.exports = (function() {
     });
 
     notes.get('/getUsernote/:username', function(req, res){
-            models.db.Notes.findAll({where :{ Username : req.params.username}},{raw:true}).success(function(activites){
+           models.db.Notes.findAll({where :{ Username : req.params.username}},{raw:true}).success(function(activites){
                 res.json(activites);
             });
         });
