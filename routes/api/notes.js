@@ -29,7 +29,6 @@ module.exports = (function() {
                 Date: req.query.date,
                 Lastaccess: req.query.lastaccess
             }).then(function () {
-                console.log("inséré");
                 res.send(200).end();
             }).error(function(){
                 res.send(424);
