@@ -19,17 +19,21 @@ module.exports = (function() {
     });
 
     notes.post('/addNote', function(req, res){
-        /*models.db.Notes.create({
-            IdNotes : null,
-            Username: req.params.username,
-            Share: req.params.share,
-            NbMax: req.params.nbMax,
-            Note: req.params.note,
-            Date: req.params.date,
-            Lastaccess: req.params.lastaccess
-        }).then(function(){
-            console.log("inséré")
-        });*/
+        if(typeof req.query.username !== 'undefined' && typeof req.query.share !== 'undefined' && typeof req.query.nbmax !== 'undefined' && typeof req.query.note !== 'undefined' && typeof req.query.date !== 'undefined' && typeof req.query.lastaccess !== 'undefined') {
+            console.log("ici");
+            models.db.Notes.create({
+                IdNotes: null,
+                Username: req.query.username,
+                Share: req.query.share,
+                NbMax: req.query.nbmax,
+                Note: req.query.note,
+                Date: req.query.date,
+                Lastaccess: req.query.lastaccess
+            }).then(function () {
+                console.log("inséré");
+                res.send(200).end();
+            });
+        }
     });
 
     return notes;
