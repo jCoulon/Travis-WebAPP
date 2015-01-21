@@ -6,9 +6,29 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 //var routes = require('./routes/index');
+
+/*  Configuration de l'api rest  */
+//var Sequelize = require('sequelize');
+var restful   = require('sequelize-restful');
+
+/*  Définition des routes de l'api, toutes les routes sont séparées par fichiers représentant chacune
+une fonction différente. Par exemple, les routes nécessaires aux notes sont dans le fichier note.js.   */
+var notes = require('./routes/api/notes');
+var transition = require('./routes/api/transition');
+
+/*  Définition du/des models nécessaires à sequelize  */
+var model = require('./models/index.js');
+var sequelize = model.sequelize;
+
+var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+    extended: true
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,6 +45,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use('/', routes);
 app.use('/users', users);
+app.use('/api/notes',notes);
+app.use('/api/transition', transition);
+
+/*  API REST  */
+app.use(restful(sequelize));
+
+//app.use('/api', function(req, res){});
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 // error handlers

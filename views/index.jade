@@ -7,3 +7,47 @@ block content
     script(src="js/routes.js")
     script(src="js/directives/indicateur.js")
     script(src="js/directives/indicateurArea.js")
+  .flex(ng-controller="global_controller")
+    .leftLayout
+      section.logo
+        img(src="images/logo-travis.png")
+      section
+        nav
+          ul
+            li Dataviz
+            li Time machine
+            li Notes
+            li Crédits
+            li Déconnexion
+    .rightLayout
+      ul#listeetudiant
+        li
+          div(style="background-color:#983b97").name
+          div.remove
+        li
+          div(style="background-color:#81b204").name
+          div.remove
+        li
+          div(style="background-color:#ff492c").name
+          div.remove
+        li
+          div.name
+            img(src="images/icons/add_student.png")
+    main.main
+      header
+        .search
+          img(src="images/icons/search.png", ng-click="search = !search")
+        .settings
+          img(src="images/icons/settings.png")
+        .mainNav
+          nav(ng-hide = "search" class="transition navCentral")
+            a(href="#") Promo 3a
+            a(href="#") Promo 4a
+            a(href="#").active Promo 5a
+            a(href="#") A surveiller
+            a(href="#") TOUS
+            img(src="images/icons/add_category.png" class="add-categ")
+          input(ng-show="search" name="RechercheGenerale" placeholder="Recherche")
+  script(src="/bower_components/angular/angular.js")
+  script(src="/bower_components/angular-animate/angular-animate.js")
+  script(src="js/controller.js")

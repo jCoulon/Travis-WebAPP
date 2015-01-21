@@ -1,0 +1,64 @@
+/* Ce fichier contient le css relatif à la barre centrale */
+
+header {
+	align-items: stretch;
+	background-color: $primaryColor;
+	border-radius: 0.25em;
+	display: flex; /* Gestion de flexbox */
+	flex-flow: row nowrap;
+	height: 3.5em;
+	margin: 1em auto;
+
+	.active {
+		/* Lien actif */
+		border-bottom: 4px solid $accentColor;
+		padding-bottom: 1.4em;
+	}
+}
+
+header a {
+	color: $textPrimaryColor;
+	float: left;
+	font-size: 0.75em;
+	padding: 1.7em 1em;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	&:hover {
+		background-color: $darkPrimaryColor;
+		border-bottom: 4px solid $accentColor;
+		padding-bottom: 1.4em;
+	}
+}
+
+
+.add-categ {
+	padding: 0.4em 0.8em;
+    border-left: 1px solid $dividerColor;
+	float: left;
+	display: inline-block;
+	margin: 0.9em 0;
+}
+
+.navCentral {
+	min-width: 36em;
+}
+
+.search, .settings {
+	padding: 1.22em 1.66em;
+}
+
+.search {
+	border-right: 1px solid $dividerColor;
+	order: 1;
+}
+.mainNav {
+	margin: auto;
+	order: 2;
+	overflow: hidden;
+	position: relative;
+}
+.settings {
+	border-left: 1px solid $dividerColor;
+	order: 3;
+}
