@@ -33,6 +33,7 @@ angular.module("TravisAPP")
         $http.get($scope.userNote.urlShareNotes)
             .success(function(data, status, headers, config) {
                 $scope.userNote.noteShareList = data;
+                console.log($scope.userNote.urlShareNotes);
             })
             .error(function(data, status, headers, config) {
 

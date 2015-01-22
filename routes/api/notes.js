@@ -1,4 +1,5 @@
 var express = require('express');
+var Sequelize = require('sequelize');
 
 module.exports = (function() {
     'use strict';
@@ -38,13 +39,13 @@ module.exports = (function() {
     });
 
     notes.get('/getUsernote/:username', function(req, res){
-           models.db.Notes.findAll({where :{ Username : req.params.username}},{raw:true}).success(function(activites){
+           models.db.Notes.findAll({where : Sequelize.and({ Username : req.params.username}, {Share : 0})},{raw:true}).success(function(activites){
                 res.json(activites);
             });
         });
 
-    notes.get('/getShareNote/:id', function(req, res){
-        models.db.ShareNotes.findAll({where :{ IDNote : req.params.id}},{raw:true}).success(function(activites){
+    notes.get('/getShareNote/:username', function(req, res){
+        models.db.Notes.findAll({where :Sequelize.and({ Username : req.params.username}, {Share : 1})}).success(function(activites){
             res.json(activites);
         });
     });
