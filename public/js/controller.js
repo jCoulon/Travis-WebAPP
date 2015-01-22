@@ -3,8 +3,6 @@
  */
 angular.module("TravisAPP",['ngAnimate','ui.router'])
 .controller("GlobalController",GlobalController)
-.controller("NoteController", ['$scope', NoteController]);
-
 
 function GlobalController(){
 
@@ -19,12 +17,3 @@ function GlobalController(){
 
 };
 
-function NoteController(){
-
-    $scope.userNote = {
-        username: 'SimonL', /* À remplacer dynamiquement par l'utilisateur en cours */
-        noteList: [],
-        shareNoteList: []
-    };
-
-}
