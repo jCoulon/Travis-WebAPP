@@ -6,6 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     Username: DataTypes.STRING,
     Share: DataTypes.INTEGER,
     NbMax:DataTypes.INTEGER,
+    Titre:DataTypes.STRING,
     Note:DataTypes.STRING,
     Date:DataTypes.STRING,
     Lastaccess:DataTypes.STRING

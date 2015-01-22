@@ -19,12 +19,13 @@ module.exports = (function() {
     });
 
     notes.post('/addNote', function(req, res){
-        if(typeof req.query.username !== 'undefined' && typeof req.query.share !== 'undefined' && typeof req.query.nbmax !== 'undefined' && typeof req.query.note !== 'undefined' && typeof req.query.date !== 'undefined' && typeof req.query.lastaccess !== 'undefined') {
+        if(typeof req.query.username !== 'undefined' && typeof req.query.share !== 'undefined' && typeof req.query.nbmax !== 'undefined' && typeof req.query.note !== 'undefined' && typeof req.query.date !== 'undefined' && typeof req.query.lastaccess !== 'undefined' && req.query.titre !== 'undefined') {
             models.db.Notes.create({
                 IdNotes: null,
                 Username: req.query.username,
                 Share: req.query.share,
                 NbMax: req.query.nbmax,
+                Titre: req.query.titre,
                 Note: req.query.note,
                 Date: req.query.date,
                 Lastaccess: req.query.lastaccess
@@ -47,6 +48,12 @@ module.exports = (function() {
             res.json(activites);
         });
     });
+
+    notes.get('/getShareNoteWith/:username', function(req, res){
+        models.db.ShareNotes.findAll({where : "Username REGEXP '"+req.params.username+"'"},{raw:true}).success(function(activites){
+            res.json(activites);
+        });
+    })
 
     return notes;
 })();
