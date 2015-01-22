@@ -50,8 +50,16 @@ module.exports = (function() {
         });
     });
 
-    notes.get('/getShareNoteWith/:username', function(req, res){
+    notes.get('/getIdShareNoteWith/:username', function(req, res){
         models.db.ShareNotes.findAll({where : "Username REGEXP '"+req.params.username+"'"},{raw:true}).success(function(activites){
+            res.json(activites);
+        });
+    })
+
+    notes.get('/getShareNoteWith/:ids', function(req, res){
+        var idsReg = /-/;
+        var ids = req.params.ids.split(idsReg);
+        models.db.Notes.findAll({where : {IdNotes : ids}},{raw:true}).success(function(activites){
             res.json(activites);
         });
     })

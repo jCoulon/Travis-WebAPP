@@ -3,15 +3,22 @@
 
 div#searchnote
 div(ng-controller="NoteController")
-   div#noteslist
+   div.noteslist
       h2 Mes notes
       div.note(ng-repeat="note in userNote.noteList" content="notes")
          h2.titre {{note.Titre}}
          div.text {{note.Note}}
 
-   div#sharenoteslist
+   div.noteslist
       h2 Mes notes partagées
       div.note(ng-repeat="note in userNote.noteShareList" content="notes")
+         h2.titre {{note.Titre}}
+         div.text {{note.Note}}
+         div
+
+   div.noteslist
+      h2 Notes partagées avec moi
+      div.note(ng-repeat="note in userNote.shareNoteWithList" content="notes")
          h2.titre {{note.Titre}}
          div.text {{note.Note}}
          div

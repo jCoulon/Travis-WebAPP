@@ -9,6 +9,7 @@ angular.module("TravisAPP")
  * Définition de la directive indicateur
  */
     .controller("NoteController", ["$scope", "$http", function($scope, $http){
+        var idShare = "";
         $scope.userNote = {
             username: 'SimonL',
             noteList: [],
@@ -16,12 +17,13 @@ angular.module("TravisAPP")
             shareNoteWithList: [],
             urlNotes : '/api/notes/getUsernote/',
             urlShareNotes : '/api/notes/getShareNote/',
+            urlIdShareNotesWith: '/api/notes/getIdShareNoteWith/',
             urlShareNotesWith: '/api/notes/getShareNoteWith/'
         };
 
         $scope.userNote.urlNotes = $scope.userNote.urlNotes+$scope.userNote.username;
         $scope.userNote.urlShareNotes = $scope.userNote.urlShareNotes+$scope.userNote.username;
-        $scope.userNote.urlShareNotesWith = $scope.userNote.urlShareNotesWith+$scope.userNote.username;
+        $scope.userNote.urlIdShareNotesWith = $scope.userNote.urlIdShareNotesWith+$scope.userNote.username;
 
         $http.get($scope.userNote.urlNotes)
             .success(function(data, status, headers, config) {
@@ -33,29 +35,32 @@ angular.module("TravisAPP")
         $http.get($scope.userNote.urlShareNotes)
             .success(function(data, status, headers, config) {
                 $scope.userNote.noteShareList = data;
-                console.log($scope.userNote.urlShareNotes);
             })
             .error(function(data, status, headers, config) {
 
             });
-        $http.get($scope.userNote.urlShareNotesWith)
+        $http.get($scope.userNote.urlIdShareNotesWith)
             .success(function(data, status, headers, config) {
-                $scope.userNote.shareNoteWithList = data;
+                for(var i = 0; i < data.length ; i++){
+                    if( i == data.length-1){
+                        idShare = idShare + data[i].IdNote;
+                    }else{
+                        idShare = idShare + data[i].IdNote + "-";
+                    }
+                }
+                console.log(idShare);
+               $http.get($scope.userNote.urlShareNotesWith+""+idShare)
+                    .success(function(data, status, headers, config) {
+                       $scope.userNote.shareNoteWithList = data;
+                    })
+                    .error(function(data, status, headers, config) {
+
+                    });
             })
             .error(function(data, status, headers, config) {
 
             });
     }])
-
-/**
- * Fonction d'affichage des Notes
- */
-
-    .directive("ngNotes", function(){
-        return{
-            template: 'Name: {{userNote.username}} Liste des notes: {{userNote.noteList[0]}} Liste des notes partagées: {{userNote.noteShareList}} Liste des notes partagées avec Moi: {{userNote.shareNoteWithList}}'
-        };
-    });
 
 
 
