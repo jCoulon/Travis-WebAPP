@@ -1,2 +1,12 @@
 div(ng-controller="dashboardIndicateur as dashboardCtrl")
     indicateur-area(options="dashboardCtrl.dashboardOptions")
+
+    div#addnote
+        h3 Ajouter une note
+        input#titrenote(type="text")
+        textarea#textnote
+        label(for="sharenote") Partagée
+        input#sharenote(type="checkbox")
+        input#shareuser(type="text")
+        button(type="button") +
+        input(type="submit" ng-click="addNote" value="Ajouter")
