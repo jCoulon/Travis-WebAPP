@@ -54,15 +54,21 @@ module.exports = (function() {
         models.db.ShareNotes.findAll({where : "Username REGEXP '"+req.params.username+"'"},{raw:true}).success(function(activites){
             res.json(activites);
         });
-    })
+    });
 
     notes.get('/getShareNoteWith/:ids', function(req, res){
         var idsReg = /-/;
         var ids = req.params.ids.split(idsReg);
-        models.db.Notes.findAll({where : {IdNotes : ids}},{raw:true}).success(function(activites){
+        models.db.Notes.findAll({where : {IdNotes : ids}},{raw:true}).then(function(activites){
             res.json(activites);
         });
-    })
+    });
+
+    notes.get('/getAutocompleteName/:name', function(req, res){
+        models.db.User.findAll({where : "Name REGEXP '"+req.params.name+"' OR Surname REGEXP '"+req.params.name+"' OR Login REGEXP '"+req.params.name+"'"},{raw:true}).then(function(data){
+            res.json(data);
+        });
+    });
 
     return notes;
 })();

@@ -48,7 +48,6 @@ angular.module("TravisAPP")
                         idShare = idShare + data[i].IdNote + "-";
                     }
                 }
-                console.log(idShare);
                $http.get($scope.userNote.urlShareNotesWith+""+idShare)
                     .success(function(data, status, headers, config) {
                        $scope.userNote.shareNoteWithList = data;
