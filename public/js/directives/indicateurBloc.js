@@ -20,7 +20,8 @@ function indicateurBloc(){
 
         templateUrl :"js/templates/indicateurBloc.html",
         scope:{
-            blocoptions:"="
+            'blocoptions':'='
+
         },
          replace:true,
         controller:['$scope',function(scope){

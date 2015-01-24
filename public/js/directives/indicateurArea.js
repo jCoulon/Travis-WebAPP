@@ -23,7 +23,8 @@ function indicateurArea($compile){
        controller:function($scope){
            this.supprimerIndicateur = function(ind){
                console.log("sup");
-                $scope.$parent.supprimerIndicateurBloc(ind);//Appel au scope parent A changer vers attributes &onSupp
+               // $scope.$parent.supprimerIndicateurBloc(ind);//Appel au scope parent A changer vers attributes &onSupp
+                $scope.onSupp({indicateurBloc:ind});
            };
        },
         link:function link(scope,element,attrs){
