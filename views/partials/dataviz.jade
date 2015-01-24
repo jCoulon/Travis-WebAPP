@@ -1,2 +1,6 @@
-div(ng-controller="dashboardIndicateur as dashboardCtrl")
-    indicateur-area(options="dashboardCtrl.dashboardOptions")
+div(ng-controller="dashboardIndicateur")
+    input(ng-model='titre', placeholder='Titre', required='')
+    input(ng-model='type', palceholder='type', required='')
+    label {{dashboardCtrl}}
+    button(ng-click='ajouterNouvelIndicateurBloc()') Ajouter un nouvel indicateur {{dashboardOptions}}
+    indicateur-area(options='indicateurBlocsPanel'  onSupp='supprimerIndicateurBloc(indicateurBloc)')

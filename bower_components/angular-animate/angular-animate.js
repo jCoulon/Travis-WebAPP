@@ -1963,7 +1963,7 @@ angular.module('ngAnimate', ['ng'])
           var elapsedTime = parseFloat(ev.elapsedTime.toFixed(ELAPSED_TIME_MAX_DECIMAL_PLACES));
 
           /* $manualTimeStamp is a mocked timeStamp value which is set
-           * within browserTrigger(). This is only here so that tests can
+           * within browserTrigger(). This is only here so that test can
            * mock animations properly. Real events fallback to event.timeStamp,
            * or, if they don't, then a timeStamp is automatically created for them.
            * We're checking to see if the timeStamp surpasses the expected delay,
