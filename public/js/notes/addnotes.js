@@ -1,6 +1,12 @@
 angular.module("TravisAPP")
     .controller("addNote", ["$scope", "$http", function($scope, $http){
-        $scope.alert = function(){
-            alert();
+        $scope.addUser = function(){
+
         }
-    }]);
+
+
+
+    }])
+    .directive('userShareAutoComplete', function($timeout){
+
+    })
