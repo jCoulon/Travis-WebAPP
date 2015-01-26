@@ -1,0 +1,10 @@
+<div class="indicateurBloc">
+    <div class='indicateurBlocTitre'>
+        <label>{{blocoptions.titre}}</label>
+        <button ng-click="click(blocoptions)">Supprimer</button>
+    </div>
+    <!-----Contenu du bloc --->
+    <div class='indicateurBlocContenu'>
+        <chart-bloc class="chart-bloc" ng-repeat="chart in blocoptions.charts" charts-options="chart" ></chart-bloc>
+    </div>
+</div>

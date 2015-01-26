@@ -1,0 +1,6 @@
+div(ng-controller="dashboardIndicateur")
+    input(ng-model='titre', placeholder='Titre', required='')
+    input(ng-model='type', palceholder='type', required='')
+    label {{dashboardCtrl}}
+    button(ng-click='ajouterNouvelIndicateurBloc()') Ajouter un nouvel indicateur {{dashboardOptions}}
+    indicateur-area(options='indicateurBlocsPanel'  on-supp='supprimerIndicateurBloc(indicateurBloc)')

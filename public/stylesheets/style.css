@@ -109,6 +109,197 @@ header a {
   overflow: hidden;
   position: relative; }
 
+}
+
 .settings {
   border-left: 1px solid #B6B6B6;
   order: 3; }
+
+
+main header.box div#right_header span.border{
+
+    vertical-align: middle;
+    display: inline-block;
+    border-right:1px solid gray;
+    padding-right: 1%;
+    padding-left:1%;
+    height: 55px;
+}
+
+
+
+main header.box div#right_header img{
+    width: auto;
+    height: 30px;
+    padding: 5px 5% 5px 5%;
+    vertical-align: middle;
+    margin-left: 15%;
+
+}
+
+
+
+/* BLOC DU CENTRE HEADER */
+
+main header.box #center_header{
+    /*margin:0 auto !important;*/
+    position: relative;
+    overflow: hidden;
+    width: auto;
+    height: 100%;
+    text-align: left;
+    padding-bottom: 10px;
+
+}
+main header.box div#center_header nav{
+    position: absolute;
+    opacity: 1;
+    width: 100%;
+    height: 55px;
+    top:18px;
+    right: 0;
+    left:0;
+    bottom: 0;
+    margin: 0 auto;
+}
+
+main header.box div#center_header nav > a {
+    text-decoration: none;
+    color : #333;
+    padding: 0 3% 0 3%;
+}
+
+
+
+
+
+/** A voir  comme en dessous ou avec table cell et centre au milieu de la cellule !**/
+
+
+/*cubic-bezier(0.9, 0.460, 0.450, 0.940)*/
+nav.ng-hide-add.ng-hide-add-active {
+
+ /*   -webkit-transition:  margin 1s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+   */
+    -webkit-transition:  all 0.2s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+    -webkit-transform: translateX(40%);
+        display: block !important;
+
+}
+
+/* A partit de là */
+nav.ng-hide-remove{
+    display: block!important;
+    position:absolute ;
+    right:-100000px;
+    opacity: 0;
+    width: 100%;
+    height: 55px;
+    top:18px;
+    bottom: 0;
+    text-align: right;
+}
+
+/* ANIMATION */
+nav.ng-hide-remove-active{
+
+ /*   -webkit-transition:  margin-left  1s cubic-bezier(0.9, 0.460, 0.450, 0.940), opacity 1s cubic-bezier(0.9, 0.460, 0.450, 0.940) ;
+
+*/
+    -webkit-transition: all  1s cubic-bezier(0.9, 0.460, 0.450, 0.940);
+    -webkit-transform: translateX(-40%);
+
+
+}
+
+/*Caché*/
+nav.ng-hide{
+    display: block!important;
+    position:absolute ;
+    right:-100000px;
+    opacity: 0;
+    width: 100%;
+    height: 55px;
+    top:18px;
+    bottom: 0;
+    text-align: right;
+}
+
+input[name="RechercheGenerale"]{
+    position: absolute;
+    opacity: 1;
+    width: 60%;
+    height: 45px;
+    top:2px;
+    right: 0;
+    left:0;
+    bottom: 0;
+    margin:0 2% auto;
+    font-size: 28pt;
+}
+
+input[name="RechercheGenerale"].ng-hide{
+    margin: 0 -1% auto;
+    opacity: 0;
+
+
+}
+
+/** Afficher input **/
+input[name="RechercheGenerale"].ng-hide-add.ng-hide-add-active {
+
+
+    -webkit-transition: all 0.7s cubic-bezier(0.9, 0.460, 0.450, 0.940);
+
+
+}
+/* cacher le input */
+input[name="RechercheGenerale"].ng-hide-remove.ng-hide-remove-active{
+    -webkit-transition: all 1s cubic-bezier(0.9, 0.460, 0.450, 0.940);
+}
+
+/** L'espace des widgets indicateur **/
+
+#content{
+    position: relative;
+    overflow-y: hidden;
+    margin-top:140px;
+}
+
+#indicateurArea{
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+/** CSS Widget indicateur **/
+
+.indicateurBloc{
+    border : solid grey 2px;
+    height : 250px;
+    width : 70%;
+    margin:auto;
+}
+
+.indicateurBlocTitre{
+    border-bottom: solid grey;
+    height: 50px;
+    background-color:red;
+}
+
+.indicateurBlocContenu{
+    position:relative;
+    background-color: white;
+    height: 197px;
+    margin-left:auto;
+    margin-right: auto;
+    width: inherit;
+}
+
+.chart-bloc{
+    margin:25px;
+    position: relative;
+    display: inline-block;
+    height: 150px;
+    width:200px;
+    background-color: #0040D0;
+}

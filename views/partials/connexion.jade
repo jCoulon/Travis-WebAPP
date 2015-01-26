@@ -1,0 +1,9 @@
+extends ../layout
+block content
+   form(name="connextionForm" ng-controller="connexionCtrl as ctrl" ng-submit="seConnecter(dataUser)")
+      label compte
+      input(type="text" id="compte" ng-model="dataUser.compte" required)
+      label mot de passe
+      input(type="password" id="mdp" ng-model="dataUser.mdp" required)
+      button(type="submit") Se connecter
+   script(src="js/connexion/Connect_controller.js")

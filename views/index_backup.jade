@@ -1,0 +1,43 @@
+extends layout
+block content
+
+  #container(ng-controller="globalController")
+    #left_content
+      img(src="images/travis-logo.png")#logo
+    #right_content
+      ul#listeetudiant
+        li
+          div(style="background-color:#983b97").name
+          div.remove
+        li
+          div(style="background-color:#81b204").name
+          div.remove
+        li
+          div(style="background-color:#ff492c").name
+          div.remove
+        li
+          div.name
+            img(src="images/add_student.png")
+    main
+      header.box
+        #left_header
+          img(src="images/search.png", ng-click="search = !search")
+          span.border
+        #right_header
+          span.border
+          img(src="images/settings.png")
+        #center_header
+          nav(ng-hide = "search" class="transition")
+            a(href="#") PROMO 3A
+            a(href="#") PROMO 4A
+            a(href="#") A surveiller
+            a(href="#") TOUS
+            a(href="#") +
+          input(ng-show="search" name="RechercheGenerale" placeholder="Recherche")
+      div(ui-view)
+
+  script(src="/bower_components/angular/angular.js")
+  script(src="/bower_components/angular-animate/angular-animate.js")
+  script(src="/bower_components/angular-ui-router/release/angular-ui-router.min.js")
+  script(src="js/Connect_controller.js")
+
