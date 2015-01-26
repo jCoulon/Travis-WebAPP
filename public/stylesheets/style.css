@@ -299,12 +299,3 @@ input[name="RechercheGenerale"].ng-hide-remove.ng-hide-remove-active{
     margin-right: auto;
     width: inherit;
 }
-
-.chart-bloc{
-    margin:25px;
-    position: relative;
-    display: inline-block;
-    height: 150px;
-    width:200px;
-    background-color: #0040D0;
-}

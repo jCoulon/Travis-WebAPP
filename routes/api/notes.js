@@ -1,4 +1,5 @@
 var express = require('express');
+var Sequelize = require('sequelize');
 
 module.exports = (function() {
     'use strict';
@@ -19,12 +20,13 @@ module.exports = (function() {
     });
 
     notes.post('/addNote', function(req, res){
-        if(typeof req.query.username !== 'undefined' && typeof req.query.share !== 'undefined' && typeof req.query.nbmax !== 'undefined' && typeof req.query.note !== 'undefined' && typeof req.query.date !== 'undefined' && typeof req.query.lastaccess !== 'undefined') {
+        if(typeof req.query.username !== 'undefined' && typeof req.query.share !== 'undefined' && typeof req.query.nbmax !== 'undefined' && typeof req.query.note !== 'undefined' && typeof req.query.date !== 'undefined' && typeof req.query.lastaccess !== 'undefined' && req.query.titre !== 'undefined') {
             models.db.Notes.create({
                 IdNotes: null,
                 Username: req.query.username,
                 Share: req.query.share,
                 NbMax: req.query.nbmax,
+                Titre: req.query.titre,
                 Note: req.query.note,
                 Date: req.query.date,
                 Lastaccess: req.query.lastaccess
@@ -37,14 +39,34 @@ module.exports = (function() {
     });
 
     notes.get('/getUsernote/:username', function(req, res){
-            models.db.Notes.findAll({where :{ Username : req.params.username}},{raw:true}).success(function(activites){
+           models.db.Notes.findAll({where : Sequelize.and({ Username : req.params.username}, {Share : 0})},{raw:true}).success(function(activites){
                 res.json(activites);
             });
         });
 
-    notes.get('/getShareNote/:id', function(req, res){
-        models.db.ShareNotes.findAll({where :{ IDNote : req.params.id}},{raw:true}).success(function(activites){
+    notes.get('/getShareNote/:username', function(req, res){
+        models.db.Notes.findAll({where :Sequelize.and({ Username : req.params.username}, {Share : 1})}).success(function(activites){
             res.json(activites);
+        });
+    });
+
+    notes.get('/getIdShareNoteWith/:username', function(req, res){
+        models.db.ShareNotes.findAll({where : "Username REGEXP '"+req.params.username+"'"},{raw:true}).success(function(activites){
+            res.json(activites);
+        });
+    });
+
+    notes.get('/getShareNoteWith/:ids', function(req, res){
+        var idsReg = /-/;
+        var ids = req.params.ids.split(idsReg);
+        models.db.Notes.findAll({where : {IdNotes : ids}},{raw:true}).then(function(activites){
+            res.json(activites);
+        });
+    });
+
+    notes.get('/getAutocompleteName/:name', function(req, res){
+        models.db.User.findAll({where : "Name REGEXP '"+req.params.name+"' OR Surname REGEXP '"+req.params.name+"' OR Login REGEXP '"+req.params.name+"'"},{raw:true}).then(function(data){
+            res.json(data);
         });
     });
 
