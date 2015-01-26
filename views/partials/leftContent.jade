@@ -1,9 +1,15 @@
-#logo
-   img(src="images/travis-logo.png")
-#profil
-   nav
-      a(ui-sref="dashboard.dataviz") Data viz
-      a(ui-sref="dashboard.timemachine") Time Machine
-      a(ui-sref="dashboard.notes") Notes
-      a(ui-sref="dashboard.credits") Credits
-
+.leftLayout
+  section.logo
+    img(src="images/logo-travis.png")
+  section
+    nav
+      ul
+        li 
+        	a(ui-sref="dashboard.dataviz")Dataviz
+        li 
+			a(ui-sref="dashboard.timemachine")Time machine
+        li
+        	a(ui-sref="dashboard.notes") Notes 
+        li
+        	a(ui-sref="dashboard.credits") Credits 
+        li D√©connexion
