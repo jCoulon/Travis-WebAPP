@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6aa2b374-a2bf-4802-a13f-b512d7cb810e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/models/travis/notes.js.orig" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/notes/addnotes.js" afterPath="$PROJECT_DIR$/public/js/notes/addnotes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers/controller.js" afterPath="$PROJECT_DIR$/public/js/controllers/controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/dataviz.jade" afterPath="$PROJECT_DIR$/views/partials/dataviz.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.jade" afterPath="$PROJECT_DIR$/views/index.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/notes/notes.js" afterPath="$PROJECT_DIR$/public/js/notes/notes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
     </list>
     <ignored path="Travis-WebAPP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,7 +41,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="300">
               <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-              <folding />
+              <folding>
+                <marker date="1422296087000" expanded="true" signature="3:38" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -72,31 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chartBloc.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chartBloc.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/directives/chartBloc.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1440">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addnotes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/notes/addnotes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/notes/notes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -105,11 +81,19 @@
       <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/controllers/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1166" max-vertical-offset="2925">
+            <state vertical-scroll-proportion="0.0" vertical-offset="885" max-vertical-offset="3690">
               <caret line="145" column="4" selection-start-line="145" selection-start-column="4" selection-end-line="145" selection-end-column="4" />
-              <folding>
-                <element signature="e#1963#3844#0" expanded="false" />
-              </folding>
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1815">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,8 +101,18 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4109" max-vertical-offset="4605">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4214" max-vertical-offset="4740">
+              <caret line="310" column="1" selection-start-line="310" selection-start-column="1" selection-end-line="310" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indicateurBloc.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/js/templates/indicateurBloc.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.2689243" vertical-offset="0" max-vertical-offset="502">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -127,9 +121,11 @@
       <file leaf-file-name="bower.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bower.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="540">
-              <caret line="15" column="22" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="22" />
-              <folding />
+            <state vertical-scroll-proportion="-3.125" vertical-offset="150" max-vertical-offset="540">
+              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+              <folding>
+                <marker date="1422296087000" expanded="true" signature="613:635" placeholder="{&quot;angular&quot;: &quot;1.3.10&quot;...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,7 +154,6 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/models/travis/sharenotes.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/public/js/directives/notes2.js" />
         <option value="$PROJECT_DIR$/public/js/controller.js" />
@@ -172,6 +167,7 @@
         <option value="$PROJECT_DIR$/views/partials/dataviz.jade" />
         <option value="$PROJECT_DIR$/public/js/notes/notes.js" />
         <option value="$PROJECT_DIR$/public/js/controllers/controller.js" />
+        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
       </list>
     </option>
   </component>
@@ -337,28 +333,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Travis-WebAPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Travis-WebAPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="directives" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -409,25 +383,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Travis-WebAPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Travis-WebAPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="travis" />
+              <option name="myItemId" value="bower_components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -665,7 +621,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="526">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1422294653000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1422296087000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -683,7 +639,7 @@
         <state vertical-scroll-proportion="-7.2" vertical-offset="0" max-vertical-offset="270">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
-            <marker date="1422294255000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1422296087000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -692,14 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.0" vertical-offset="0" max-vertical-offset="315">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4109" max-vertical-offset="4605">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -730,9 +678,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="540">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="22" />
-          <folding />
+        <state vertical-scroll-proportion="-3.125" vertical-offset="150" max-vertical-offset="540">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding>
+            <marker date="1422296087000" expanded="true" signature="613:635" placeholder="{&quot;angular&quot;: &quot;1.3.10&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -752,45 +702,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/travis/notes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/partials/index.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.029940119" vertical-offset="0" max-vertical-offset="501">
           <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/notes/addnotes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="526">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/notes/notes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1166" max-vertical-offset="2925">
-          <caret line="145" column="4" selection-start-line="145" selection-start-column="4" selection-end-line="145" selection-end-column="4" />
-          <folding>
-            <element signature="e#1963#3844#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -806,7 +722,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="300">
           <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-          <folding />
+          <folding>
+            <marker date="1422296087000" expanded="true" signature="3:38" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -814,6 +732,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/directives/chartBloc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1440">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -826,10 +752,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/directives/chartBloc.js">
+    <entry file="file://$PROJECT_DIR$/public/js/controllers/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1440">
+        <state vertical-scroll-proportion="0.0" vertical-offset="885" max-vertical-offset="3690">
+          <caret line="145" column="4" selection-start-line="145" selection-start-column="4" selection-end-line="145" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1815">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4214" max-vertical-offset="4740">
+          <caret line="310" column="1" selection-start-line="310" selection-start-column="1" selection-end-line="310" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/templates/indicateurBloc.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2689243" vertical-offset="0" max-vertical-offset="502">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
           <folding />
         </state>
       </provider>
