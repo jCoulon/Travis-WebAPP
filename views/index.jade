@@ -1,10 +1,11 @@
 extends layout
-block content(class="flex" ng-controller="global_controller")
-    #container(ui-view="masterView")
+block content
+    #container(class="flex" ui-view="masterView")
     script(src="/bower_components/angular/angular.js")
     script(src="/bower_components/angular-ui-router/release/angular-ui-router.min.js")
     script(src="/bower_components/angular-animate/angular-animate.min.js")
     script(src="/bower_components/chartjs/Chart.js")
+    script(src="/bower_components/jquery/dist/jquery.min.js")
     link(rel='stylesheet',href="/bower_components/angular-chart.js/dist/angular-chart.css")
     script(src="/bower_components/angular-chart.js/dist/angular-chart.js")
     script(src="js/routes.js")

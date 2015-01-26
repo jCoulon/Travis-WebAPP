@@ -99,6 +99,13 @@ angular.module("TravisAPP")
 function dashboardIndicateur($scope){
 
     /**
+     * Evite les pb de scope
+     * @type {dashboardIndicateur}
+     * @private
+     */
+    var _self = this;
+
+    /**
      * En attendant modif, recuperation des indicateurs enregistré pour l'utilisateur connecté
      * @type {{titre: string}[]}
      */
@@ -108,7 +115,7 @@ function dashboardIndicateur($scope){
      * Chargement user preferences
      * @type {{indicateurBlocsPanel: {titre: string}[], indicateurGenerique: string}}
      */
-    $scope.dashboardOptions = {
+    _self.dashboardOptions = {
         indicateurBlocsUser :indicateurBlocs, // Indicateurs à charger
         indicateurGenerique : "" //
     };
@@ -118,32 +125,32 @@ function dashboardIndicateur($scope){
     /**
      * Fonction d'ajout d'un indicateur
      */
-    $scope.ajouterIndicateurBloc = function(ind){
+    _self.ajouterIndicateurBloc = function(ind){
         console.log("ajouter indicateur"+ind.titre);
 
         /** Chargement du modèle de l'indicateur**/
         var indicateur = ind;
-        $scope.indicateurBlocsPanel.push(indicateur);
+        _self.indicateurBlocsPanel.push(indicateur);
     };
 
     /**
      *
      */
-    $scope.ajouterNouvelIndicateurBloc = function(){
-        var ind = {titre : $scope.titre,nbChart:"2",type:"pie",charts:[{titre:"monRadar1",data:"mesDataDeRadar1"}]};
-        $scope.ajouterIndicateurBloc(ind);
+    _self.ajouterNouvelIndicateurBloc = function(){
+        var ind = {titre : _self.titre,nbChart:"2",type:"pie",charts:[{titre:"monRadar1",data:"mesDataDeRadar1"}]};
+        _self.ajouterIndicateurBloc(ind);
     };
 
     /**
      * Supprimer un indicateur
      * @param ind
      */
-    $scope.supprimerIndicateurBloc = function(indicateurBloc){
-        var old_bloc =  $scope.indicateurBlocsPanel  ;
-        $scope.indicateurBlocsPanel =  [] ;
+    _self.supprimerIndicateurBloc = function(indicateurBloc){
+        var old_bloc =  _self.indicateurBlocsPanel  ;
+        _self.indicateurBlocsPanel =  [] ;
 
         angular.forEach(old_bloc, function (bloc) {
-            if (bloc.id !== indicateurBloc.id)  $scope.indicateurBlocsPanel.push(bloc);
+            if (bloc.id !== indicateurBloc.id)  _self.indicateurBlocsPanel.push(bloc);
         });
 
     };
@@ -152,20 +159,20 @@ function dashboardIndicateur($scope){
      * Chargement des indicateurs
      * @param indicateurs
      */
-    $scope.chargerIndicateursBlocs = function(indicateurs){
+    _self.chargerIndicateursBlocs = function(indicateurs){
         console.log("charger indicateur");
         angular.forEach(indicateurs,function(ind){
             console.log(ind);
-            $scope.ajouterIndicateurBloc(ind);
+            _self.ajouterIndicateurBloc(ind);
         });
     };
 
     /*
      * Supprimer tous les indicateurs
      */
-    $scope.effacer = function(){
+    _self.effacer = function(){
         console.log("clear");
-        $scope.indicateurBlocsPanel = [];
+        _self.indicateurBlocsPanel = [];
     };
 
 
@@ -173,10 +180,10 @@ function dashboardIndicateur($scope){
     /**
      * Recuperation des indicateurs à charger de l'user
      */
-    $scope.indicateursDefaut = $scope.dashboardOptions.indicateurBlocsUser;
-    $scope.effacer();//init
-    $scope.chargerIndicateursBlocs($scope.indicateursDefaut);//Chargement des indicateurs présents
-    console.log($scope.indicateurBlocs);
+    _self.indicateursDefaut = _self.dashboardOptions.indicateurBlocsUser;
+    _self.effacer();//init
+    _self.chargerIndicateursBlocs(_self.indicateursDefaut);//Chargement des indicateurs présents
+    console.log(_self.indicateurBlocs);
 
 
 

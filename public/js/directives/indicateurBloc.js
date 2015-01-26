@@ -47,7 +47,6 @@ function indicateurBloc(){
 
             scope.click = function(bloc){
                 indicateurAreaCtrl.supprimerIndicateur(bloc);
-                console.log("click");
             };
             /*    var template,
              opts = scope.options,
@@ -58,6 +57,7 @@ function indicateurBloc(){
              $compile(element.contents())(scope);
              */
         }, 1000);
+
 
     };
 };
