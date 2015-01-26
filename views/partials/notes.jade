@@ -1,3 +1,24 @@
 //
    Created by jonathancoulon on 30/12/14.
-h1 NOTE TEMPLATE
+
+div#searchnote
+div(ng-controller="NoteController")
+   div.noteslist
+      h2 Mes notes
+      div.note(ng-repeat="note in userNote.noteList" content="notes")
+         h2.titre {{note.Titre}}
+         div.text {{note.Note}}
+
+   div.noteslist
+      h2 Mes notes partagées
+      div.note(ng-repeat="note in userNote.noteShareList" content="notes")
+         h2.titre {{note.Titre}}
+         div.text {{note.Note}}
+         div
+
+   div.noteslist
+      h2 Notes partagées avec moi
+      div.note(ng-repeat="note in userNote.shareNoteWithList" content="notes")
+         h2.titre {{note.Titre}}
+         div.text {{note.Note}}
+         div
