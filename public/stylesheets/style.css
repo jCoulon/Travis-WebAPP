@@ -302,9 +302,10 @@ input[name="RechercheGenerale"].ng-hide-remove.ng-hide-remove-active{
 
 
 
-.chart-bloc{
-    margin:25px;
+.chart-bloc {
+    margin: 25px;
     position: relative;
     display: inline-block;
     height: 150px;
-    width:200px;
+    width: 200px;
+}
