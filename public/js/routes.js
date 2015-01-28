@@ -91,7 +91,7 @@ function dashboardIndicateur(){
     };
 
     /** Supprime l'indicateur num indicateur */
-    this.supprimerIndicateur = function(item){
+    this.supprimerIndicateurBloc = function(item){
         console.log("here");
         var index = this.indicateurs.indexOf(item);
         this.indicateurs.splice(index,1);

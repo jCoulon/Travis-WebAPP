@@ -1,51 +1,54 @@
-'use strict';
+(function() {
+    'use strict';
 
 
-angular.module('TravisAPP')
+    angular.module('TravisAPP')
 
-.directive('indicateurArea',indicateurArea);
+        .directive('indicateurArea', indicateurArea);
 
-/**
- * Fonction indicateurArea
- * Gestion des blocs type d'indicateurs
- *
- */
-function indicateurArea($compile){
+    /**
+     * Fonction indicateurArea
+     * Gestion des blocs type d'indicateurs
+     *
+     */
+    function indicateurArea($compile) {
 
-    var _ind = {
-        restrict:"E", //Element Attributs,
-        replace:true,
-        templateUrl: "js/templates/indicateurAera.html",
-         scope:{
-            'options' : '=',
-             'onSupp': '&'
-        },
-       controller:function($scope){
-           this.supprimerIndicateur = function(ind){
-               console.log("sup");
-               // $scope.$parent.supprimerIndicateurBloc(ind);//Appel au scope parent A changer vers attributes &onSupp
-                $scope.onSupp({indicateurBloc:ind});
-           };
-       },
-        link:function link(scope,element,attrs){
+        var _ind = {
+            restrict: "E", //Element <indicateur-area>
+
+            replace: true,//Remplace l'element par la template
+
+            templateUrl: "js/templates/indicateurAera.html",
+
+            scope: {//Scope isolé
+                'options': '=', //<<indicateur-area options="" on-supp="">
+                'onSupp': '&'
+            },
+            controller: ctrl,
+
+            link: linkFunc
+        };
+
+        return _ind;
+
+
+        ctrl.$inject = ['$scope']; // Injection du scope de la directive
+
+        function ctrl($scope) {
+
+            this.supprimerIndicateurBloc = function (ind) {
+                console.log("sup");
+                $scope.onSupp({indicateurBloc: ind});
+            };
+
+        };
+
+        function linkFunc(scope, element, attrs) {
             console.log(scope.options);
             /**
              * Recuperation des indicateurs à charger
              */
-
-
-
-    /*        scope.indicateursDefaut = scope.options.indicateurBlocs;
-
-            scope.effacer();//init
-            scope.chargerIndicateursBlocs(scope.indicateursDefaut);//Chargement des indicateurs présents
-            console.log(scope.indicateurBlocs);*/
         }
-    };
-
-    return _ind;
-
-
-
-};
+    }
+})();
 
