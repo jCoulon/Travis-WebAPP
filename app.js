@@ -9,10 +9,10 @@ var bodyParser = require('body-parser');
 
 /*  Configuration de l'api rest  */
 //var Sequelize = require('sequelize');
-var restful   = require('sequelize-restful');
+var restful = require('sequelize-restful');
 
 /*  Définition des routes de l'api, toutes les routes sont séparées par fichiers représentant chacune
-une fonction différente. Par exemple, les routes nécessaires aux notes sont dans le fichier note.js.   */
+ une fonction différente. Par exemple, les routes nécessaires aux notes sont dans le fichier note.js.   */
 var notes = require('./routes/api/notes');
 var transition = require('./routes/api/transition');
 
@@ -21,11 +21,13 @@ var model = require('./models/index.js');
 var sequelize = model.sequelize;
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./routes/api/users');
+var users_routes = require('./routes/api/users'),
+    auth_routes = require('./routes/auth');
 
 var app = express();
 
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
@@ -33,37 +35,37 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use('/bower_components',  express.static(__dirname + '/bower_components')); //repertoire bower
+app.use('/bower_components', express.static(__dirname + '/bower_components')); //repertoire bower
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use('/', routes);
-app.use('/users', users);
-app.use('/api/notes',notes);
+app.use('/api/notes', notes);
 app.use('/api/transition', transition);
+app.use('/api/users', users);
 
 /*  API REST  */
 app.use(restful(sequelize));
 
 //app.use('/api', function(req, res){});
-app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 // error handlers
 
-app.get("/partials/:name",function(req,res){
+app.get("/partials/:name", function (req, res) {
     console.log("here");
-    res.render("partials/"+req.params.name);
+    res.render("partials/" + req.params.name);
 });
 
 /** Redirection vers l'index **/
-app.get("/*",function(req,res){
-   res.render("index");
+app.get("/*", function (req, res) {
+    res.render("index");
 });
 
 module.exports = app;
