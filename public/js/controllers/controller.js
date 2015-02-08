@@ -4,44 +4,42 @@
 angular.module("TravisAPP")
 
 
-.factory("IndicateurModele",function(){
+    .factory("IndicateurModele", function () {
 
-    function IndicateurModele(type,titre){
-
-
-
-    }
+        function IndicateurModele(type, titre) {
 
 
+        }
 
-})
+
+    })
 /**
  * Modèle de données de l'indicateur
  */
-.factory("dataIndicateur",function(){
+    .factory("dataIndicateur", function () {
 
         /**
          * Constructeur  DataIndicateur
          * @param name
          */
-        function DataIndicateur(name){
+        function DataIndicateur(name) {
             this.name = name;
         }
 
-        DataIndicateur.prototype  = {
+        DataIndicateur.prototype = {
 
             /**
              * Liaison dataModel
              * @param indicateur
              * @param scope
              */
-            bind : function(indicateur,scope){
+            bind: function (indicateur, scope) {
                 this.dataModel = indicateur.dataModel;
             },
-            suppData : function(){
+            suppData: function () {
 
             },
-            updateData : function(newData){
+            updateData: function (newData) {
                 this.dataModel = newData;
             }
 
@@ -55,12 +53,12 @@ angular.module("TravisAPP")
  *
  * dataIndicateur = modèle de l'indicateur
  */
-.factory("dataPie",['$http','dataIndicateur',function(dataIndicateur,$http){
+    .factory("dataPie", ['$http', 'dataIndicateur', function (dataIndicateur, $http) {
 
         /**
          * Constructeur dataPie
          */
-        function DataPie(){
+        function DataPie() {
             this.name = " data Pie instance";
         };
 
@@ -73,82 +71,88 @@ angular.module("TravisAPP")
         /**
          *Fonctino loadData qui charge les données du modèle
          */
-        DataPie.prototype.loadData = function(){
+        DataPie.prototype.loadData = function () {
             //  $http.get();
         };
 
         return DataPie;
-}])
-.factory("indicateursGenerique",['dataPie',function(dataPie){
+    }])
+    .factory("indicateursGenerique", ['dataPie', function (dataPie) {
         return [
             {
-                name:"pie",
-                directive:"chartPie",
-                dataModel : dataPie
+                name: "pie",
+                directive: "chartPie",
+                dataModel: dataPie
             }];
     }])
 
 
+    .controller("connexionCtrl", connextionCtrl)
 
-.controller("dashboardIndicateur",['$scope',dashboardIndicateur])
+    .service('Session', Session)
 
-.controller("NoteController", ["$scope", "$http", function($scope, $http){
-    var idShare = "";
-    $scope.userNote = {
-        username: 'SimonL',
-        noteList: [],
-        shareNoteList: [],
-        shareNoteWithList: [],
-        urlNotes : '/api/notes/getUsernote/',
-        urlShareNotes : '/api/notes/getShareNote/',
-        urlIdShareNotesWith: '/api/notes/getIdShareNoteWith/',
-        urlShareNotesWith: '/api/notes/getShareNoteWith/'
-    };
+    .factory('LoginService', ["$http", "Session", LoginService])
 
-    $scope.userNote.urlNotes = $scope.userNote.urlNotes+$scope.userNote.username;
-    $scope.userNote.urlShareNotes = $scope.userNote.urlShareNotes+$scope.userNote.username;
-    $scope.userNote.urlIdShareNotesWith = $scope.userNote.urlIdShareNotesWith+$scope.userNote.username;
 
-    $http.get($scope.userNote.urlNotes)
-        .success(function(data, status, headers, config) {
-            $scope.userNote.noteList = data;
-        })
-        .error(function(data, status, headers, config) {
+    .controller("dashboardIndicateur", ['$scope', dashboardIndicateur])
 
-        });
-    $http.get($scope.userNote.urlShareNotes)
-        .success(function(data, status, headers, config) {
-            $scope.userNote.noteShareList = data;
-        })
-        .error(function(data, status, headers, config) {
+    .controller("NoteController", ["$scope", "$http", function ($scope, $http) {
+        var idShare = "";
+        $scope.userNote = {
+            username: 'SimonL',
+            noteList: [],
+            shareNoteList: [],
+            shareNoteWithList: [],
+            urlNotes: '/api/notes/getUsernote/',
+            urlShareNotes: '/api/notes/getShareNote/',
+            urlIdShareNotesWith: '/api/notes/getIdShareNoteWith/',
+            urlShareNotesWith: '/api/notes/getShareNoteWith/'
+        };
 
-        });
-    $http.get($scope.userNote.urlIdShareNotesWith)
-        .success(function(data, status, headers, config) {
-            for(var i = 0; i < data.length ; i++){
-                if( i == data.length-1){
-                    idShare = idShare + data[i].IdNote;
-                }else{
-                    idShare = idShare + data[i].IdNote + "-";
+        $scope.userNote.urlNotes = $scope.userNote.urlNotes + $scope.userNote.username;
+        $scope.userNote.urlShareNotes = $scope.userNote.urlShareNotes + $scope.userNote.username;
+        $scope.userNote.urlIdShareNotesWith = $scope.userNote.urlIdShareNotesWith + $scope.userNote.username;
+
+        $http.get($scope.userNote.urlNotes)
+            .success(function (data, status, headers, config) {
+                $scope.userNote.noteList = data;
+            })
+            .error(function (data, status, headers, config) {
+
+            });
+        $http.get($scope.userNote.urlShareNotes)
+            .success(function (data, status, headers, config) {
+                $scope.userNote.noteShareList = data;
+            })
+            .error(function (data, status, headers, config) {
+
+            });
+        $http.get($scope.userNote.urlIdShareNotesWith)
+            .success(function (data, status, headers, config) {
+                for (var i = 0; i < data.length; i++) {
+                    if (i == data.length - 1) {
+                        idShare = idShare + data[i].IdNote;
+                    } else {
+                        idShare = idShare + data[i].IdNote + "-";
+                    }
                 }
-            }
-            $http.get($scope.userNote.urlShareNotesWith+""+idShare)
-                .success(function(data, status, headers, config) {
-                    $scope.userNote.shareNoteWithList = data;
-                })
-                .error(function(data, status, headers, config) {
+                $http.get($scope.userNote.urlShareNotesWith + "" + idShare)
+                    .success(function (data, status, headers, config) {
+                        $scope.userNote.shareNoteWithList = data;
+                    })
+                    .error(function (data, status, headers, config) {
 
-                });
-        })
-        .error(function(data, status, headers, config) {
+                    });
+            })
+            .error(function (data, status, headers, config) {
 
-        });
-}]);
+            });
+    }]);
 
 /**
  * Gestion indicateurs
  */
-function dashboardIndicateur($scope){
+function dashboardIndicateur($scope) {
 
     /**
      * Evite les pb de scope
@@ -161,24 +165,29 @@ function dashboardIndicateur($scope){
      * En attendant modif, recuperation des indicateurs enregistré pour l'utilisateur connecté
      * @type {{titre: string}[]}
      */
-    var indicateurBlocs = [{id:1,titre : "radar",nbChart:"2",type:"pie",charts:[{titre:"monRadar1",data:"mesDataDeRadar1"},{id:2,titre:"monRadar2",data:"mesDataDeRadar2"}]},{titre:"time",type:"pie"}];
+    var indicateurBlocs = [{
+        id: 1,
+        titre: "radar",
+        nbChart: "2",
+        type: "pie",
+        charts: [{titre: "monRadar1", data: "mesDataDeRadar1"}, {id: 2, titre: "monRadar2", data: "mesDataDeRadar2"}]
+    }, {titre: "time", type: "pie"}];
 
     /**
      * Chargement user preferences
      * @type {{indicateurBlocsPanel: {titre: string}[], indicateurGenerique: string}}
      */
     _self.dashboardOptions = {
-        indicateurBlocsUser :indicateurBlocs, // Indicateurs à charger
-        indicateurGenerique : "" //
+        indicateurBlocsUser: indicateurBlocs, // Indicateurs à charger
+        indicateurGenerique: "" //
     };
-
 
 
     /**
      * Fonction d'ajout d'un indicateur
      */
-    _self.ajouterIndicateurBloc = function(ind){
-        console.log("ajouter indicateur"+ind.titre);
+    _self.ajouterIndicateurBloc = function (ind) {
+        console.log("ajouter indicateur" + ind.titre);
 
         /** Chargement du modèle de l'indicateur**/
         var indicateur = ind;
@@ -188,8 +197,13 @@ function dashboardIndicateur($scope){
     /**
      *
      */
-    _self.ajouterNouvelIndicateurBloc = function(){
-        var ind = {titre : _self.titre,nbChart:"2",type:"pie",charts:[{titre:"monRadar1",data:"mesDataDeRadar1"}]};
+    _self.ajouterNouvelIndicateurBloc = function () {
+        var ind = {
+            titre: _self.titre,
+            nbChart: "2",
+            type: "pie",
+            charts: [{titre: "monRadar1", data: "mesDataDeRadar1"}]
+        };
         _self.ajouterIndicateurBloc(ind);
     };
 
@@ -197,9 +211,9 @@ function dashboardIndicateur($scope){
      * Supprimer un indicateur
      * @param ind
      */
-    _self.supprimerIndicateurBloc = function(indicateurBloc){
-        var old_bloc =  _self.indicateurBlocsPanel  ;
-        _self.indicateurBlocsPanel =  [] ;
+    _self.supprimerIndicateurBloc = function (indicateurBloc) {
+        var old_bloc = _self.indicateurBlocsPanel;
+        _self.indicateurBlocsPanel = [];
 
         angular.forEach(old_bloc, function (bloc) {
             if (bloc.id !== indicateurBloc.id)  _self.indicateurBlocsPanel.push(bloc);
@@ -211,9 +225,9 @@ function dashboardIndicateur($scope){
      * Chargement des indicateurs
      * @param indicateurs
      */
-    _self.chargerIndicateursBlocs = function(indicateurs){
+    _self.chargerIndicateursBlocs = function (indicateurs) {
         console.log("charger indicateur");
-        angular.forEach(indicateurs,function(ind){
+        angular.forEach(indicateurs, function (ind) {
             console.log(ind);
             _self.ajouterIndicateurBloc(ind);
         });
@@ -222,11 +236,10 @@ function dashboardIndicateur($scope){
     /*
      * Supprimer tous les indicateurs
      */
-    _self.effacer = function(){
+    _self.effacer = function () {
         console.log("clear");
         _self.indicateurBlocsPanel = [];
     };
-
 
 
     /**
@@ -236,6 +249,75 @@ function dashboardIndicateur($scope){
     _self.effacer();//init
     _self.chargerIndicateursBlocs(_self.indicateursDefaut);//Chargement des indicateurs présents
     console.log(_self.indicateurBlocs);
+
+
+};
+
+/**
+ * Session utilisateur
+ * @returns {Session}
+ * @constructor
+ */
+function Session() {
+
+    this.create = function (sessionId, userId, userRole) {
+        this.id = sessionId;
+        this.userId = userId;
+        this.userRole = userRole;
+    };
+    this.destroy = function () {
+        this.id = null;
+        this.userId = null;
+        this.userRole = null;
+    };
+    return this;
+}
+
+/**
+ * Service de login
+ * @param $http
+ * @param Session
+ * @constructor
+ */
+function LoginService($http, Session) {
+    var loginService = {};
+
+    loginService.seConnecter = function (info) {
+        return $http.post('/api/users/login', info).then(function (res) {
+
+            //Session.create(res.data.id, res.data.user.IDUser, res.data.user.IDRole);
+            console.info("Connexion valide",res);
+
+        }, function (err) {
+            console.info(err);
+        });
+    }
+
+    return loginService;
+};
+
+
+function connextionCtrl($rootScope, LoginService) {
+    var ctrl = this; //scope du controller
+    ctrl.dataUser = {
+        username: "",
+        password: ""
+    };
+
+    ctrl.seConnecter = function () {
+        console.info("connexion");
+        LoginService.seConnecter(ctrl.dataUser).then(function (user) {
+            if (user)
+                ctrl.setCurrentUser(user);
+            console.info("Login reussi ! ");
+        }, function () {
+            console.info("login erreur");
+        });
+    };
+
+    ctrl.setCurrentUser = function (user) {
+        ctrl.currentUser = user;
+    }
 
 
 };

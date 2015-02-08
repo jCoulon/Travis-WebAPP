@@ -8,14 +8,13 @@ var models = require('../models/index');
 
 
 passport.serializeUser(function (user, done) {
-    done(null, user.IDUser);
+    done(null, user);
 });
 
 passport.deserializeUser(function (id, done) {
 
-    models.db.User.find(id).then(function (err, user) {
-        done(err, user);
-    })
+    done(null, user);
+
 });
 
 
@@ -23,18 +22,19 @@ passport.use(new LocalStrategy(function (username, password, done) {
     //TODO comparaison password
 
     models.db.User.find({where: {Login: username}}).then(function (user) {
-
+        console.log("login");
         if (!user)
-            return done(null, false, {message: 'utilisateur inconnu ' + username});
+            return done(null, false);
         if (user.Password === password) {
             return done(null, user);
         } else {
-            return done(null, false, {message: 'Mot de passe invalide'});
+            return done(null, false);
         }
 
-    });
+    }, function (error) {
+        return done(null,error);
+    })
 
-    return done(null, false, {message: 'Incorrect username.'});
 
 }));
 
@@ -48,8 +48,10 @@ passport.use(new LocalStrategy(function (username, password, done) {
  */
 exports.utilisateurDejaConnecte = function (req, res, next) {
 
-    if (req.isAuthenticated())
-        res.send("1");
+    if (req.isAuthenticated()) {
+        next();
+    }
+    res.redirect("/login");
 
 
 };
@@ -57,7 +59,7 @@ exports.utilisateurDejaConnecte = function (req, res, next) {
 exports.findById = function (req, res) {
 
     models.db.User.find({where: {Login: req.params.username}}).then(function (user) {
-        var password = ""
+        var password = "";
         if (!user)
             return ok(null, false, {message: 'utilisateur inconnu ' + username});
         if (user.Password === req.params.password) {
@@ -74,7 +76,7 @@ exports.findById = function (req, res) {
 exports.findByIdTest = function (req, res) {
 
     models.db.User.find({where: {Login: req.params.username}}).then(function (user) {
-        var password = ""
+        var password = "";
         if (!user)
             console.info("Login inconu");
         if (user.Password === req.params.password) {

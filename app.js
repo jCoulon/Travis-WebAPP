@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var passport = require('passport');
 //var routes = require('./routes/index');
 
 /*  Configuration de l'api rest  */
@@ -21,7 +21,6 @@ var model = require('./models/index.js');
 var sequelize = model.sequelize;
 
 var routes = require('./routes/index');
-var users = require('./routes/api/users');
 var users_routes = require('./routes/api/users'),
     auth_routes = require('./routes/auth');
 
@@ -37,6 +36,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use('/bower_components', express.static(__dirname + '/bower_components')); //repertoire bower
 
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
@@ -48,7 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/', routes);
 app.use('/api/notes', notes);
 app.use('/api/transition', transition);
-app.use('/api/users', users);
+app.use('/api/users', users_routes);
 
 /*  API REST  */
 app.use(restful(sequelize));
