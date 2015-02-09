@@ -1,17 +1,18 @@
 /**
  * Created by jonathancoulon on 20/12/14.
  */
-angular.module("TravisAPP", [])
+angular.module("connexion", [])
 
 /**
  * Controller de connexion
  * Gestion de la connexion de l'utilisateur
  */
-    .controller("connexionCtrl", connextionCtrl)
+    .controller("connexionCtrl", ['$rootScope', '$state', connextionCtrl])
 
     .service('Session', Session)
 
-    .factory('LoginService', ["$http", "Session", LoginService]);
+    .factory('LoginService', ["$http", '$q', '$rootScope', "Session", LoginService]);
+
 
 /**
  * Session utilisateur
@@ -39,42 +40,57 @@ function Session() {
  * @param Session
  * @constructor
  */
-function LoginService($http, Session) {
+function LoginService($http, $q, $rootScope, Session) {
     var loginService = {};
 
-    loginService.seConnecter = function (info) {
-        return $http.post('/connexion', info).then(function (res) {
+    loginService.seConnecter = function (infoUser) {
 
-            Session.create(res.data.id, res.data.user.IDUser, res.data.user.IDRole);
+        var def = $q.defer();
+
+        return $http.post('/api/users/login', infoUser).then(function (res) {
+
+            // Session.create(res.data.id, res.data.user.IDUser, res.data.user.IDRole);
+            loginService.setCurrentUser(res.data);
 
         }, function (err) {
             console.info(err);
-        })
-    }
+        });
+    };
+
+    loginService.setCurrentUser = function (user) {
+        $rootScope.user = user;
+    };
+
+
+    return loginService;
 };
 
-
-function connextionCtrl($rootScope, LoginService) {
+function connextionCtrl($rootScope, $state, LoginService) {
     var ctrl = this; //scope du controller
     ctrl.dataUser = {
         username: "",
         password: ""
     };
 
-    ctrl.seConnecter = function (compte, mdp) {
+    if (!$rootScope.user) {
+        $state.go("dashboard.dataviz");
+    }
+
+    ctrl.seConnecter = function () {
 
         LoginService.seConnecter(ctrl.dataUser).then(function (user) {
             if (user)
                 ctrl.setCurrentUser(user);
-                console.info("Login reussi ! ");
+            $state.go('dashboard.dataviz');
+
         }, function () {
             console.info("login erreur");
         });
     };
 
-    ctrl.setCurrentUser = function (user){
+    ctrl.setCurrentUser = function (user) {
         ctrl.currentUser = user;
-    }
+    };
 
 
 };

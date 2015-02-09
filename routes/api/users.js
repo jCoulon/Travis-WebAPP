@@ -4,21 +4,15 @@ var models = require('../../models/index');
 var passport = require("passport");
 var config = require("../../config/auth");
 
-router.get('/getUser/:username/:password', config.findByIdTest);
+router.get('/getUser/:username/:password', config.findById);
 
 
-router.post("/login", passport.authenticate('local', {
-    failureRedirect: '/login'
-}), function (req, res) {
-    var data = {idUser: req.user.IDUser};
-    res.send(data);
-});
+router.post("/login", config.seConnecter);
 
-router.get("/connected", function (req, res, next) {
-
-    res.send(req.isAuthenticated() ? req.user : '0');
-
-});
+/**
+ * Verifie si l'utilisateur est deja connecte ou non
+ */
+router.get("/connected", config.utilisateurDejaConnecte);
 
 
 module.exports = router;

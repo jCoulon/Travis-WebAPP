@@ -8,12 +8,22 @@ var models = require('../models/index');
 
 
 passport.serializeUser(function (user, done) {
-    done(null, user);
+    done(null, user.IDUser);
 });
 
 passport.deserializeUser(function (id, done) {
 
-    done(null, user);
+    findById(id).then(function (user) {
+        console.log("login", user);
+        if (!user)
+            done(null, false);
+        done(null,user);
+
+
+    }, function (error) {
+        return done(null, error);
+    });
+
 
 });
 
@@ -32,7 +42,7 @@ passport.use(new LocalStrategy(function (username, password, done) {
         }
 
     }, function (error) {
-        return done(null,error);
+        return done(null, error);
     })
 
 
@@ -46,45 +56,37 @@ passport.use(new LocalStrategy(function (username, password, done) {
  * @param next
  * @returns {*}
  */
-exports.utilisateurDejaConnecte = function (req, res, next) {
+function utilisateurDejaConnecte(req, res, next) {
+    console.info(req.isAuthenticated(), req.user);
+    res.send(req.isAuthenticated() ? req.user.toJSON() : 'non_connecte');
+}
 
-    if (req.isAuthenticated()) {
-        next();
-    }
-    res.redirect("/login");
+function findById(IDUser) {
 
+    var promise = models.db.User.find(IDUser);
 
-};
+    return promise;
+}
 
-exports.findById = function (req, res) {
-
-    models.db.User.find({where: {Login: req.params.username}}).then(function (user) {
-        var password = "";
-        if (!user)
-            return ok(null, false, {message: 'utilisateur inconnu ' + username});
-        if (user.Password === req.params.password) {
-            return done(null, user);
-        } else {
-            return done(null, false, {message: 'Mot de passe invalide'});
+function seConnecter(req, res, next) {
+    passport.authenticate('local', function (err, user) {
+        if (err) next();
+        if (!user) {
+            res.status(401).end();
         }
 
-    });
+        req.logIn(user, function (error) {
+            if (error) next();
 
-};
+           return res.send(user.toJSON());
+        });
 
 
-exports.findByIdTest = function (req, res) {
+    })(req, res, next);
+}
 
-    models.db.User.find({where: {Login: req.params.username}}).then(function (user) {
-        var password = "";
-        if (!user)
-            console.info("Login inconu");
-        if (user.Password === req.params.password) {
-            console.info("Login ok");
-        } else {
-            console.info("Mauvais mot de passe");
-        }
+exports.findById = findById;
 
-    });
+exports.seConnecter = seConnecter;
 
-};
+exports.utilisateurDejaConnecte = utilisateurDejaConnecte;

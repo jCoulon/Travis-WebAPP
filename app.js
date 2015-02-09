@@ -21,8 +21,7 @@ var model = require('./models/index.js');
 var sequelize = model.sequelize;
 
 var routes = require('./routes/index');
-var users_routes = require('./routes/api/users'),
-    auth_routes = require('./routes/auth');
+var users_routes = require('./routes/api/users');
 
 var app = express();
 
@@ -36,17 +35,25 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use('/bower_components', express.static(__dirname + '/bower_components')); //repertoire bower
 
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(cookieParser());
+app.use(require('express-session')({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use('/', routes);
 app.use('/api/notes', notes);

@@ -77,6 +77,7 @@ angular.module("TravisAPP")
 
         return DataPie;
     }])
+
     .factory("indicateursGenerique", ['dataPie', function (dataPie) {
         return [
             {
@@ -86,12 +87,7 @@ angular.module("TravisAPP")
             }];
     }])
 
-
     .controller("connexionCtrl", connextionCtrl)
-
-    .service('Session', Session)
-
-    .factory('LoginService', ["$http", "Session", LoginService])
 
 
     .controller("dashboardIndicateur", ['$scope', dashboardIndicateur])
@@ -148,6 +144,7 @@ angular.module("TravisAPP")
 
             });
     }]);
+
 
 /**
  * Gestion indicateurs
@@ -253,71 +250,3 @@ function dashboardIndicateur($scope) {
 
 };
 
-/**
- * Session utilisateur
- * @returns {Session}
- * @constructor
- */
-function Session() {
-
-    this.create = function (sessionId, userId, userRole) {
-        this.id = sessionId;
-        this.userId = userId;
-        this.userRole = userRole;
-    };
-    this.destroy = function () {
-        this.id = null;
-        this.userId = null;
-        this.userRole = null;
-    };
-    return this;
-}
-
-/**
- * Service de login
- * @param $http
- * @param Session
- * @constructor
- */
-function LoginService($http, Session) {
-    var loginService = {};
-
-    loginService.seConnecter = function (info) {
-        return $http.post('/api/users/login', info).then(function (res) {
-
-            //Session.create(res.data.id, res.data.user.IDUser, res.data.user.IDRole);
-            console.info("Connexion valide",res);
-
-        }, function (err) {
-            console.info(err);
-        });
-    }
-
-    return loginService;
-};
-
-
-function connextionCtrl($rootScope, LoginService) {
-    var ctrl = this; //scope du controller
-    ctrl.dataUser = {
-        username: "",
-        password: ""
-    };
-
-    ctrl.seConnecter = function () {
-        console.info("connexion");
-        LoginService.seConnecter(ctrl.dataUser).then(function (user) {
-            if (user)
-                ctrl.setCurrentUser(user);
-            console.info("Login reussi ! ");
-        }, function () {
-            console.info("login erreur");
-        });
-    };
-
-    ctrl.setCurrentUser = function (user) {
-        ctrl.currentUser = user;
-    }
-
-
-};

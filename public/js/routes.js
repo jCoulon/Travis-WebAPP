@@ -3,32 +3,36 @@
  */
 'use strict';
 
-angular.module("TravisAPP", ['ui.router', 'chart.js'])
+angular.module("TravisAPP", ['ui.router', 'chart.js', 'connexion'])
+
+
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
+        var verifieConnexion = function ($q, $timeout, $http, $state, $rootScope) {
 
-        var estConnecte = function ($q, $timeout, $http, $location, $rootScope) {
-            // Initialize a new promise
+            //Promise
             var deferred = $q.defer();
 
-            // Make an AJAX call to check if the user is logged in
-            $http.get('/estConnecte').success(function (user) {
-                // Authenticated
-                if (user !== '0')
-                    $timeout(deferred.resolve, 0); //Attente jusque la reponse
+            //Appel Ajax
+            $http.get('/api/users/connected').success(function (user) {
 
-                // Not Authenticated
-                else {
-                    $rootScope.message = 'You need to log in.';
+                //Deja connecte
+                if (user !== "non_connecte") {
+                    $rootScope.user = user;
+                    $timeout(deferred.resolve, 0);//resultat
+
+
+                    //Pas connecte
+                } else {
+
                     $timeout(function () {
                         deferred.reject();
                     }, 0);
-                    $location.url('/login');
+                    $state.go('login');
                 }
             });
-
             return deferred.promise;
-        };
+        }
 
 
         $httpProvider.interceptors.push(['$injector',
@@ -49,7 +53,7 @@ angular.module("TravisAPP", ['ui.router', 'chart.js'])
         $stateProvider.state('dashboard', {
             url: "/dashboard",
             resolve: {
-                dejaConnecte: estConnecte
+                dejaConnecte: verifieConnexion
             },
             views: {
                 "masterView": {
@@ -65,6 +69,8 @@ angular.module("TravisAPP", ['ui.router', 'chart.js'])
                     templateUrl: "/partials/centralContent"
                 }
             }
+
+
         })
             .state('dashboard.timemachine', {
                 url: "/timemachine",
@@ -98,6 +104,7 @@ angular.module("TravisAPP", ['ui.router', 'chart.js'])
                         templateUrl: "/partials/dataviz"
                     }
                 }
+
             })
             .state("login", {
                 url: '/login',
@@ -111,22 +118,52 @@ angular.module("TravisAPP", ['ui.router', 'chart.js'])
 
     })
 
-    .factory("httpInterceptor", function ($rootScope, $q) {
-        return {
-            ResponseError:{
 
-            }
-        }
+    .factory("httpInterceptor", function ($rootScope, $q) {
+        return function (promise) {
+            return promise.then(
+                // Successs
+                function (response) {
+                    return response;
+                },
+                // Error
+                function (response) {
+                    if (response.status === 401) {
+                        var $state = $injector.get('$state');
+                        $state.go('login');
+                        return $q.reject(response);
+                    }
+                }
+            );
+        };
     })
 
-.
-controller('GlobalController', ['$scope', function ($scope) {
+    .
+    controller('GlobalController', ['$scope', function ($scope) {
 
-    // $scope.titre ="zezeazeza";
+        // $scope.titre ="zezeazeza";
 
-}])
+    }])
 
     .controller("dashboardIndicateur", dashboardIndicateur);
+
+
+function runChangeRoute($rootScope, travis_connexion_event, LoginService) {
+
+
+}
+
+
+function httpInterceptor($rootScope, $q, Travis_connexion_event) {
+    return {
+        responseError: function (response) {
+            $rootScope.$broadcast({
+                401: Travis_connexion_event.NON_CONNECTE
+            }[response.status], response);
+            return $q.reject(response);
+        }
+    };
+}
 
 
 /**
