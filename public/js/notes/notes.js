@@ -25,6 +25,7 @@ angular.module("TravisAPP")
         $scope.userNote.urlShareNotes = $scope.userNote.urlShareNotes+$scope.userNote.username;
         $scope.userNote.urlIdShareNotesWith = $scope.userNote.urlIdShareNotesWith+$scope.userNote.username;
 
+        /** On cherche à obtenir les notes de l'utilisateur dans un premier temps */
         $http.get($scope.userNote.urlNotes)
             .success(function(data, status, headers, config) {
                 $scope.userNote.noteList = data;
@@ -32,6 +33,7 @@ angular.module("TravisAPP")
             .error(function(data, status, headers, config) {
 
             });
+        /** Ensuite, on veut les notes partagées de l'utilisateur. À Modifier. */
         $http.get($scope.userNote.urlShareNotes)
             .success(function(data, status, headers, config) {
                 $scope.userNote.noteShareList = data;
@@ -39,6 +41,7 @@ angular.module("TravisAPP")
             .error(function(data, status, headers, config) {
 
             });
+        /** On recherche les notes qui sont ensuite partagées avec l'utilisateur. À modifier */
         $http.get($scope.userNote.urlIdShareNotesWith)
             .success(function(data, status, headers, config) {
                 for(var i = 0; i < data.length ; i++){
