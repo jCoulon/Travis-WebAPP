@@ -73,3 +73,18 @@ module.exports = (function() {
 
     return notes;
 })();
+
+
+/**
+
+ SELECT *
+ FROM User_notes, User_sharenote
+ WHERE User_notes.IDNotes = User_sharenote.IDShare
+ AND User_notes.Username = "SimonL"
+
+ SELECT *
+ FROM User_notes, User_sharenote
+ WHERE User_sharenote.Username REGEXP "SimonL"
+ AND User_sharenote.IDNote = User_notes.IDNotes
+
+ */

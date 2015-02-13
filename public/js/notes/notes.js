@@ -37,6 +37,13 @@ angular.module("TravisAPP")
         $http.get($scope.userNote.urlShareNotes)
             .success(function(data, status, headers, config) {
                 $scope.userNote.noteShareList = data;
+                for(var i = 0; i < data.length; i++){
+                    /**
+                     * À faire : Pour chaque occurrence de data, faire un appel AJAX pour récupérer les noms des personnes
+                     * avec qui la note est partagée. Faire une concaténation pour ensuite traiter les personnes
+                     * dans le ng-reapeat.
+                     * */
+                }
             })
             .error(function(data, status, headers, config) {
 
@@ -53,6 +60,7 @@ angular.module("TravisAPP")
                 }
                $http.get($scope.userNote.urlShareNotesWith+""+idShare)
                     .success(function(data, status, headers, config) {
+                       console.log(data);
                        $scope.userNote.shareNoteWithList = data;
                     })
                     .error(function(data, status, headers, config) {

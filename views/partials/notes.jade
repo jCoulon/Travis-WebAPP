@@ -21,5 +21,6 @@ div(ng-controller="NoteController")
       h2 Notes partagées avec moi
       div.note(ng-repeat="note in userNote.shareNoteWithList" content="notes")
          h2.titre {{note.Titre}}
+         h3.auteur Auteur : {{note.Username}}
          div.text {{note.Note}}
          div
