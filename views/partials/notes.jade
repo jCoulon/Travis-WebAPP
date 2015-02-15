@@ -17,12 +17,13 @@ div(ng-controller="NoteController")
          div.usershare(ng-repeat="user in note.usersShared")
             div.userShared
                h4 {{user}}
-         div
 
    div.noteslist
       h2 Notes partagées avec moi
       div.note(ng-repeat="note in userNote.shareNoteWithList" content="notes")
-         h2.titre {{note.Titre}}
-         h3.auteur Auteur : {{note.Username}}
-         div.text {{note.Note}}
-         div
+         h2.titre {{note.completeNote[0].Titre}}
+         h3.auteur Auteur : {{note.completeNote[0].Username}}
+         div.text {{note.completeNote[0].Note}}
+         div.usershare(ng-repeat="user in note.usersShared")
+            div.userShared
+               h4 {{user}}

@@ -19,7 +19,8 @@ angular.module("TravisAPP")
             urlShareNotes : '/api/notes/getShareNote/',
             urlIdShareNotesWith: '/api/notes/getIdShareNoteWith/',
             urlShareNotesWith: '/api/notes/getShareNoteWith/',
-            urlUsernameShareById: '/api/notes/getNoteById/'
+            urlUsernameShareById: '/api/notes/getShareNoteById/',
+            urlgetNoteById: '/api/notes/getNoteById/'
         };
 
         $scope.userNote.urlNotes = $scope.userNote.urlNotes+$scope.userNote.username;
@@ -84,12 +85,35 @@ angular.module("TravisAPP")
                     .error(function(data, status, headers, config) {
 
                     });*/
-                console.log(data);
+                $scope.userNote.shareNoteWithList = data;
+                for(var i = 0; i < data.length; i++){
+                    var usernameReg = /;/;
+                    var username = data[i].Username.split(usernameReg);
+                    $scope.userNote.shareNoteWithList[i]["usersShared"] = username;
+
+                    $http.get($scope.userNote.urlgetNoteById+data[i].IdNote)
+                        .success(function(data, status, headers, config) {
+                            var i = 0;
+                            var find = 0;
+                            while(find!= 1 || i < $scope.userNote.shareNoteWithList.length-1){
+                                if($scope.userNote.shareNoteWithList[i].IdNote == data[0].IdNotes){
+                                    find = 1;
+                                    $scope.userNote.shareNoteWithList[i]["completeNote"] = data;
+                                    console.log($scope.userNote.shareNoteWithList);
+                                }
+                                i++;
+                            }
+                        })
+                        .error(function(data, status, headers, config) {
+
+                        });
+                }
                 /**
                  * À faire :
                  * Pour chaque occurrence de data :
                  *  - Aller chercher les informations relatives à la note
                  *  - concaténer ensuite les deux datas
+                 *  - Traiter les data dans la vue
                  */
             })
             .error(function(data, status, headers, config) {

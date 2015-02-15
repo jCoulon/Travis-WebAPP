@@ -69,8 +69,14 @@ module.exports = (function() {
             res.json(data);
         });
     });
-    notes.get('/getNoteById/:id', function(req, res){
+    notes.get('/getShareNoteById/:id', function(req, res){
         models.db.ShareNotes.findAll({where : {IDNote : req.params.id}},{raw:true}).then(function(activites){
+            res.json(activites);
+        });
+    });
+
+    notes.get('/getNoteById/:id', function(req, res){
+        models.db.Notes.findAll({where : {IdNotes : req.params.id}},{raw:true}).then(function(activites){
             res.json(activites);
         });
     });
