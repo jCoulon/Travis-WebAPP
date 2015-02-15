@@ -14,7 +14,9 @@ div(ng-controller="NoteController")
       div.note(ng-repeat="note in userNote.noteShareList" content="notes")
          h2.titre {{note.Titre}}
          div.text {{note.Note}}
-         //div.usershare(ng-repeat="user in userNote.noteShareList."
+         div.usershare(ng-repeat="user in note.usersShared")
+            div.userShared
+               h4 {{user}}
          div
 
    div.noteslist

@@ -69,7 +69,11 @@ module.exports = (function() {
             res.json(data);
         });
     });
-
+    notes.get('/getNoteById/:id', function(req, res){
+        models.db.ShareNotes.findAll({where : {IDNote : req.params.id}},{raw:true}).then(function(activites){
+            res.json(activites);
+        });
+    });
 
     return notes;
 })();
