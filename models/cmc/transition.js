@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     var Transition = sequelize.define("Transition", {
         IdTran: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true} ,
         Usager: DataTypes.STRING,
-        Titre: DataTypes.INTEGER,
+        Titre: DataTypes.STRING,
         Attribut:DataTypes.STRING,
         Date:DataTypes.STRING,
         Heure:DataTypes.STRING,

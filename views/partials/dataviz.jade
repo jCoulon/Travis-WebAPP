@@ -15,3 +15,13 @@ div(ng-controller="dashboardIndicateur as dashboardCtrl")
         button(type="button") +
         input(type="submit" ng-click="alert()" value="Ajouter")
 
+    div#addGroup(ng-controller="addGroup")
+        h3 Ajouter un groupe
+        input#titrenote(type="text")
+        textarea#textnote
+        label(for="sharenote") Partagée
+        input#sharenote(type="checkbox")
+        input#shareuser(type="text")
+        button(type="button") +
+        input(type="submit" ng-click="alert()" value="Ajouter")
+
