@@ -180,9 +180,9 @@ router.get('/usager/colab/:groupList/:forumList', function (req, res) {
 
     group.forEach(function (userInGroup) { //Pour chaque user du groupe
         var deferred = q.defer(); //Utilisé pour attendre que tout le foreach soit fini
-        allPromises.push(deferred.promise);
-
         var user = {name: userInGroup, forums: []};
+
+        allPromises.push(deferred.promise);//Requete en attente de resultat
 
         forums.forEach(function (forum) {//Pour chaque forum voulu
             var userStat = {IDForum: forum};//Init les statistiques de l'user dans le forum donnée
@@ -219,7 +219,7 @@ router.get('/usager/colab/:groupList/:forumList', function (req, res) {
                 }
 
                 user.forums.push(userStat);//Ajoute les stats du forum pour l'userInGroup
-                console.log(user);
+
                 deferred.resolve();//Requete Async fini
             });
 
