@@ -15,6 +15,7 @@ var restful   = require('sequelize-restful');
 une fonction différente. Par exemple, les routes nécessaires aux notes sont dans le fichier note.js.   */
 var notes = require('./routes/api/notes');
 var transition = require('./routes/api/transition');
+var usersapi = require('./routes/api/users');
 
 /*  Définition du/des models nécessaires à sequelize  */
 var model = require('./models/index.js');
@@ -22,6 +23,7 @@ var sequelize = model.sequelize;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
 
 var app = express();
 
@@ -47,6 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', users);
 app.use('/api/notes',notes);
 app.use('/api/transition', transition);
+app.use('/api/users', usersapi);
 
 /*  API REST  */
 app.use(restful(sequelize));

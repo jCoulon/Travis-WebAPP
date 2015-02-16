@@ -64,11 +64,6 @@ module.exports = (function() {
         });
     });
 
-    notes.get('/getAutocompleteName/:name', function(req, res){
-        models.db.User.findAll({where : "Name REGEXP '"+req.params.name+"' OR Surname REGEXP '"+req.params.name+"' OR Login REGEXP '"+req.params.name+"'"},{raw:true}).then(function(data){
-            res.json(data);
-        });
-    });
     notes.get('/getShareNoteById/:id', function(req, res){
         models.db.ShareNotes.findAll({where : {IDNote : req.params.id}},{raw:true}).then(function(activites){
             res.json(activites);
