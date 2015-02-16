@@ -21,26 +21,40 @@ module.exports = (function() {
     });
 
     notes.post('/addNote', function(req, res){
-        console.log("Reception AJAX");
         if(typeof req.body.Username !== 'undefined' && typeof req.body.Share !== 'undefined' && typeof req.body.NbMax !== 'undefined' && typeof req.body.Note !== 'undefined' && typeof req.body.Date !== 'undefined' && typeof req.body.Lastaccess !== 'undefined' && req.body.Titre !== 'undefined') {
-            console.log("go insérer!");
-            console.log(req.body);
             models.db.Notes.create({
-                    IdNotes: null,
-                    Username: req.body.username,
-                    Share: req.body.share,
-                    NbMax: req.body.nbmax,
-                    Titre: req.body.titre,
-                    Note: req.body.note,
-                    Date: req.body.date,
-                    Lastaccess: req.body.lastaccess
-                }).then(function () {
-                    res.send(200).end();
-                }).error(function(){
-                    res.send(424);
-                });
+                IdNotes: null,
+                Username: req.body.Username,
+                Share: req.body.Share,
+                NbMax: req.body.NbMax,
+                Titre: req.body.Titre,
+                Note: req.body.Note,
+                Date: req.body.Date,
+                Lastaccess: req.body.Lastaccess
+            }).success(function (data) {
+                console.log(data);
+                res.json(data.dataValues.IdNotes).end();
+            }).error(function(){
+                res.send(424);
+            });
         }else{
             res.send(500);
+        }
+    });
+
+    notes.post('/addShareNote', function(req, res){
+        if(typeof req.body.Username !== 'undefined' && typeof req.body.IdNote !== 'undefined' && typeof req.body.DateShare !== 'undefined' && typeof req.body.LastAccess !== 'undefined' ) {
+            models.db.ShareNotes.create({
+                IdNotes: null,
+                Username: req.body.Username,
+                IdNote: req.body.IdNote,
+                DateShare: req.body.DateShare,
+                LastAccess: req.body.LastAccess
+            }).success(function () {
+                res.send(200).end();
+            }).error(function () {
+                res.send(424);
+            });
         }
     });
 

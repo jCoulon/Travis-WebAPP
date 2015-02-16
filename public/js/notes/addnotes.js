@@ -7,29 +7,47 @@ angular.module("TravisAPP")
             var checked = document.getElementById("sharenote").checked;
             if(checked==true){
                 checked = 1;
+                var users = "";
+                var usernames = [];
+                var shareUsers = document.getElementsByClassName("tagName");
+                for(var i = 0 ; i < shareUsers.length ; i ++){
+                    usernames.push(shareUsers[i].textContent.substring(shareUsers[i].textContent.indexOf("<")+1, shareUsers[i].textContent.indexOf(">")));
+                }
+                for(var i = 0 ; i < usernames.length; i++){
+                    if(i!= usernames.length-1){
+                        users = users + usernames[i]+";";
+                    }else{
+                        users = users+usernames[i];
+                    }
+                }
+                console.log(users);
             }else{
                 checked = 0;
             }
-            console.log("appel ajax");
             // Simple POST request example (passing data) :
             $http.post('/api/notes/addNote', {Username: "SimonL", Share:checked, NbMax:0, Titre: document.getElementById('titrenote').value.toString(), Note:document.getElementById("textnote").value.toString(), Date:currentDate, Lastaccess: currentDate})
                 .success(function(data, status, headers, config) {
                     alert(data);
-                    // this callback will be called asynchronously
-                    // when the response is available
+                    if(checked==1){
+                        /**
+                         * Ici, On réalise l'insertion du partage de la note.
+                         */
+                        $http.post('/api/notes/addShareNote', {Username: users, IdNote:data, DateShare:currentDate, LastAccess: currentDate})
+                            .success(function(data, status, headers, config) {
+                                alert(data);
+                            })
+                            .error(function(data, status, headers, config) {
+                                alert("Erreur lors de l'insertion de la note. Veuillez contacter le responsable de la maintenance.");
+                            });
+                    }
                 })
                 .error(function(data, status, headers, config) {
-                    console.log(data);
-                    console.log(status);
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
+                    alert("Erreur lors de l'insertion de la note. Veuillez contacter le responsable de la maintenance.");
                 });
         }
     }]);
 
 /**
- * localhost:3000/api/notes/addNote?username=SimonL&share=0&nbmax=4&note=Hello world POST ENCORE&date=2015-01-21&lastaccess=2015-01-21
- *
  *
  * Ajout d'une note: Infomation nécessaire:
  *
@@ -41,5 +59,13 @@ angular.module("TravisAPP")
  * - Note: req.body.note,
  * - Date: req.body.date,
  * - Lastaccess: req.body.lastaccess
+ *
+ *
+ * Ajout d'une note partagée : Information nécessaires
+ *
+ * - Username: req.body.Username,
+ * - IdNote: req.body.IdNote,
+ * - DateShare: req.body.DateShare,
+ * - LastAccess: req.body.LastAccess
  *
  * */
