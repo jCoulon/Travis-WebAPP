@@ -5,6 +5,7 @@ module.exports = (function() {
     'use strict';
     var notes = express.Router();
     var models  = require('../../models/index');
+    var sequelize = new Sequelize();
 
     notes.get('/getAllNotes',function(req, res) {
         models.db.Notes.findAll({},{raw:true}).success(function(activites){
@@ -20,21 +21,26 @@ module.exports = (function() {
     });
 
     notes.post('/addNote', function(req, res){
-        if(typeof req.query.username !== 'undefined' && typeof req.query.share !== 'undefined' && typeof req.query.nbmax !== 'undefined' && typeof req.query.note !== 'undefined' && typeof req.query.date !== 'undefined' && typeof req.query.lastaccess !== 'undefined' && req.query.titre !== 'undefined') {
+        console.log("Reception AJAX");
+        if(typeof req.body.Username !== 'undefined' && typeof req.body.Share !== 'undefined' && typeof req.body.NbMax !== 'undefined' && typeof req.body.Note !== 'undefined' && typeof req.body.Date !== 'undefined' && typeof req.body.Lastaccess !== 'undefined' && req.body.Titre !== 'undefined') {
+            console.log("go insérer!");
+            console.log(req.body);
             models.db.Notes.create({
-                IdNotes: null,
-                Username: req.query.username,
-                Share: req.query.share,
-                NbMax: req.query.nbmax,
-                Titre: req.query.titre,
-                Note: req.query.note,
-                Date: req.query.date,
-                Lastaccess: req.query.lastaccess
-            }).then(function () {
-                res.send(200).end();
-            }).error(function(){
-                res.send(424);
-            });
+                    IdNotes: null,
+                    Username: req.body.username,
+                    Share: req.body.share,
+                    NbMax: req.body.nbmax,
+                    Titre: req.body.titre,
+                    Note: req.body.note,
+                    Date: req.body.date,
+                    Lastaccess: req.body.lastaccess
+                }).then(function () {
+                    res.send(200).end();
+                }).error(function(){
+                    res.send(424);
+                });
+        }else{
+            res.send(500);
         }
     });
 

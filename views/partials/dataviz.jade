@@ -1,16 +1,14 @@
 div(ng-controller="dashboardIndicateur as dashboardCtrl")
     indicateur-area(options="dashboardCtrl.dashboardOptions")
 
-    div#addnote
+    div#addnote(ng-controller="addNote")
         h3 Ajouter une note
         input#titrenote(type="text")
         textarea#textnote
         label(for="sharenote") Partagée
         input#sharenote(type="checkbox")
-        input#shareuser(type="text")
-        button(type="button") +
         div(ng-controller="userNoteController")
-                div.tags-wrapper(autocomplete-usernote)
+                div.tags-wrapper
                     div#tagsList.tags-cloud
                         div.tag(ng-repeat="selectedTag in selectedTags")
                             span.tagName {{selectedTag}}
@@ -19,3 +17,4 @@ div(ng-controller="dashboardIndicateur as dashboardCtrl")
                         input#searchInput.form-control(type="text", placeholder="À partager avec", ng-keydown="checkKeyDown($event)", ng-model="searchText", ng-change="search()")
                     ul#suggestions.suggestions-list
                         li.blockSpan(ng-repeat="suggestion in suggestions" ng-click="addToSelectedTags($index)", ng-mouseover="$parent.selectedIndex=$index", ng-class="{active: selectedIndex===$index}") {{suggestion}}
+        input(type="button", ng-click="addNote()", value="Ajouter")
