@@ -40,25 +40,25 @@ header a {
 	margin: 0.9em 0;
 }
 
-.navCentral {
+.center_header {
 	min-width: 36em;
 }
 
-.search, .settings {
+.left_header, .right_header {
 	padding: 1.22em 1.66em;
 }
 
-.search {
+.left_header {
 	border-right: 1px solid $dividerColor;
 	order: 1;
 }
-.mainNav {
+.center_header {
 	margin: auto;
 	order: 2;
 	overflow: hidden;
 	position: relative;
 }
-.settings {
+.right_header {
 	border-left: 1px solid $dividerColor;
 	order: 3;
 }

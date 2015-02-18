@@ -27,7 +27,7 @@ html, body {
 li {
   list-style: none; }
 
-.leftLayout {
+.left_content {
   background-color: #FFFFFF;
   border-right: 1px solid #B6B6B6;
   display: flex;
@@ -36,7 +36,7 @@ li {
   max-width: 10em;
   order: 1;
   width: 10em; }
-  .leftLayout nav {
+  .left_content nav {
     border: solid; }
 
 .logo {
@@ -52,7 +52,7 @@ main {
   order: 2;
   margin: auto; }
 
-.rightLayout {
+.right_content {
   background-color: #3F51B5;
   display: flex;
   flex-direction: column;
@@ -95,22 +95,22 @@ header a {
   display: inline-block;
   margin: 0.9em 0; }
 
-.navCentral {
+.center_header {
   min-width: 36em; }
 
-.search, .settings {
+.left_header, .right_header {
   padding: 1.22em 1.66em; }
 
-.search {
+.left_header {
   border-right: 1px solid #B6B6B6;
   order: 1; }
 
-.mainNav {
+.center_header {
   margin: auto;
   order: 2;
   overflow: hidden;
   position: relative; }
 
-.settings {
+.right_header {
   border-left: 1px solid #B6B6B6;
   order: 3; }

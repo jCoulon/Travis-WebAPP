@@ -7,7 +7,7 @@ html(ng-app="TravisAPP")
 
     base(href="/")
 
-  body(ng-controller="GlobalController")
+  body.flex(ng-controller="GlobalController" ui-view="masterView")
     block content
 
 
