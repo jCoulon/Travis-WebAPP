@@ -1,0 +1,24 @@
+#addnote{
+  max-width:480px;
+  height: 500px;
+  position: absolute;
+  bottom: 0;
+  right: 12em;
+  @include box-shadow(0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36));
+
+  h3{
+    background-color: $noteGrey;
+    color:$backgroundColor;
+    padding: 11px 20px;
+    @include border-radius-top(5px);
+    height: 18px;
+    margin-top:0;
+    font-size: 1.1em;
+  }
+
+  h3::before{
+    content: url("../images/icons/pencil.png");
+    font-size: 18px;
+    margin-right: 1em;
+  }
+}

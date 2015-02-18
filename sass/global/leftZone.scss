@@ -31,28 +31,44 @@
 		  color: $menuIconColor;
 		}
 	  	.dataviz::before{
-		  font-family: FontAwesome;
-		  content:"\f080";
+		  content:url("../images/icons/charts.png");
+		}
+
+	  	.dataviz.active::before{
+		  content:url("../images/icons/charts-active.png");
+
 		}
 
 	  	.time::before{
-		  font-family: FontAwesome;
-		  content:"\f017";
+		  content:url("../images/icons/time.png");
+		}
+
+		.time.active::before{
+		  content:url("../images/icons/time-active.png");
 		}
 
 		.notes::before{
-		  font-family: FontAwesome;
-		  content:"\f040";
+		  content:url("../images/icons/pencil-menu.png");
+		}
+
+		.notes.active::before{
+		  content:url("../images/icons/pencil-active.png");
 		}
 
 	  	.credits::before{
-		  font-family: FontAwesome;
-		  content:"\f0c0";
+		  content:url("../images/icons/credit.png");
+		}
+
+		.credits.active::before{
+		  content:url("../images/icons/credit-active.png");
 		}
 
 	  	.deconnexion::before{
-		  font-family: FontAwesome;
-		  content: "\f011";
+		  content:url("../images/icons/logout.png");
+		}
+
+		.deconnexion.active::before{
+		  content:url("../images/icons/logout-active.png");
 		}
 
 	  .active, a.active::before {
