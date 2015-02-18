@@ -1,7 +1,7 @@
 #addnote{
   max-width:480px;
   height: 500px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 12em;
   @include box-shadow(0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36));
@@ -12,7 +12,7 @@
     padding: 11px 20px;
     @include border-radius-top(5px);
     height: 18px;
-    margin-top:0;
+    margin:0;
     font-size: 1.1em;
   }
 
@@ -20,5 +20,68 @@
     content: url("../images/icons/pencil.png");
     font-size: 18px;
     margin-right: 1em;
+  }
+  
+  input{
+    outline: none;
+  }
+
+  input[type="button"]{
+    background-color: $blueMaterial;
+    color:$textPrimaryColor;
+    cursor: pointer;
+    border:none;
+    @include box-shadow(0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24));
+    @include border-radius(2px);
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin: 4px 0;
+    padding: 0 16px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    line-height: 2.5;
+    font-size: 0.8em;
+  }
+  
+  #titrenote{
+    border: none;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 0;
+    padding: 7px 15px;
+    line-height: 20px;
+    esize: none;
+    vertical-align: middle;
+    border-bottom: 1px solid #e5e5e5;
+    font-family: Lato;
+    font-weight: bold;
+    color: $noteGrey;
+
+    @include placeholder{
+      font-family: Lato;
+      color: $noteGrey;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  }
+
+  #textnote{
+    border: none;
+    width: 440px;
+    min-height: 252px;
+    line-height: 20px;
+    font-family: Lato;
+    color: $noteGrey;
+    padding: 10px 20px;
+    outline: none;
+  }
+
+  #textnote:focus{
+    border: none;
+  }
+
+  input[type="checkbox"]:checked + .check{
+    background-color: #259789;
+    content: url("../images/icons/checkmark.png");
   }
 }

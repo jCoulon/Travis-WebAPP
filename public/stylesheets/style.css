@@ -32,6 +32,16 @@ html, body {
 li {
   list-style: none; }
 
+.check {
+  border: solid 2px #717171;
+  width: 10px;
+  height: 10px;
+  display: block;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px; }
+
 .left_content {
   background-color: #FFFFFF;
   border-right: 1px solid #B6B6B6;
@@ -252,7 +262,7 @@ header a {
 #addnote {
   max-width: 480px;
   height: 500px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 12em;
   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
@@ -271,9 +281,78 @@ header a {
     -ms-border-top-right-radius: 5px;
     border-top-right-radius: 5px;
     height: 18px;
-    margin-top: 0;
+    margin: 0;
     font-size: 1.1em; }
   #addnote h3::before {
     content: url("../images/icons/pencil.png");
     font-size: 18px;
     margin-right: 1em; }
+  #addnote input {
+    outline: none; }
+  #addnote input[type="button"] {
+    background-color: #4285f4;
+    color: #FFFFFF;
+    cursor: pointer;
+    border: none;
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin: 4px 0;
+    padding: 0 16px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    line-height: 2.5;
+    font-size: 0.8em; }
+  #addnote #titrenote {
+    border: none;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 0;
+    padding: 7px 15px;
+    line-height: 20px;
+    esize: none;
+    vertical-align: middle;
+    border-bottom: 1px solid #e5e5e5;
+    font-family: Lato;
+    font-weight: bold;
+    color: #555555; }
+    #addnote #titrenote::-webkit-input-placeholder {
+      font-family: Lato;
+      color: #555555;
+      font-size: 1.2em;
+      font-weight: bold; }
+    #addnote #titrenote:-moz-placeholder {
+      font-family: Lato;
+      color: #555555;
+      font-size: 1.2em;
+      font-weight: bold; }
+    #addnote #titrenote::-moz-placeholder {
+      font-family: Lato;
+      color: #555555;
+      font-size: 1.2em;
+      font-weight: bold; }
+    #addnote #titrenote:-ms-input-placeholder {
+      font-family: Lato;
+      color: #555555;
+      font-size: 1.2em;
+      font-weight: bold; }
+  #addnote #textnote {
+    border: none;
+    width: 440px;
+    min-height: 252px;
+    line-height: 20px;
+    font-family: Lato;
+    color: #555555;
+    padding: 10px 20px;
+    outline: none; }
+  #addnote #textnote:focus {
+    border: none; }
+  #addnote input[type="checkbox"]:checked + .check {
+    background-color: #259789;
+    content: url("../images/icons/checkmark.png"); }

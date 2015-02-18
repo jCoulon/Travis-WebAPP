@@ -3,10 +3,11 @@ div(ng-controller="dashboardIndicateur as dashboardCtrl")
 
     div#addnote(ng-controller="addNote")
         h3 Ajouter une note
-        input#titrenote(type="text")
-        textarea#textnote
-        label(for="sharenote") Partagée
+        input#titrenote(type="text", placeholder="Titre")
+        div#textnote(placeholder="Rédigez votre note ici", contenteditable="true")
         input#sharenote(type="checkbox")
+        label(for="sharenote") Partagée
+        label.check(for="sharenote")
         div(ng-controller="userNoteController")
                 div.tags-wrapper
                     div#tagsList.tags-cloud

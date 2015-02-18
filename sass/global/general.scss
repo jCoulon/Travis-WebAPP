@@ -23,3 +23,11 @@ html, body {
 li {
 	list-style: none;
 }
+
+.check{
+  border: solid 2px #717171;
+  width: 10px;
+  height: 10px;
+  display:block;
+  @include border-radius(2px);
+}
