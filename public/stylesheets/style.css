@@ -5,6 +5,10 @@
   font-family: latoR;
   src: url('../fonts/lato/Lato-Regular.ttf'); }
 
+@font-face {
+  font-family: font-awesome;
+  src: url('../fonts/awesome/fonts/fontawesome-webfont.otf'); }
+
 /* Patterns */
 /* Sections */
 html, body {
@@ -13,7 +17,8 @@ html, body {
   font-family: latoR;
   height: 100%;
   margin: 0;
-  width: 100%; }
+  width: 100%;
+  -webkit-font-smoothing: antialiased; }
 
 .flex {
   align-items: stretch;
@@ -36,8 +41,45 @@ li {
   max-width: 10em;
   order: 1;
   width: 10em; }
-  .left_content nav {
-    border: solid; }
+  .left_content ul {
+    margin-top: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 1em; }
+    .left_content ul a {
+      width: 100%;
+      display: block;
+      text-decoration: none;
+      color: #212121;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      border-bottom: solid 1px #dbdbdb;
+      position: relative; }
+    .left_content ul a::before {
+      margin-left: 1em;
+      margin-right: 1em;
+      color: #757575; }
+    .left_content ul .dataviz::before {
+      font-family: FontAwesome;
+      content: "\f080"; }
+    .left_content ul .time::before {
+      font-family: FontAwesome;
+      content: "\f017"; }
+    .left_content ul .notes::before {
+      font-family: FontAwesome;
+      content: "\f040"; }
+    .left_content ul .credits::before {
+      font-family: FontAwesome;
+      content: "\f0c0"; }
+    .left_content ul .deconnexion::before {
+      font-family: FontAwesome;
+      content: "\f011"; }
+    .left_content ul .active, .left_content ul a.active::before {
+      /* Lien actif */
+      color: #3F51B5;
+      border-bottom: none; }
+    .left_content ul li:last-child a {
+      border-bottom: none; }
 
 .logo {
   background-color: #303F9F;
@@ -60,6 +102,43 @@ main {
   order: 3;
   overflow: hidden;
   width: 3.5em; }
+  .right_content ul {
+    padding: 0; }
+    .right_content ul li {
+      margin-top: 0.4em;
+      text-align: center;
+      position: relative; }
+    .right_content ul .name {
+      border: solid 2px #FFFFFF;
+      margin: 0 auto;
+      width: 1.6em;
+      padding-top: 0.2em;
+      padding-bottom: 0.2em;
+      font-size: 1.4em;
+      color: #FFFFFF;
+      -webkit-border-radius: 1.3em;
+      -moz-border-radius: 1.3em;
+      -ms-border-radius: 1.3em;
+      border-radius: 1.3em; }
+    .right_content ul li:last-child {
+      margin-top: 0.7em; }
+    .right_content ul .remove {
+      position: absolute;
+      right: 4px;
+      top: 0; }
+    .right_content ul .remove::before {
+      font-family: FontAwesome;
+      content: "\f00d";
+      font-size: 0.6em;
+      padding: 2px 0px 2px 0px;
+      width: 15px;
+      color: #333333;
+      display: block;
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      -ms-border-radius: 50px;
+      border-radius: 50px;
+      background-color: #FFFFFF; }
 
 /* Ce fichier contient le css relatif à la barre centrale */
 header {
@@ -75,6 +154,36 @@ header {
     /* Lien actif */
     border-bottom: 4px solid #03A9F4;
     padding-bottom: 1.4em; }
+  header .search {
+    width: 100%;
+    height: 100%;
+    padding: 0.6em 1em;
+    border: none;
+    background-color: #3F51B5;
+    outline: none;
+    color: #FFFFFF;
+    font-size: 0.75em;
+    text-transform: uppercase; }
+    header .search::-webkit-input-placeholder {
+      font-family: Lato;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      font-size: 1em; }
+    header .search:-moz-placeholder {
+      font-family: Lato;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      font-size: 1em; }
+    header .search::-moz-placeholder {
+      font-family: Lato;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      font-size: 1em; }
+    header .search:-ms-input-placeholder {
+      font-family: Lato;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      font-size: 1em; }
 
 header a {
   color: #FFFFFF;
