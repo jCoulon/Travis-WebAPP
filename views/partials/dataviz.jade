@@ -12,12 +12,13 @@ div(ng-controller="dashboardIndicateur as dashboardCtrl")
                     input#searchInput.form-control(type="text", placeholder="À partager avec", ng-keydown="checkKeyDown($event)", ng-model="searchText", ng-change="search()", ng-disabled="!checked")
                     div#tagsList.tags-cloud
                         div.tag(ng-repeat="selectedTag in selectedTags")
-                            span.tagName {{selectedTag}}
+                            span.totaltag {{selectedTag[0]}}
+                            span.tagName {{selectedTag[1]}}
                             span &nbsp;
                             b(ng-click="removeTag($index)")
                                 img(src="/images/icons/close.png")
                     ul#suggestions.suggestions-list
-                        li.blockSpan(ng-repeat="suggestion in suggestions" ng-click="addToSelectedTags($index)", ng-mouseover="$parent.selectedIndex=$index", ng-class="{active: selectedIndex===$index}") {{suggestion}}
+                        li.blockSpan(ng-repeat="suggestion in suggestions" ng-click="addToSelectedTags($index)", ng-mouseover="$parent.selectedIndex=$index", ng-class="{active: selectedIndex===$index}") {{suggestion[0]}}
         input(type="button", ng-click="addNote()", value="Ajouter")
 
     button#materialbutton

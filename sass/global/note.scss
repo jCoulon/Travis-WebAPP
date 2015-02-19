@@ -44,7 +44,7 @@
     line-height: 2.5;
     font-size: 0.8em;
     position: absolute;
-    bottom: 15px;
+    bottom: 10px;
     right: 25px;
   }
   
@@ -160,6 +160,9 @@
       width: 13px;
       height: auto;
     }
-  }
 
+    .totaltag{
+      display: none;
+    }
+  }
 }

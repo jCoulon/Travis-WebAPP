@@ -13,13 +13,13 @@ angular.module('TravisAPP')
 
         $scope.search = function(){
             $http.get("/api/users/getAutocompleteName/"+$scope.searchText).success(function(data){
-                var users = [];
-                var login = [];
+                var users = []
                 for(var i = 0; i < data.length ; i++){
-                    users.push(data[i].Name+" "+data[i].Surname+" <"+data[i].Login+">");
-                    login.push(data[i].Login);
+                    var donnees = []
+                    donnees.push(data[i].Name+" "+data[i].Surname+" <"+data[i].Login+">");
+                    donnees.push(data[i].Login);
+                    users.push(donnees);
                 }
-                $scope.logins = login;
                 $scope.suggestions=users;
                 $scope.selectedIndex=-1;
             });
@@ -51,8 +51,10 @@ angular.module('TravisAPP')
         };
 
         $scope.addToSelectedTags = function(index){
-            if($scope.selectedTags.indexOf($scope.suggestions[index])===-1){
-                $scope.selectedTags.push($scope.logins[index]);
+            if($scope.selectedTags.indexOf($scope.suggestions[index][1])===-1){
+                $scope.selectedTags.push($scope.suggestions[index]);
+                console.log($scope.suggestions[index][0]);
+                console.log($scope.selectedTags);
                 $scope.searchText='';
                 $scope.suggestions=[];
             }
@@ -64,7 +66,7 @@ angular.module('TravisAPP')
 
         $scope.$watch('selectedIndex', function(val){
             if(val!==-1){
-                $scope.searchText = $scope.suggestions[$scope.selectedIndex];
+                $scope.searchText = $scope.suggestions[$scope.selectedIndex][0];
             }
         });
 

@@ -353,7 +353,7 @@ header a {
     line-height: 2.5;
     font-size: 0.8em;
     position: absolute;
-    bottom: 15px;
+    bottom: 10px;
     right: 25px; }
   #addnote #titrenote {
     border: none;
@@ -468,3 +468,5 @@ header a {
     #addnote .tag img {
       width: 13px;
       height: auto; }
+    #addnote .tag .totaltag {
+      display: none; }

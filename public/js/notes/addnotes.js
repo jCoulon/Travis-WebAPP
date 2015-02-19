@@ -9,7 +9,7 @@ angular.module("TravisAPP")
                 checked = 1;
                 var users = "";
                 var usernames = [];
-                var shareUsers = document.getElementsByClassName("tagName");
+                var shareUsers = document.getElementsByClassName("totaltag");
                 for(var i = 0 ; i < shareUsers.length ; i ++){
                     usernames.push(shareUsers[i].textContent.substring(shareUsers[i].textContent.indexOf("<")+1, shareUsers[i].textContent.indexOf(">")));
                 }
