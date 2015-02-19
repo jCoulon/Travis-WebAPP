@@ -14,9 +14,12 @@ angular.module('TravisAPP')
         $scope.search = function(){
             $http.get("/api/users/getAutocompleteName/"+$scope.searchText).success(function(data){
                 var users = [];
+                var login = [];
                 for(var i = 0; i < data.length ; i++){
                     users.push(data[i].Name+" "+data[i].Surname+" <"+data[i].Login+">");
+                    login.push(data[i].Login);
                 }
+                $scope.logins = login;
                 $scope.suggestions=users;
                 $scope.selectedIndex=-1;
             });
@@ -49,7 +52,7 @@ angular.module('TravisAPP')
 
         $scope.addToSelectedTags = function(index){
             if($scope.selectedTags.indexOf($scope.suggestions[index])===-1){
-                $scope.selectedTags.push($scope.suggestions[index]);
+                $scope.selectedTags.push($scope.logins[index]);
                 $scope.searchText='';
                 $scope.suggestions=[];
             }

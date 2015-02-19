@@ -5,17 +5,17 @@ div(ng-controller="dashboardIndicateur as dashboardCtrl")
         h3 Ajouter une note
         input#titrenote(type="text", placeholder="Titre")
         div#textnote(placeholder="Rédigez votre note ici", contenteditable="true")
-        input#sharenote(type="checkbox")
-        label(for="sharenote") Partagée
-        label.check(for="sharenote")
+        input#sharenote(type="checkbox", ng-model="checked")
+        label#labelshare(for="sharenote") Partagée
         div(ng-controller="userNoteController")
-                div.tags-wrapper
+            div.tags-wrapper
+                    input#searchInput.form-control(type="text", placeholder="À partager avec", ng-keydown="checkKeyDown($event)", ng-model="searchText", ng-change="search()", ng-disabled="!checked")
                     div#tagsList.tags-cloud
                         div.tag(ng-repeat="selectedTag in selectedTags")
                             span.tagName {{selectedTag}}
                             span &nbsp;
-                                b(ng-click="removeTag($index)") x
-                        input#searchInput.form-control(type="text", placeholder="À partager avec", ng-keydown="checkKeyDown($event)", ng-model="searchText", ng-change="search()")
+                            b(ng-click="removeTag($index)")
+                                img(src="/images/icons/close.png")
                     ul#suggestions.suggestions-list
                         li.blockSpan(ng-repeat="suggestion in suggestions" ng-click="addToSelectedTags($index)", ng-mouseover="$parent.selectedIndex=$index", ng-class="{active: selectedIndex===$index}") {{suggestion}}
         input(type="button", ng-click="addNote()", value="Ajouter")

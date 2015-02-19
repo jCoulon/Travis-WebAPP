@@ -32,15 +32,56 @@ html, body {
 li {
   list-style: none; }
 
-.check {
+/*
+ Checkbox CSS
+ */
+[type="checkbox"] {
+  display: none; }
+
+[type="checkbox"]:not(:checked) + label:before, [type="checkbox"]:checked + label:before {
+  content: "";
   border: solid 2px #717171;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   display: block;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
-  border-radius: 2px; }
+  border-radius: 2px;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px; }
+
+[type="checkbox"]:not(:checked) + label:after, [type="checkbox"]:checked + label:after {
+  content: '✔';
+  font-size: 13px;
+  color: #FFFFFF;
+  transition: all 0.2s;
+  position: absolute;
+  top: 1px;
+  left: 3px; }
+
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0); }
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1); }
+
+[type="checkbox"]:not(:checked) + label, [type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer; }
+
+[type="checkbox"]:checked + label:before {
+  background-color: #4285f4;
+  border: solid 2px #4285f4; }
+
+[contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  display: block; }
 
 .left_content {
   background-color: #FFFFFF;
@@ -264,10 +305,12 @@ header a {
   height: 500px;
   position: fixed;
   bottom: 0;
+  z-index: 100;
   right: 12em;
   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
   -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36); }
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+  background-color: #FFFFFF; }
   #addnote h3 {
     background-color: #555555;
     color: #fafafa;
@@ -308,7 +351,10 @@ header a {
     font-family: 'Lato', sans-serif;
     font-weight: bold;
     line-height: 2.5;
-    font-size: 0.8em; }
+    font-size: 0.8em;
+    position: absolute;
+    bottom: 15px;
+    right: 25px; }
   #addnote #titrenote {
     border: none;
     box-sizing: border-box;
@@ -345,14 +391,80 @@ header a {
   #addnote #textnote {
     border: none;
     width: 440px;
-    min-height: 252px;
+    min-height: 200px;
     line-height: 20px;
     font-family: Lato;
     color: #555555;
     padding: 10px 20px;
-    outline: none; }
+    outline: none;
+    border-bottom: 1px solid #e5e5e5; }
   #addnote #textnote:focus {
     border: none; }
-  #addnote input[type="checkbox"]:checked + .check {
-    background-color: #259789;
-    content: url("../images/icons/checkmark.png"); }
+  #addnote #labelshare {
+    float: left;
+    width: 20%;
+    margin-top: 25px;
+    margin-left: 5%; }
+  #addnote #searchInput {
+    float: left;
+    font-size: 0.8em;
+    width: 60%;
+    padding: 7px 15px;
+    line-height: 20px;
+    resize: none;
+    vertical-align: middle;
+    font-family: Lato;
+    font-weight: bold;
+    color: #555555;
+    border: none;
+    border-left: 1px solid #e5e5e5;
+    z-index: 100;
+    margin-top: 15px; }
+    #addnote #searchInput::-webkit-input-placeholder {
+      font-family: Lato;
+      color: #555555;
+      font-weight: bold; }
+    #addnote #searchInput:-moz-placeholder {
+      font-family: Lato;
+      color: #555555;
+      font-weight: bold; }
+    #addnote #searchInput::-moz-placeholder {
+      font-family: Lato;
+      color: #555555;
+      font-weight: bold; }
+    #addnote #searchInput:-ms-input-placeholder {
+      font-family: Lato;
+      color: #555555;
+      font-weight: bold; }
+  #addnote #tagsList {
+    height: 90px;
+    float: left;
+    width: 470px;
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 5px; }
+  #addnote #suggestions {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    width: 60%;
+    background-color: #fafafa;
+    color: #555555; }
+    #addnote #suggestions li {
+      padding: 0;
+      margin-left: -32px; }
+    #addnote #suggestions li:hover {
+      color: #3F51B5; }
+  #addnote .tags-wrapper {
+    position: relative; }
+  #addnote .tag {
+    float: left;
+    background-color: #3F51B5;
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+    color: #FFFFFF;
+    margin: 5px;
+    font-size: 1em; }
+    #addnote .tag img {
+      width: 13px;
+      height: auto; }

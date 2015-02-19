@@ -3,8 +3,10 @@
   height: 500px;
   position: fixed;
   bottom: 0;
+  z-index: 100;
   right: 12em;
   @include box-shadow(0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36));
+  background-color: $textPrimaryColor;
 
   h3{
     background-color: $noteGrey;
@@ -41,6 +43,9 @@
     font-weight: bold;
     line-height: 2.5;
     font-size: 0.8em;
+    position: absolute;
+    bottom: 15px;
+    right: 25px;
   }
   
   #titrenote{
@@ -68,20 +73,93 @@
   #textnote{
     border: none;
     width: 440px;
-    min-height: 252px;
+    min-height: 200px;
     line-height: 20px;
     font-family: Lato;
     color: $noteGrey;
     padding: 10px 20px;
     outline: none;
+    border-bottom: 1px solid #e5e5e5;
   }
 
   #textnote:focus{
     border: none;
   }
 
-  input[type="checkbox"]:checked + .check{
-    background-color: #259789;
-    content: url("../images/icons/checkmark.png");
+  #labelshare{
+    float: left;
+    width: 20%;
+    margin-top: 25px;
+    margin-left: 5%;
   }
+
+  #searchInput{
+    float: left;
+    font-size: 0.8em;
+    width: 60%;
+    padding: 7px 15px;
+    line-height: 20px;
+    resize: none;
+    vertical-align: middle;
+    font-family: Lato;
+    font-weight: bold;
+    color: $noteGrey;
+    border:none;
+    border-left: 1px solid #e5e5e5;
+    z-index: 100;
+    margin-top: 15px;
+
+    @include placeholder{
+      font-family: Lato;
+      color: $noteGrey;
+      font-weight: bold;
+    }
+  }
+
+  #tagsList{
+    height: 90px;
+    float: left;
+    width: 470px;
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 5px;
+  }
+
+  #suggestions{
+    position:absolute;
+    top:25px;
+    right: 0;
+    width: 60%;
+    background-color: #fafafa;
+    color: $noteGrey;
+    
+    li{
+      padding: 0;
+      margin-left: -32px;
+    }
+
+    li:hover{
+      color: $primaryColor;
+    }
+  }
+
+  .tags-wrapper{
+    position: relative;
+  }
+
+  .tag{
+    float: left;
+    background-color: $primaryColor;
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+    color:$textPrimaryColor;
+    margin: 5px;
+    font-size: 1em;
+
+    img{
+      width: 13px;
+      height: auto;
+    }
+  }
+
 }
