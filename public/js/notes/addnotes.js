@@ -38,6 +38,10 @@ angular.module("TravisAPP")
                                 alert("Erreur lors de l'insertion de la note. Veuillez contacter le responsable de la maintenance.");
                             });
                     }
+                    document.getElementById('titrenote').value = "";
+                    document.getElementById("textnote").innerHTML = "";
+                    document.getElementById("sharenote").checked = false;
+                    document.getElementById("tagsList").innerHTML = "";
                 })
                 .error(function(data, status, headers, config) {
                     alert("Erreur lors de l'insertion de la note. Veuillez contacter le responsable de la maintenance.");
