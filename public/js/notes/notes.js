@@ -68,7 +68,6 @@ angular.module("TravisAPP")
 
         $scope.getNoteUser = function () {
             NoteServices.getNoteUser().then(function (res) {
-
                 $scope.userNote.noteList = data;
 
             }).catch(function (err) {
@@ -105,6 +104,7 @@ angular.module("TravisAPP")
                                 if ($scope.userNote.noteShareList[i].IdNotes == data[0].IdNote) {
                                     find = 1;
                                     $scope.userNote.noteShareList[i]["usersShared"] = username;
+                                    console.log(  $scope.userNote.noteShareList[i]["usersShared"]);
                                 }
                                 i++;
                             }
@@ -149,7 +149,6 @@ angular.module("TravisAPP")
                                 if ($scope.userNote.shareNoteWithList[i].IdNote == data[0].IdNotes) {
                                     find = 1;
                                     $scope.userNote.shareNoteWithList[i]["completeNote"] = data;
-                                    console.log($scope.userNote.shareNoteWithList);
                                 }
                                 i++;
                             }

@@ -25,16 +25,14 @@ angular.module("TravisAPP")
                 checked = 0;
             }
             // Simple POST request example (passing data) :
-            $http.post('/api/notes/addNote', {Username: "SimonL", Share:checked, NbMax:0, Titre: document.getElementById('titrenote').value.toString(), Note:document.getElementById("textnote").value.toString(), Date:currentDate, Lastaccess: currentDate})
+            $http.post('/api/notes/addNote', {Username: "SimonL", Share:checked, NbMax:0, Titre: document.getElementById('titrenote').value.toString(), Note:document.getElementById("textnote").innerHTML, Date:currentDate, Lastaccess: currentDate})
                 .success(function(data, status, headers, config) {
-                    alert(data);
                     if(checked==1){
                         /**
                          * Ici, On réalise l'insertion du partage de la note.
                          */
                         $http.post('/api/notes/addShareNote', {Username: users, IdNote:data, DateShare:currentDate, LastAccess: currentDate})
                             .success(function(data, status, headers, config) {
-                                alert(data);
                             })
                             .error(function(data, status, headers, config) {
                                 alert("Erreur lors de l'insertion de la note. Veuillez contacter le responsable de la maintenance.");

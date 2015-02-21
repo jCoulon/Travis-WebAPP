@@ -6,8 +6,8 @@
   src: url('../fonts/lato/Lato-Regular.ttf'); }
 
 @font-face {
-  font-family: font-awesome;
-  src: url('../fonts/awesome/fonts/fontawesome-webfont.otf'); }
+  font-family: LatoB;
+  src: url('../fonts/lato/Lato-Bold.ttf'); }
 
 /* Patterns */
 /* Sections */
@@ -149,7 +149,8 @@ li {
 main {
   height: 100%;
   order: 2;
-  margin: auto; }
+  margin: auto;
+  width: 70%; }
   main #materialbutton {
     position: fixed;
     background-color: #e91e63;
@@ -473,3 +474,87 @@ header a {
       height: auto; }
     #addnote .tag .totaltag {
       display: none; }
+
+#notepage {
+  width: 100%;
+  margin-top: 3.5em; }
+  #notepage h2 {
+    font-size: 1em;
+    font-family: LatoB;
+    color: rgba(0, 0, 0, 0.54);
+    margin-left: 4em; }
+  #notepage .noteslist {
+    display: block;
+    margin-bottom: 3em; }
+  #notepage .note {
+    width: 180px;
+    height: 180px;
+    display: inline-block;
+    margin-left: 2em;
+    margin-right: 2em;
+    vertical-align: top;
+    font-family: Lato;
+    margin-top: 1em;
+    position: relative;
+    color: #757575;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.22), 0 2px 4px rgba(0, 0, 0, 0.44);
+    -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.22), 0 2px 4px rgba(0, 0, 0, 0.44);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.22), 0 2px 4px rgba(0, 0, 0, 0.44); }
+  #notepage .shareNote {
+    height: 220px; }
+  #notepage .shareNoteWith {
+    height: 250px; }
+    #notepage .shareNoteWith .auteur {
+      font-size: 0.8em;
+      padding-left: 15px; }
+  #notepage .titre {
+    font-size: 0.9em;
+    padding-left: 15px;
+    padding-right: 15px; }
+  #notepage .text {
+    max-height: 115px;
+    overflow: hidden;
+    word-wrap: break-word;
+    padding-left: 15px;
+    padding-right: 15px; }
+  #notepage .usershare {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 35px;
+    position: absolute;
+    bottom: 0;
+    border-top: solid 1px rgba(117, 117, 117, 0.2); }
+    #notepage .usershare .userShared {
+      display: inline-block;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      border-radius: 8px;
+      padding: 3px;
+      margin-left: 5px;
+      width: 19px;
+      text-align: center;
+      font-family: LatoB;
+      color: #FFFFFF;
+      background-color: #4285f4;
+      margin-top: 5px; }
+    #notepage .usershare .userShared:nth-child(1) {
+      background-color: #e91e63; }
+    #notepage .usershare .userShared:nth-child(2) {
+      background-color: #4caf50; }
+    #notepage .usershare .userShared:nth-child(3) {
+      background-color: #673ab7; }
+    #notepage .usershare .userShared:nth-child(4) {
+      background-color: #ff5722; }
+    #notepage .usershare .userShared:nth-child(5) {
+      background-color: #607d8b; }
+    #notepage .usershare .userShared:nth-child(6) {
+      background-color: #00bcd4; }
+    #notepage .usershare .userShared:nth-child(7) {
+      background-color: #795548; }
+    #notepage .usershare .userShared:nth-child(8) {
+      background-color: #2196f3; }
+  #notepage .idnote {
+    display: none; }
