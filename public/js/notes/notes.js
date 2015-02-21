@@ -61,7 +61,7 @@ angular.module("TravisAPP")
         $scope.userNote.urlIdShareNotesWith = $scope.userNote.urlIdShareNotesWith + $scope.userNote.username;
 
 
-        $scope.getNoteUser();
+        //$scope.getNoteUser();
         /**EX**/
         //Si fonction appelé uniquement ici et pas dans le html ou directive
         //function getNoteUser {

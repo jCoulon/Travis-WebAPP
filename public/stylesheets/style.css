@@ -91,7 +91,8 @@ li {
   height: 100%;
   max-width: 10em;
   order: 1;
-  width: 10em; }
+  width: 10em;
+  position: fixed; }
   .left_content ul {
     margin-top: 0;
     padding: 0;
@@ -177,7 +178,9 @@ main {
   max-width: 3.5em;
   order: 3;
   overflow: hidden;
-  width: 3.5em; }
+  width: 3.5em;
+  position: fixed;
+  right: 0; }
   .right_content ul {
     padding: 0; }
     .right_content ul li {

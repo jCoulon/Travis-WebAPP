@@ -6,8 +6,10 @@
 	order: 3;
 	overflow: hidden;
 	width: 3.5em;
+	position: fixed;
+  	right:0;
 
-  	ul{
+  ul{
 	  padding: 0;
 
 	  li{
