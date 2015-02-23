@@ -38,7 +38,7 @@ CREATE TABLE `Tool_log` (
 CREATE TABLE `Typeu` (
   `IDTypeU` int(11) NOT NULL AUTO_INCREMENT COMMENT 'User type identifier',
   `Title` varchar(100) NOT NULL COMMENT 'Label of user profile. For example: 1: Administrator 2: Tutor 3: Learner',
-  PRIMARY KEY (`IDTypeU`)
+  PRIMARY KEY (`IDTypeU`)x
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
