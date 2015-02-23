@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module("TravisAPP", ['ui.router', 'chart.js', 'connexion'])
+angular.module("TravisAPP", ['ui.router', 'chart.js', 'connexion','acomplete'])
 
 
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {

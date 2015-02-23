@@ -2,38 +2,115 @@ var express = require('express');
 var router = express.Router();
 var models = require('../../models/index');
 var passport = require("passport");
-var config = require("../../config/auth");
+var auth = require("../../config/auth");
+var uparam = require("../../config/userParam");
 
-router.get('/getUser/:username/:password', config.findById);
+router.get('/getUser/:username/:password', auth.findById);
 
-router.post("/login", config.seConnecter);
+router.post("/login", auth.seConnecter);
 /**
  * Verifie si l'utilisateur est deja connecte ou non
  */
-router.get("/connected", config.utilisateurDejaConnecte);
+router.get("/connected", auth.utilisateurDejaConnecte);
 
-router.get("/group/:idGroup", function (req, res) {
+router.get("/uparam/:id/", function (req, res) {
+    var idparam = req.params.id;
+    var cuser = req.user.Login;
 
-    models.Userparam.findOne({
-        where: {
-            ParamName1: req.params.group,
-            Username: req.params.username
+    uparam.getParamByID(idparam, cuser).then(function (param) {
+        if (!param) {
+            res.send(0);
         }
-    }).then(function (data) {
-        res.json(data)
-    })
+        else {
+            res.json(param);
+        }
+    }, function (err) {
+        console.log(err);
+    });
 });
 
-router.post("/group/", function (req, res) {
-    var value = req.body;
-    models.Userparam.create({
-        Username: value.username,
-        ParamName1: value.param,
-        ParamValue1: value.value,
-        Description1: value.desc
-    }).then(function () {
-        res.send("")
+router.get("/AllGroup/", function (req, res) {
+    var cuser = req.user.Login;
+
+    uparam.getParamAllGroup(cuser).then(function (param) {
+        if (!param) {
+            res.send(0);
+        }
+        else {
+            res.json(param);
+        }
+    }, function (err) {
+        console.log(err);
+    });
+});
+
+/**
+ * Retourne tous les parametres
+ */
+router.get("/AllParams/", function (req, res) {
+    var cuser = req.user.Login;
+    uparam.getParamAllUser(cuser).then(function (param) {
+        if (!param) {
+            res.send(0);
+        }
+        else {
+            res.json(param);
+        }
+    }, function (err) {
+        console.log(err);
+    });
+});
+
+/**
+ * Ajouter un parametre
+ */
+router.post("/uparam/", function (req, res) {
+    var posts = req.body;
+    var cuser = req.user.Login;
+    var desc = posts["users"];
+    console.log(posts['users'], posts['type']);
+
+    uparam.createParam(cuser, posts["ind"], posts["type"], desc).then(function (param) {
+        console.log("param created");
+        res.status(200).end();
     })
+
+});
+
+/**
+ * met a jour un parametre
+ */
+router.post("/uparam/add", function (req, res) {
+    var posts = req.body;
+    var cuser = req.user.Login;
+    console.log(posts['user'], posts['type']);
+
+    uparam.getParamByID(posts['id'], cuser).then(function (param) {
+        if (param) {
+            uparam.addInGroup(param, posts['user']);
+        }
+    }, function (err) {
+    });
+
+
+});
+
+/**
+ *supprimer  un user d'un parametre
+ */
+router.post("/uparam/supp", function (req, res) {
+    var posts = req.body;
+    // var cuser = req.user.Login;
+    console.log(posts['user'], posts['type']);
+
+    uparam.getParamByID(posts['id'], "jcoulon").then(function (param) {
+        if (param) {
+            uparam.deleteInGroup(param, posts['user']);
+        }
+    }, function (err) {
+    });
+
+
 });
 
 

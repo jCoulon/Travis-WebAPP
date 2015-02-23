@@ -6,18 +6,22 @@ var passport = require('passport')
     , LocalStrategy = require('passport-local').Strategy;
 var models = require('../models/index');
 
-
+/**
+ * Serialise data user
+ * */
 passport.serializeUser(function (user, done) {
     done(null, user.IDUser);
 });
 
+/**
+ * Deserialise data user
+ */
 passport.deserializeUser(function (id, done) {
 
     findById(id).then(function (user) {
-        console.log("login", user);
         if (!user)
             done(null, false);
-        done(null,user);
+        done(null, user);
 
 
     }, function (error) {
@@ -27,17 +31,24 @@ passport.deserializeUser(function (id, done) {
 
 });
 
-
+/**
+ * Passportjs
+ *  Local strategy
+ *  Lien avec la base de données
+ */
 passport.use(new LocalStrategy(function (username, password, done) {
-    //TODO comparaison password
 
     models.db.User.find({where: {Login: username}}).then(function (user) {
-        console.log("login");
-        if (!user)
-            return done(null, false);
+        //User non trouvé
+        if (!user) {
+            return done(null, false); //done() envoie notification quand traitement async fini
+        }
+        //Connexion ok
         if (user.Password === password) {
             return done(null, user);
-        } else {
+        }
+        //Mauvais mot de passe
+        else {
             return done(null, false);
         }
 
@@ -57,7 +68,6 @@ passport.use(new LocalStrategy(function (username, password, done) {
  * @returns {*}
  */
 function utilisateurDejaConnecte(req, res, next) {
-    console.info(req.isAuthenticated(), req.user);
     res.send(req.isAuthenticated() ? req.user.toJSON() : 'non_connecte');
 }
 
@@ -71,15 +81,19 @@ function findById(IDUser) {
 function seConnecter(req, res, next) {
     passport.authenticate('local', function (err, user) {
         if (err) next();
+        //Erreur user n'existe pas
         if (!user) {
-            res.status(401).end();
+            res.status(401).end();//Envoie statut http 401 au client
         }
+        //Auth ok
+        else {
 
-        req.logIn(user, function (error) {
-            if (error) next();
+            req.logIn(user, function (error) {
+                if (error) next();
 
-           return res.send(user.toJSON());
-        });
+                res.send(user.toJSON());
+            });
+        }
 
 
     })(req, res, next);

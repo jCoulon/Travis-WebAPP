@@ -87,6 +87,23 @@ function getNbMessageRep(usager) {
 
 
 /**
+ * Get nb messages
+ * @param usager
+ * @returns {Promise.<Instance>}
+ */
+function getNbNbChat(usager) {
+
+    var promise = models.dbcmc.Usersummary.findOne({
+        where: {
+            User: usager
+        },
+        attributes: ['Nbchat']
+    }, {raw: true});
+
+    return promise;
+}
+
+/**
  * Fonction pour compter le nombre de forum où l'utilisateur a soit poster ou répondu à un message
  * @param forum
  */
@@ -123,3 +140,4 @@ exports.getForumCount = getForumCount;
 exports.addAcitiviteForum = addAcitiviteForum;
 exports.getNbMessageRep = getNbMessageRep;
 exports.getListForum = getListForum;
+exports.getNbNbChat = getNbNbChat;

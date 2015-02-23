@@ -4,15 +4,7 @@
 angular.module("TravisAPP")
 
 
-    .factory("IndicateurModele", function () {
-
-        function IndicateurModele(type, titre) {
-
-
-        }
-
-
-    })
+    .factory('dataFactory', ['$http', dataFactory])
 /**
  * Modèle de données de l'indicateur
  */
@@ -90,7 +82,7 @@ angular.module("TravisAPP")
     .controller("connexionCtrl", connextionCtrl)
 
 
-    .controller("dashboardIndicateur", ['$scope', dashboardIndicateur])
+    .controller("dashboardIndicateur", ['$scope', 'dataFactory', dashboardIndicateur])
 
     .controller("NoteController", ["$scope", "$http", function ($scope, $http) {
         var idShare = "";
@@ -149,7 +141,7 @@ angular.module("TravisAPP")
 /**
  * Gestion indicateurs
  */
-function dashboardIndicateur($scope) {
+function dashboardIndicateur($scope, dataFactory) {
 
     /**
      * Evite les pb de scope
@@ -247,6 +239,82 @@ function dashboardIndicateur($scope) {
     _self.chargerIndicateursBlocs(_self.indicateursDefaut);//Chargement des indicateurs présents
     console.log(_self.indicateurBlocs);
 
+    _self.ind = "";
+    _self.type = "";
+    _self.users = "";
 
-};
 
+    _self.addgroup = function () {
+        if (_self.ind !== "" & _self.type !== "" & _self.users !== "") {
+
+            console.log("OK");
+
+            dataFactory.addGroup(_self.ind, _self.type, _self.users).then(function (rdata) {
+                    console.log(rdata);
+                    var tmp = _self.users;
+                    tmp = tmp.split(",");
+
+
+                    if (_self.ind === "agreg") {
+                        return dataFactory.getAgreg(tmp[0]);
+                    }
+                    if (_self.ind === "discu") {
+                        return dataFactory.getDiscu(tmp);
+                    }
+                    if (_self.ind === "colab") {
+                        var forumsTest = [7, 10];
+                        return dataFactory.getColab(tmp, forumsTest);
+
+                    }
+
+                }
+            ).then(function (rdata) {
+                    var data = rdata["data"];
+                    console.log(rdata);
+                    var idata = {
+                        id: 1,
+                        titre: data.titre,
+                        charts: data.charts
+                    };
+                    _self.ajouterIndicateurBloc(idata);
+                })
+        }
+    }
+    ;
+    _self.getData = function () {
+        dataFactory.get(DATA_URL).then(function (data) {
+            _self.items = data;
+            console.log($scope.items);
+        })
+    };
+
+
+}
+
+
+function dataFactory($http) {
+    return {
+        get: function (url) {
+            return $http.get(url).then(function (resp) {
+                return resp.data; // success callback returns this
+            });
+        },
+        addGroup: function (ind, type, users) {
+            var data = {
+                ind: ind, type: type, users: users
+            };
+            return $http.post("/api/users/uparam/", data);
+        },
+        getDiscu: function (group) {
+
+            return $http.post("/api/transition/usager/discu/group/", group);
+        },
+        getColab: function (group, forums) {
+            var data = {group: group, forums: forums};
+            return $http.post("/api/transition/usager/colab/group", data);
+        },
+        getAgreg: function (user) {
+            return $http.get("/api/transition/usager/agreg/" + user);
+        }
+    };
+}

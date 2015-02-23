@@ -1,13 +1,14 @@
 "use strict";
 
-module.exports = function(sequelize, DataTypes) {
-    var Notes = sequelize.define("Userparam", {
-        IDParam: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true} ,
+module.exports = function (sequelize, DataTypes) {
+    var UserParam = sequelize.define("UserParam", {
+        IDParam: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true},
         Username: DataTypes.STRING,
-        ParamName1	: DataTypes.STRING,
-        ParamValue1	:DataTypes.STRING,
-        Description1	:DataTypes.STRING
-    },{
+        ParamName1: DataTypes.STRING,
+        ParamValue1: DataTypes.STRING,
+        Description1: DataTypes.STRING
+
+    }, {
 
         // don't add the timestamp attributes (updatedAt, createdAt)
         timestamps: false,
@@ -33,6 +34,6 @@ module.exports = function(sequelize, DataTypes) {
 
     });
 
-    return Notes;
+    return UserParam;
 };
 

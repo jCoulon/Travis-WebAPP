@@ -4,8 +4,8 @@ div(ng-controller="dashboardIndicateur as dashboardCtrl")
     button(ng-click='dashboardCtrl.ajouterNouvelIndicateurBloc()') Ajouter un nouvel indicateur {{dashboardOptions}}
     indicateur-area(options='dashboardCtrl.indicateurBlocsPanel'  on-supp='dashboardCtrl.supprimerIndicateurBloc(indicateurBloc)')
 
- 
-    div#addnote(ng-controller="addNote")
+
+    div#addnote()
         h3 Ajouter une note
         input#titrenote(type="text")
         textarea#textnote
@@ -15,10 +15,17 @@ div(ng-controller="dashboardIndicateur as dashboardCtrl")
         button(type="button") +
         input(type="submit" ng-click="alert()" value="Ajouter")
 
-    div#addGroup(ng-controller="addGroup")
+    div#addGroup
         h3 Ajouter un groupe
-        input#user(type="text" autocomplete ui-items="dashboardCtrl.users")
         textarea#textnote
         button(type="button") +
-        input(type="submit" ng-click="alert()" value="Ajouter")
-
+        span
+            label ind
+            input(type="text" name="ind" ng-model="dashboardCtrl.ind")
+        span
+            label type
+            input(type="text" name="type" ng-model="dashboardCtrl.type")
+        span
+            label users
+            input(type="text" name="type" ng-model="dashboardCtrl.users")
+        input(type="submit" ng-click="dashboardCtrl.addgroup()")

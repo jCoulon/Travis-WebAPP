@@ -66,6 +66,7 @@ function getNbMessageCite(usager) {
 }
 
 
+
 exports.getNbConnexion = getNbConnexion;
 exports.getNbMessagePostes = getNbMessagePostes;
 exports.getNbMessageRep = getNbMessageRep;
