@@ -2,23 +2,29 @@
    Created by jonathancoulon on 30/12/14.
 
 div#searchnote
-div(ng-controller="NoteController")
+div#notepage(ng-controller="NoteController")
    div.noteslist
       h2 Mes notes
       div.note(ng-repeat="note in userNote.noteList" content="notes")
-         h2.titre {{note.Titre}}
+         span.idnote {{note.IdNotes}}
+         h3.titre {{note.Titre}}
          div.text {{note.Note}}
 
    div.noteslist
       h2 Mes notes partagées
-      div.note(ng-repeat="note in userNote.noteShareList" content="notes")
-         h2.titre {{note.Titre}}
+      div.note.shareNote(ng-repeat="note in userNote.noteShareList" content="notes")
+         span.idnote {{note.IdNotes}}
+         h3.titre {{note.Titre}}
          div.text {{note.Note}}
-         div
+         ul.usershare
+            li.userShared(ng-repeat="user in note.usersShared" title="{{user}}") {{user | limitTo:1}}
 
    div.noteslist
       h2 Notes partagées avec moi
-      div.note(ng-repeat="note in userNote.shareNoteWithList" content="notes")
-         h2.titre {{note.Titre}}
-         div.text {{note.Note}}
-         div
+      div.note.shareNoteWith(ng-repeat="note in userNote.shareNoteWithList" content="notes")
+         span.idnote {{note.completeNote[0].IdNotes}}
+         h3.titre {{note.completeNote[0].Titre}}
+         h3.auteur Auteur : {{note.completeNote[0].Username}}
+         div.text {{note.completeNote[0].Note}}
+         ul.usershare
+            li.userShared(ng-repeat="user in note.usersShared" title="{{user}}") {{user | limitTo:1}}

@@ -6,6 +6,7 @@
 @import "global/fonts";
 
 /* Patterns */
+@import "global/mixins";
 
 /* Sections */
 @import "global/general";
@@ -13,3 +14,4 @@
 @import "global/mainZone";
 @import "global/rightZone";
 @import "global/search";
+@import "global/note";

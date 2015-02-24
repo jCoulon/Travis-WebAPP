@@ -1,8 +1,11 @@
 'use strict';
 var express = require('express');
-var sequelize = require('sequelize');
-var router = express.Router();
-var models = require('../../models/index');
+var Sequelize = require('sequelize');
+
+module.exports = (function() {
+    'use strict';
+    var notes = express.Router();
+    var models  = require('../../models/index');
 
 router.get('/getAllNotes', function (req, res) {
     models.db.Notes.findAll({}, {raw: true}).success(function (activites) {
@@ -17,24 +20,43 @@ router.get('/getAllNotes', function (req, res) {
 
 });
 
-router.post('/addNote', function (req, res) {
-    if (typeof req.query.username !== 'undefined' && typeof req.query.share !== 'undefined' && typeof req.query.nbmax !== 'undefined' && typeof req.query.note !== 'undefined' && typeof req.query.date !== 'undefined' && typeof req.query.lastaccess !== 'undefined' && req.query.titre !== 'undefined') {
-        models.db.Notes.create({
-            IdNotes: null,
-            Username: req.query.username,
-            Share: req.query.share,
-            NbMax: req.query.nbmax,
-            Titre: req.query.titre,
-            Note: req.query.note,
-            Date: req.query.date,
-            Lastaccess: req.query.lastaccess
-        }).then(function () {
-            res.send(200).end();
-        }).error(function () {
-            res.send(424);
-        });
-    }
-});
+    router.post('/addNote', function(req, res){
+        if(typeof req.body.Username !== 'undefined' && typeof req.body.Share !== 'undefined' && typeof req.body.NbMax !== 'undefined' && typeof req.body.Note !== 'undefined' && typeof req.body.Date !== 'undefined' && typeof req.body.Lastaccess !== 'undefined' && req.body.Titre !== 'undefined') {
+            models.db.Notes.create({
+                IdNotes: null,
+                Username: req.body.Username,
+                Share: req.body.Share,
+                NbMax: req.body.NbMax,
+                Titre: req.body.Titre,
+                Note: req.body.Note,
+                Date: req.body.Date,
+                Lastaccess: req.body.Lastaccess
+            }).success(function (data) {
+                console.log(data);
+                res.json(data.dataValues.IdNotes).end();
+            }).error(function(){
+                res.send(424);
+            });
+        }else{
+            res.send(500);
+        }
+    });
+
+    router.post('/addShareNote', function(req, res){
+        if(typeof req.body.Username !== 'undefined' && typeof req.body.IdNote !== 'undefined' && typeof req.body.DateShare !== 'undefined' && typeof req.body.LastAccess !== 'undefined' ) {
+            models.db.ShareNotes.create({
+                IdNotes: null,
+                Username: req.body.Username,
+                IdNote: req.body.IdNote,
+                DateShare: req.body.DateShare,
+                LastAccess: req.body.LastAccess
+            }).success(function () {
+                res.send(200).end();
+            }).error(function () {
+                res.send(424);
+            });
+        }
+    });
 
 router.get('/getUsernote/:username', function (req, res) {
     models.db.Notes.findAll({where: Sequelize.and({Username: req.params.username}, {Share: 0})}, {raw: true}).success(function (activites) {
@@ -62,10 +84,11 @@ router.get('/getShareNoteWith/:ids', function (req, res) {
     });
 });
 
-router.get('/getAutocompleteName/:name', function (req, res) {
-    models.db.User.findAll({where: "Name REGEXP '" + req.params.name + "' OR Surname REGEXP '" + req.params.name + "' OR Login REGEXP '" + req.params.name + "'"}, {raw: true}).then(function (data) {
-        res.json(data);
+    router.get('/getAutocompleteName/:name', function(req, res){
+        models.db.User.findAll({where : "Name REGEXP '"+req.params.name+"' OR Surname REGEXP '"+req.params.name+"' OR Login REGEXP '"+req.params.name+"'"},{raw:true}).then(function(data){
+            res.json(data);
+        });
     });
-});
 
-module.exports = router;
+    return notes;
+})();

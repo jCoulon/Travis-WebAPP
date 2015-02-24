@@ -1,4 +1,4 @@
-.rightLayout {
+.right_content {
 	background-color: $primaryColor;
 	display: flex;
 	flex-direction: column;
@@ -6,4 +6,49 @@
 	order: 3;
 	overflow: hidden;
 	width: 3.5em;
+	position: fixed;
+  	right:0;
+
+  ul{
+	  padding: 0;
+
+	  li{
+		margin-top: 0.4em;
+		text-align: center;
+		position: relative;
+	  }
+
+	  .name{
+		border:solid 2px $textPrimaryColor;
+		margin: 0 auto;
+		width:1.6em;
+		padding-top: 0.2em;
+		padding-bottom: 0.2em;
+		font-size: 1.4em;
+		color: $textPrimaryColor;
+		@include border-radius(1.3em);
+	  }
+
+	  li:last-child{
+		margin-top: 0.7em;
+	  }
+	  
+	  .remove{
+		position: absolute;
+		right: 4px;
+		top:0;
+	  }
+	  .remove::before{
+		font-family: FontAwesome;
+		content: "\f00d";
+		font-size: 0.6em;
+		padding: 2px 0px 2px 0px;
+		width: 15px;
+		color: $grey;
+		display: block;
+		@include border-radius(50px);
+		background-color: $textPrimaryColor;
+	  }
+
+	}
 }

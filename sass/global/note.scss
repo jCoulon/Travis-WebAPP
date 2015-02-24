@@ -1,0 +1,281 @@
+#addnote{
+  max-width:480px;
+  height: 500px;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  right: 12em;
+  @include box-shadow(0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36));
+  background-color: $textPrimaryColor;
+
+  h3{
+    background-color: $noteGrey;
+    color:$backgroundColor;
+    padding: 11px 20px;
+    @include border-radius-top(5px);
+    height: 18px;
+    margin:0;
+    font-size: 1.1em;
+  }
+
+  h3::before{
+    content: url("../images/icons/pencil.png");
+    font-size: 18px;
+    margin-right: 1em;
+  }
+  
+  input{
+    outline: none;
+  }
+
+  input[type="button"]{
+    background-color: $blueMaterial;
+    color:$textPrimaryColor;
+    cursor: pointer;
+    border:none;
+    @include box-shadow(0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24));
+    @include border-radius(2px);
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin: 4px 0;
+    padding: 0 16px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    line-height: 2.5;
+    font-size: 0.8em;
+    position: absolute;
+    bottom: 10px;
+    right: 25px;
+  }
+  
+  #titrenote{
+    border: none;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 0;
+    padding: 7px 15px;
+    line-height: 20px;
+    esize: none;
+    vertical-align: middle;
+    border-bottom: 1px solid #e5e5e5;
+    font-family: Lato;
+    font-weight: bold;
+    color: $noteGrey;
+
+    @include placeholder{
+      font-family: Lato;
+      color: $noteGrey;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  }
+
+  #textnote{
+    border: none;
+    width: 440px;
+    min-height: 200px;
+    line-height: 20px;
+    font-family: Lato;
+    color: $noteGrey;
+    padding: 10px 20px;
+    outline: none;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  #textnote:focus{
+    border: none;
+  }
+
+  #labelshare{
+    float: left;
+    width: 20%;
+    margin-top: 25px;
+    margin-left: 5%;
+  }
+
+  #searchInput{
+    float: left;
+    font-size: 0.8em;
+    width: 60%;
+    padding: 7px 15px;
+    line-height: 20px;
+    resize: none;
+    vertical-align: middle;
+    font-family: Lato;
+    font-weight: bold;
+    color: $noteGrey;
+    border:none;
+    border-left: 1px solid #e5e5e5;
+    z-index: 100;
+    margin-top: 15px;
+
+    @include placeholder{
+      font-family: Lato;
+      color: $noteGrey;
+      font-weight: bold;
+    }
+  }
+
+  #tagsList{
+    height: 90px;
+    float: left;
+    width: 470px;
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 5px;
+  }
+
+  #suggestions{
+    position:absolute;
+    top:25px;
+    right: 0;
+    width: 60%;
+    background-color: #fafafa;
+    color: $noteGrey;
+    
+    li{
+      padding: 0;
+      margin-left: -32px;
+    }
+
+    li:hover{
+      color: $primaryColor;
+    }
+  }
+
+  .tags-wrapper{
+    position: relative;
+  }
+
+  .tag{
+    float: left;
+    background-color: $primaryColor;
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+    color:$textPrimaryColor;
+    margin: 5px;
+    font-size: 1em;
+
+    img{
+      width: 13px;
+      height: auto;
+    }
+
+    .totaltag{
+      display: none;
+    }
+  }
+}
+
+#notepage{
+  width:100%;
+  margin-top: 3.5em;
+
+  h2{
+    font-size: 1em;
+    font-family: LatoB;
+    color: rgba(0,0,0,0.54);
+    margin-left: 4em;
+  }
+  
+  .noteslist{
+    display: block;
+    margin-bottom: 3em;
+  }
+  
+  .note{
+    width:180px;
+    height: 180px;
+    display: inline-block;
+    margin-left: 2em;
+    margin-right: 2em;
+    vertical-align: top;
+    font-family: Lato;
+    margin-top: 1em;
+    position: relative;
+    color: $menuIconColor;
+    background-color: $textPrimaryColor;
+    @include box-shadow(0 0 2px rgba(0,0,0,.22),0 2px 4px rgba(0,0,0,.44));
+  }
+
+  .shareNote{
+    height: 220px;
+  }
+
+  .shareNoteWith{
+    height: 250px;
+
+    .auteur{
+      font-size: 0.8em;
+      padding-left: 15px;
+    }
+  }
+
+  .titre{
+    font-size: 0.9em;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .text{
+    max-height: 115px;
+    overflow: hidden;
+    word-wrap: break-word;
+    padding-left: 15px;
+    padding-right: 15px;
+
+  }
+
+  .usershare{
+    width: 100%;
+    margin: 0;
+    padding:0;
+    height: 35px;
+    position: absolute;
+    bottom:0;
+    border-top:solid 1px rgba(117, 117, 117, 0.2);
+
+    .userShared{
+      display: inline-block;
+      @include border-radius(8px);
+      padding: 3px;
+      margin-left: 5px;
+      width: 19px;
+      text-align: center;
+      font-family: LatoB;
+      color: $textPrimaryColor;
+      background-color: $blueMaterial;
+      margin-top: 5px;
+    }
+
+    .userShared:nth-child(1){
+      background-color: #e91e63;
+    }
+    .userShared:nth-child(2){
+      background-color: #4caf50;
+    }
+    .userShared:nth-child(3){
+      background-color: #673ab7;
+    }
+    .userShared:nth-child(4){
+      background-color: #ff5722;
+    }
+    .userShared:nth-child(5){
+      background-color: #607d8b;
+    }
+    .userShared:nth-child(6){
+      background-color: #00bcd4;
+    }
+    .userShared:nth-child(7){
+      background-color: #795548;
+    }
+    .userShared:nth-child(8){
+      background-color: #2196f3;
+    }
+  }
+
+  .idnote{
+    display: none;
+  }
+
+}
