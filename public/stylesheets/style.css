@@ -559,3 +559,7 @@ header a {
       background-color: #2196f3; }
   #notepage .idnote {
     display: none; }
+
+.formConnexion {
+  border: solid;
+  height: 300px; }
