@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-.leftLayout(ui-view="leftContent")
-.rightLayout(ui-view="rightContent")
-main.main(ui-view="centralContent")
-=======
-.left_content(ui-view="leftContent")
-.right_content(ui-view="rightContent")
-main.main(ui-view="centralContent")
->>>>>>> Notes_Simon
