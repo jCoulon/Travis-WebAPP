@@ -562,4 +562,5 @@ header a {
 
 .formConnexion {
   border: solid;
-  height: 300px; }
+  height: 50%;
+  width: 400px; }
