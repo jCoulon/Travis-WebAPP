@@ -1,7 +1,18 @@
 div(ng-controller="dashboardIndicateur as dashboardCtrl")
-    input(ng-model='dashboardCtrl.titre', placeholder='Titre', required='')
-    input(ng-model='dashboardCtrl.type', palceholder='type', required='')
-    button(ng-click='dashboardCtrl.ajouterNouvelIndicateurBloc()') Ajouter un nouvel indicateur {{dashboardOptions}}
+    div#addGroup
+        h3 Ajouter un groupe
+        textarea#textnote
+        button(type="button") +
+        span
+            label ind
+            input(type="text" name="ind" ng-model="dashboardCtrl.ind")
+        span
+            label type
+            input(type="text" name="type" ng-model="dashboardCtrl.type")
+        span
+            label users
+            input(type="text" name="type" ng-model="dashboardCtrl.users")
+        input(type="submit" ng-click="dashboardCtrl.addgroup()")
     indicateur-area(options='dashboardCtrl.indicateurBlocsPanel'  on-supp='dashboardCtrl.supprimerIndicateurBloc(indicateurBloc)')
 
 
@@ -25,18 +36,3 @@ div(ng-controller="dashboardIndicateur as dashboardCtrl")
 
     button#materialbutton
         img(src="images/icons/add_category.png")
-
-    div#addGroup
-        h3 Ajouter un groupe
-        textarea#textnote
-        button(type="button") +
-        span
-            label ind
-            input(type="text" name="ind" ng-model="dashboardCtrl.ind")
-        span
-            label type
-            input(type="text" name="type" ng-model="dashboardCtrl.type")
-        span
-            label users
-            input(type="text" name="type" ng-model="dashboardCtrl.users")
-        input(type="submit" ng-click="dashboardCtrl.addgroup()")
