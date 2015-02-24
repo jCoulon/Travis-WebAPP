@@ -181,7 +181,8 @@ main {
   overflow: hidden;
   width: 3.5em;
   position: fixed;
-  right: 0; }
+  right: 0;
+  height: 100%; }
   .rightLayout ul {
     padding: 0; }
     .rightLayout ul li {
