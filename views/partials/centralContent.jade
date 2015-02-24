@@ -1,9 +1,9 @@
 header
-  .search
+  .left_header
     img(src="images/icons/search.png", ng-click="search = !search")
-  .settings
+  .right_header
     img(src="images/icons/settings.png")
-  .mainNav
+  .center_header
     nav(ng-hide = "search" class="transition navCentral")
       a(href="#") Promo 3a
       a(href="#") Promo 4a
@@ -11,5 +11,5 @@ header
       a(href="#") A surveiller
       a(href="#") TOUS
       img(src="images/icons/add_category.png" class="add-categ")
-    input(ng-show="search" name="RechercheGenerale" placeholder="Recherche")
+    input.search(ng-show="search" name="RechercheGenerale" placeholder="Recherche")
 #content(ui-view="contentCentral")
