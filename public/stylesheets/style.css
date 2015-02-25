@@ -151,13 +151,26 @@ main {
   height: 100%;
   order: 2;
   margin: auto;
-  width: 70%; }
-  main #materialbutton {
-    position: fixed;
-    background-color: #e91e63;
+  width: 70%;
+  /*#materialbutton{
+	  position: fixed;
+	  background-color:$pinkColor;
+	  width: 56px;
+	  height: 56px;
+	  border:none;
+	  @include border-radius(50%);
+	  @include box-shadow(0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28));
+	  box-sizing:content-box;
+	  cursor: pointer;
+	  outline: none;
+	  padding: 0;
+	  pointer-events: auto;
+	  bottom:1.5em;
+	  right:7.5em;
+	}*/ }
+  main .circle {
     width: 56px;
     height: 56px;
-    border: none;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
@@ -165,13 +178,32 @@ main {
     -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
     -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+    bottom: 1.5em;
+    right: 7.5em;
     box-sizing: content-box;
     cursor: pointer;
     outline: none;
+    border: none;
     padding: 0;
     pointer-events: auto;
-    bottom: 1.5em;
-    right: 7.5em; }
+    position: fixed;
+    background-color: #e91e63;
+    -webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+    -ms-transition: all 0.1s ease;
+    transition: all 0.1s ease; }
+  main .first_circle {
+    z-index: 3; }
+  main .second_circle {
+    z-index: 2;
+    background-color: #4285f4; }
+  main .third_circle {
+    z-index: 1;
+    background-color: #4caf50; }
+  main .contener_circle:hover .second_circle {
+    bottom: 80px; }
+  main .contener_circle:hover .third_circle {
+    bottom: 145px; }
 
 .rightLayout {
   background-color: #3F51B5;
@@ -232,7 +264,8 @@ header {
   /* Gestion de flexbox */
   flex-flow: row nowrap;
   height: 3.5em;
-  margin: 1em auto; }
+  margin: 1em auto;
+  width: 80%; }
   header .active {
     /* Lien actif */
     border-bottom: 4px solid #03A9F4;
@@ -333,6 +366,9 @@ header a {
     height: 18px;
     margin: 0;
     font-size: 1.1em; }
+    #addnote h3 img {
+      float: right;
+      margin-top: 2px; }
   #addnote h3::before {
     content: url("../images/icons/pencil.png");
     font-size: 18px;
@@ -639,7 +675,16 @@ header a {
       font-size: 0.8em;
       position: absolute;
       bottom: 10px;
-      right: 86px; }
+      right: 86px;
+      -webkit-transition: -webkit-transform 0.1s ease;
+      -moz-transition: -moz-transform 0.1s ease;
+      transition: transform 0.1s ease; }
+    #background .formConnexion button[type="submit"]:hover {
+      z-index: 1000;
+      -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.24);
+      -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.24);
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.24);
+      transform: scale(1.05); }
   #background .headerLog {
     width: 100%;
     height: 50px;
@@ -656,3 +701,59 @@ header a {
     #background .headerLog img {
       margin-top: 13px;
       position: relative; }
+
+.indicateurBloc {
+  width: 100%;
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+  background-color: #ffffff;
+  margin-top: 30px; }
+  .indicateurBloc .indicateurBlocTitre {
+    width: 100%;
+    background-color: #fafafa;
+    padding-top: 15px;
+    padding-bottom: 15px; }
+    .indicateurBloc .indicateurBlocTitre img {
+      float: right;
+      margin-right: 20px;
+      height: 20px;
+      width: auto; }
+    .indicateurBloc .indicateurBlocTitre label {
+      color: #333333;
+      margin-left: 30px;
+      font-family: Lato; }
+
+#addGroup {
+  max-width: 480px;
+  height: 500px;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  right: 12em;
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+  background-color: #FFFFFF; }
+  #addGroup h3 {
+    background-color: #555555;
+    color: #fafafa;
+    padding: 11px 20px;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-top-left-radius: 5px;
+    -ms-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-top-right-radius: 5px;
+    -ms-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 18px;
+    margin: 0;
+    font-size: 1.1em; }
+    #addGroup h3 img {
+      float: right;
+      margin-top: 2px; }
+  #addGroup h3::before {
+    content: url("../images/icons/materialmenu_chart.png");
+    font-size: 18px;
+    margin-right: 1em; }

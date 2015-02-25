@@ -1,8 +1,7 @@
 div(ng-controller="dashboardIndicateur as dashboardCtrl")
-    div#addGroup
-        h3 Ajouter un groupe
-        textarea#textnote
-        button(type="button") +
+    div#addGroup(ng-show="addindicshow")
+        h3 Ajouter un indicateur
+            img(src="images/icons/close_white.png" ng-click="addindicshow=false")
         span
             label ind
             input(type="text" name="ind" ng-model="dashboardCtrl.ind")
@@ -13,12 +12,13 @@ div(ng-controller="dashboardIndicateur as dashboardCtrl")
             label users
             input(type="text" name="type" ng-model="dashboardCtrl.users")
         input(type="submit" ng-click="dashboardCtrl.addgroup()")
-    button(ng-click='dashboardCtrl.ajouterNouvelIndicateurBloc()') Ajouter un nouvel indicateur {{dashboardOptions}}
+    //button(ng-click='dashboardCtrl.ajouterNouvelIndicateurBloc()') Ajouter un nouvel indicateur {{dashboardOptions}}
     indicateur-area(options='dashboardCtrl.indicateurBlocsPanel'  on-supp='dashboardCtrl.supprimerIndicateurBloc(indicateurBloc)')
 
 
-    div#addnote(ng-controller="addNote")
+    div#addnote(ng-controller="addNote" ng-show="addnoteshow")
         h3 Ajouter une note
+            img(src="images/icons/close_white.png" ng-click="addnoteshow=false")
         input#titrenote(type="text", placeholder="Titre")
         div#textnote(placeholder="Rédigez votre note ici", contenteditable="true")
         input#sharenote(type="checkbox", ng-model="checked")
@@ -37,6 +37,19 @@ div(ng-controller="dashboardIndicateur as dashboardCtrl")
                     li.blockSpan(ng-repeat="suggestion in suggestions" ng-click="addToSelectedTags($index)", ng-mouseover="$parent.selectedIndex=$index", ng-class="{active: selectedIndex===$index}") {{suggestion[0]}}
         input(type="button", ng-click="addNote()", value="Ajouter")
 
-    button#materialbutton
-        img(src="images/icons/add_category.png")
+        //button#materialbutton
+        //img(src="images/icons/add_category.png")
+
+
+
+    #materialmenu
+        div
+            div.contener_circle
+                button.circle.first_circle
+                    img(src="images/icons/add_category.png")
+                button.circle.second_circle(title="Ajouter un indicateur" ng-click="addindicshow=true")
+                    img(src="images/icons/materialmenu_chart.png")
+                button.circle.third_circle(title="Ajouter une note" ng-click="addnoteshow=true")
+                    img(src="images/icons/materialmenu_pencil.png")
+
 

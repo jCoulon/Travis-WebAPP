@@ -1,0 +1,58 @@
+.indicateurBloc{
+  width:100%;
+  @include box-shadow(0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36));
+  background-color: #ffffff;
+  margin-top: 30px;
+
+  .indicateurBlocTitre{
+    width: 100%;
+    background-color: #fafafa;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    img{
+      float: right;
+      margin-right:20px;
+      height: 20px;
+      width:auto;
+    }
+
+    label{
+      color:$grey;
+      margin-left: 30px;
+      font-family: Lato;
+    }
+  }
+}
+
+#addGroup{
+  max-width:480px;
+  height: 500px;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  right: 12em;
+  @include box-shadow(0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36));
+  background-color: $textPrimaryColor;
+
+  h3{
+    background-color: $noteGrey;
+    color:$backgroundColor;
+    padding: 11px 20px;
+    @include border-radius-top(5px);
+    height: 18px;
+    margin:0;
+    font-size: 1.1em;
+
+    img{
+      float: right;
+      margin-top: 2px;
+    }
+  }
+
+  h3::before{
+    content: url("../images/icons/materialmenu_chart.png");
+    font-size: 18px;
+    margin-right: 1em;
+  }
+}

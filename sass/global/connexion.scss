@@ -59,6 +59,16 @@
       position: absolute;
       bottom: 10px;
       right: 86px;
+
+      -webkit-transition: -webkit-transform 0.1s ease;
+      -moz-transition: -moz-transform 0.1s ease;
+      transition: transform 0.1s ease;
+    }
+
+    button[type="submit"]:hover{
+      z-index:1000;
+      @include box-shadow(0 0 4px rgba(0,0,0,.12),0 4px 4px rgba(0,0,0,.24));
+      transform: scale(1.05);
     }
   }
 

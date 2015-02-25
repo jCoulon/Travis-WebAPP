@@ -5,7 +5,7 @@ main {
 	margin: auto;
   	width: 70%;
 
-  	#materialbutton{
+  	/*#materialbutton{
 	  position: fixed;
 	  background-color:$pinkColor;
 	  width: 56px;
@@ -20,5 +20,48 @@ main {
 	  pointer-events: auto;
 	  bottom:1.5em;
 	  right:7.5em;
-	}
+	}*/
+  .circle
+  {
+	width: 56px;
+	height: 56px;
+	@include border-radius(50%);
+	@include box-shadow(0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28));
+	bottom:1.5em;
+	right:7.5em;
+	box-sizing:content-box;
+	cursor: pointer;
+	outline: none;
+	border:none;
+	padding: 0;
+	pointer-events: auto;
+	position: fixed;
+	background-color:$pinkColor;
+	-webkit-transition:all 0.1s ease;
+	-moz-transition:all 0.1s ease;
+	-ms-transition:all 0.1s ease;
+	transition:all 0.1s ease;
+  }
+  .first_circle
+  {
+	z-index: 3;
+  }
+  .second_circle
+  {
+	z-index: 2;
+	background-color: $blueMaterial;
+  }
+  .third_circle
+  {
+	z-index: 1;
+	background-color: #4caf50;
+  }
+  .contener_circle:hover .second_circle
+  {
+	bottom:80px;
+  }
+  .contener_circle:hover .third_circle
+  {
+	bottom:145px;
+  }
 }
