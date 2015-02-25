@@ -1,4 +1,4 @@
-.right_content {
+.rightLayout {
 	background-color: $primaryColor;
 	display: flex;
 	flex-direction: column;
@@ -8,6 +8,7 @@
 	width: 3.5em;
 	position: fixed;
   	right:0;
+  	height:100%;
 
   ul{
 	  padding: 0;

@@ -63,8 +63,8 @@ angular.module("TravisAPP")
 
         //$scope.getNoteUser();
         /**EX**/
-        //Si fonction appelé uniquement ici et pas dans le html ou directive
-        //function getNoteUser {
+            //Si fonction appelé uniquement ici et pas dans le html ou directive
+            //function getNoteUser {
 
         $scope.getNoteUser = function () {
             NoteServices.getNoteUser().then(function (res) {
