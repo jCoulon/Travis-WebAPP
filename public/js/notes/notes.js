@@ -3,7 +3,7 @@
 /**
  * Defintion du module angular
  */
-angular.module("TravisAPP")
+angular.module('TravisAPP')
 
 
     .service("NoteServices", ["$http", function ($http) {
@@ -40,8 +40,7 @@ angular.module("TravisAPP")
 /**
  * Définition de la directive indicateur
  */
-    .
-    controller("NoteController", ["$scope", "$http", "NoteServices", function ($scope, $http, NoteServices) {
+    .controller("NoteController", ["$scope", "$http", "NoteServices", function ($scope, $http, NoteServices) {
         var idShare = "";
         $scope.userNote = {
             username: 'SimonL',
@@ -80,6 +79,7 @@ angular.module("TravisAPP")
         $http.get($scope.userNote.urlNotes)
             .success(function (data, status, headers, config) {
                 $scope.userNote.noteList = data;
+                console.log($scope.userNote);
             })
             .error(function (data, status, headers, config) {
 
@@ -108,6 +108,7 @@ angular.module("TravisAPP")
                                 }
                                 i++;
                             }
+                            console.log($scope.userNote);
                         })
                         .error(function (data, status, headers, config) {
 
@@ -152,6 +153,7 @@ angular.module("TravisAPP")
                                 }
                                 i++;
                             }
+                            console.log($scope.userNote);
                         })
                         .error(function (data, status, headers, config) {
 
@@ -169,6 +171,5 @@ angular.module("TravisAPP")
 
             });
     }]);
-
 
 

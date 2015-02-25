@@ -1,7 +1,8 @@
-form.formConnexion(name="connextionForm" ng-controller="connexionCtrl as ctrl" ng-submit="ctrl.seConnecter()")
-   label compte
-   input(type="text" id="compte" ng-model="ctrl.dataUser.username" required)
-   label mot de passe
-   input(type="password" id="mdp" ng-model="ctrl.dataUser.password" required)
-   button(type="submit") Se connecter
+#background
+   form.formConnexion(name="connextionForm" ng-controller="connexionCtrl as ctrl" ng-submit="ctrl.seConnecter()")
+      div.headerLog
+         img(src="images/logo-travis.png")
+      input(type="text" id="compte" ng-model="ctrl.dataUser.username" placeholder="Nom du compte" required)
+      input(type="password" id="mdp" ng-model="ctrl.dataUser.password" placeholder="Mot de passe" required)
+      button(type="submit") Se connecter
 script(src="js/connexion/connexion.js")
