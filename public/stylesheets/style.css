@@ -708,7 +708,8 @@ header a {
   -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
   background-color: #ffffff;
-  margin-top: 30px; }
+  margin-top: 30px;
+  /** CSS Widget indicateur **/ }
   .indicateurBloc .indicateurBlocTitre {
     width: 100%;
     background-color: #fafafa;
@@ -723,6 +724,27 @@ header a {
       color: #333333;
       margin-left: 30px;
       font-family: Lato; }
+  .indicateurBloc .indicateurBloc {
+    border: solid grey 2px;
+    height: 250px;
+    margin-bottom: 20px; }
+  .indicateurBloc .indicateurBlocContenu {
+    position: relative;
+    background-color: white;
+    height: 197px;
+    margin-left: auto;
+    margin-right: auto;
+    width: inherit; }
+  .indicateurBloc .chart-bloc {
+    margin: 5px;
+    position: relative;
+    display: inline-block;
+    height: 150px;
+    width: 250px;
+    text-align: center; }
+  .indicateurBloc .indicateurContenu {
+    height: 200px;
+    background-color: green; }
 
 #addGroup {
   max-width: 480px;

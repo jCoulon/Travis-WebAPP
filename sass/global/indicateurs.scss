@@ -24,8 +24,36 @@
     }
   }
 
-  canvas{
+  /** CSS Widget indicateur **/
 
+  .indicateurBloc {
+    border: solid grey 2px;
+    height: 250px;
+    margin-bottom: 20px;
+  }
+
+  .indicateurBlocContenu {
+    position: relative;
+    background-color: white;
+    height: 197px;
+    margin-left: auto;
+    margin-right: auto;
+    width: inherit;
+  }
+
+  .chart-bloc {
+    margin:5px;
+    position: relative;
+    display: inline-block;
+    height: 150px;
+    width: 250px;
+    text-align: center;
+  }
+
+
+  .indicateurContenu {
+    height: 200px;
+    background-color: green;
   }
 }
 
