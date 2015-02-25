@@ -3,7 +3,7 @@
 /**
  * Defintion du module angular
  */
-angular.module('TravisAPP')
+angular.module('note')
 
 
     .service("NoteServices", ["$http", function ($http) {

@@ -3,7 +3,7 @@
  *
  */
 
-angular.module('TravisAPP')
+angular.module('note')
 
 
 .controller('userNoteController',['$scope', '$http',function($scope, $http){

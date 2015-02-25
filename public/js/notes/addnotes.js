@@ -1,4 +1,4 @@
-angular.module('TravisAPP')
+angular.module('note', [])
     .controller("addNote", ["$scope", "$http", function($scope, $http){
         $scope.addNote = function(){
             var d = new Date();
