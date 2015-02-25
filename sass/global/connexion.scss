@@ -1,5 +1,10 @@
 .formConnexion{
   border: solid;
-  height:50%;
-  width: 400px;
+  height:400px;
+  display: block;
+  width: 300px;
+  margin: 7% auto;
+  @include box-shadow(0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36));
+
+
 }
