@@ -154,13 +154,7 @@ function dashboardIndicateur($scope, dataFactory) {
      * En attendant modif, recuperation des indicateurs enregistré pour l'utilisateur connecté
      * @type {{titre: string}[]}
      */
-    var indicateurBlocs = [{
-        id: 1,
-        titre: "radar",
-        nbChart: "2",
-        type: "pie",
-        charts: [{titre: "monRadar1", data: "mesDataDeRadar1"}, {id: 2, titre: "monRadar2", data: "mesDataDeRadar2"}]
-    }, {titre: "time", type: "pie"}];
+    var indicateurBlocs = [];
 
     /**
      * Chargement user preferences

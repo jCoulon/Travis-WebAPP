@@ -6,7 +6,7 @@
  * Directive pour un chart Pie
  */
 
-angular.module('TravisAPP',[])
+angular.module('TravisAPP')
 
 .directive("pieChart",['$compile',pieChart]);
 

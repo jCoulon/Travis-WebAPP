@@ -168,7 +168,7 @@ angular.module("TravisAPP")
             .error(function (data, status, headers, config) {
 
             });
-    }])
+    }]);
 
 
 
