@@ -68,7 +68,6 @@ angular.module('note')
         $scope.getNoteUser = function () {
             NoteServices.getNoteUser().then(function (res) {
                 $scope.userNote.noteList = data;
-
             }).catch(function (err) {
                 console.log("Error")
             })
@@ -79,7 +78,6 @@ angular.module('note')
         $http.get($scope.userNote.urlNotes)
             .success(function (data, status, headers, config) {
                 $scope.userNote.noteList = data;
-                console.log($scope.userNote);
             })
             .error(function (data, status, headers, config) {
 
@@ -121,6 +119,7 @@ angular.module('note')
         /** On recherche les notes qui sont ensuite partagées avec l'utilisateur. À modifier */
         $http.get($scope.userNote.urlIdShareNotesWith)
             .success(function (data, status, headers, config) {
+
                 /*for(var i = 0; i < data.length ; i++){
                  if( i == data.length-1){
                  idShare = idShare + data[i].IdNote;
