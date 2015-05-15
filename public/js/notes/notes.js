@@ -3,7 +3,7 @@
 /**
  * Defintion du module angular
  */
-angular.module('note')
+angular.module("TravisAPP")
 
 
     .service("NoteServices", ["$http", function ($http) {
@@ -40,7 +40,8 @@ angular.module('note')
 /**
  * Définition de la directive indicateur
  */
-    .controller("NoteController", ["$scope", "$http", "NoteServices", function ($scope, $http, NoteServices) {
+    .
+    controller("NoteController", ["$scope", "$http", "NoteServices", function ($scope, $http, NoteServices) {
         var idShare = "";
         $scope.userNote = {
             username: 'SimonL',
@@ -68,6 +69,7 @@ angular.module('note')
         $scope.getNoteUser = function () {
             NoteServices.getNoteUser().then(function (res) {
                 $scope.userNote.noteList = data;
+
             }).catch(function (err) {
                 console.log("Error")
             })
@@ -106,7 +108,6 @@ angular.module('note')
                                 }
                                 i++;
                             }
-                            console.log($scope.userNote);
                         })
                         .error(function (data, status, headers, config) {
 
@@ -119,7 +120,6 @@ angular.module('note')
         /** On recherche les notes qui sont ensuite partagées avec l'utilisateur. À modifier */
         $http.get($scope.userNote.urlIdShareNotesWith)
             .success(function (data, status, headers, config) {
-
                 /*for(var i = 0; i < data.length ; i++){
                  if( i == data.length-1){
                  idShare = idShare + data[i].IdNote;
@@ -152,7 +152,6 @@ angular.module('note')
                                 }
                                 i++;
                             }
-                            console.log($scope.userNote);
                         })
                         .error(function (data, status, headers, config) {
 
@@ -169,6 +168,7 @@ angular.module('note')
             .error(function (data, status, headers, config) {
 
             });
-    }]);
+    }])
+
 
 

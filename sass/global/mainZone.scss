@@ -4,6 +4,7 @@ main {
 	order: 2;
 	margin: auto;
   	width: 70%;
+  display: block;
 
   	/*#materialbutton{
 	  position: fixed;
@@ -64,4 +65,12 @@ main {
   {
 	bottom:145px;
   }
+}
+
+#container{
+  height: 100%;
+}
+
+#content{
+  height: 100%;
 }

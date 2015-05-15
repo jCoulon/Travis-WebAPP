@@ -152,6 +152,7 @@ main {
   order: 2;
   margin: auto;
   width: 70%;
+  display: block;
   /*#materialbutton{
 	  position: fixed;
 	  background-color:$pinkColor;
@@ -204,6 +205,12 @@ main {
     bottom: 80px; }
   main .contener_circle:hover .third_circle {
     bottom: 145px; }
+
+#container {
+  height: 100%; }
+
+#content {
+  height: 100%; }
 
 .rightLayout {
   background-color: #3F51B5;
@@ -779,3 +786,59 @@ header a {
     content: url("../images/icons/materialmenu_chart.png");
     font-size: 18px;
     margin-right: 1em; }
+
+.timemachine-form {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: url(../images/icons/timemachine-backgroundx2.png);
+  background-repeat: no-repeat;
+  background-size: auto 50%;
+  background-position: left 25%; }
+  .timemachine-form form {
+    font-size: 2.3em;
+    color: #757575;
+    padding-top: 25%; }
+  .timemachine-form p {
+    margin: 2% 0 0 0;
+    float: right; }
+  .timemachine-form input[type="text"], .timemachine-form input[type="date"] {
+    color: #303F9F;
+    margin-left: 20px;
+    width: 300px;
+    border: none;
+    outline: none;
+    border-bottom: dotted #303F9F;
+    font-size: 1em; }
+    .timemachine-form input[type="text"]::-webkit-input-placeholder, .timemachine-form input[type="date"]::-webkit-input-placeholder {
+      color: #303F9F; }
+    .timemachine-form input[type="text"]:-moz-placeholder, .timemachine-form input[type="date"]:-moz-placeholder {
+      color: #303F9F; }
+    .timemachine-form input[type="text"]::-moz-placeholder, .timemachine-form input[type="date"]::-moz-placeholder {
+      color: #303F9F; }
+    .timemachine-form input[type="text"]:-ms-input-placeholder, .timemachine-form input[type="date"]:-ms-input-placeholder {
+      color: #303F9F; }
+  .timemachine-form .validFormTime {
+    background-color: #4285f4;
+    color: #FFFFFF;
+    cursor: pointer;
+    border: none;
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin: 4px 0;
+    padding: 0 16px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    line-height: 2.5;
+    font-size: 0.8em;
+    position: absolute;
+    bottom: 5%;
+    right: 5%; }
